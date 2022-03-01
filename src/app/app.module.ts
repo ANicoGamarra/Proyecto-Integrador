@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { RedesComponent } from './componentes/redes/redes.component';
-
 import { ApLogoComponent } from './componentes/ap-logo/ap-logo.component';
 import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
 import { LogeoComponent } from './componentes/logeo/logeo.component';
@@ -16,6 +14,11 @@ import { ExperienciaComponent } from './componentes/experiencia/experiencia.comp
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { SkillsComponent } from './componentes/skills/skills.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
+import { SideNavComponent } from './componentes/side-nav/side-nav.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatIconModule } from '@angular/material/icon';
 
 
 const appRoutes:Routes=[
@@ -27,8 +30,7 @@ const appRoutes:Routes=[
   declarations: [
     AppComponent,
     HeaderComponent,
-    RedesComponent,
-    
+    RedesComponent,    
     ApLogoComponent,
     AcercaDeComponent,
     LogeoComponent,
@@ -38,12 +40,18 @@ const appRoutes:Routes=[
     EducacionComponent,
     SkillsComponent,
     ProyectosComponent,
+    SideNavComponent,
+    
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
