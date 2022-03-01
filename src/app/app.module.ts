@@ -19,11 +19,24 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatIconModule } from '@angular/material/icon';
+import { MenuLateralComponent } from './componentes/menu-lateral/menu-lateral.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { CuerpoPrincipalComponent } from './componentes/cuerpo-principal/cuerpo-principal.component';
+import { FormularioLoginComponent } from './componentes/formulario-login/formulario-login.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const appRoutes:Routes=[
   {path: '', component:HomeComponent},
-  {path: 'logeo', component:LogeoComponent}
+  {path: 'logeo', component:FormularioLoginComponent}
 ]
 
 @NgModule({
@@ -41,8 +54,9 @@ const appRoutes:Routes=[
     SkillsComponent,
     ProyectosComponent,
     SideNavComponent,
-    
-    
+    MenuLateralComponent,
+    CuerpoPrincipalComponent,
+    FormularioLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +66,16 @@ const appRoutes:Routes=[
     BrowserAnimationsModule,
     MatSliderModule,
     MatIconModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
