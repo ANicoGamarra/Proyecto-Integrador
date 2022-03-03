@@ -13,6 +13,7 @@ img{
     position: static;
 } */
 .foto-perfil{
+    width: 200px;
     position: relative;
     transform: translateY(-5em);
     margin-bottom: -85px;
