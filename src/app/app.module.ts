@@ -6,7 +6,6 @@ import { HeaderComponent } from './componentes/header/header.component';
 import { RedesComponent } from './componentes/redes/redes.component';
 import { ApLogoComponent } from './componentes/ap-logo/ap-logo.component';
 import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
-import { LogeoComponent } from './componentes/logeo/logeo.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BtnInicioSesionComponent } from './componentes/btn-inicio-sesion/btn-inicio-sesion.component';
 import { HomeComponent } from './componentes/home/home.component';
@@ -14,7 +13,6 @@ import { ExperienciaComponent } from './componentes/experiencia/experiencia.comp
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { SkillsComponent } from './componentes/skills/skills.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
-import { SideNavComponent } from './componentes/side-nav/side-nav.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
@@ -33,8 +31,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from "@rinminase/ng-charts";
-import { HabilidadComponent } from './componentes/habilidad/habilidad.component';
-import { SkillserviceService } from './servicios/skillservice.service';
+
+
 
 
 const appRoutes:Routes=[
@@ -48,19 +46,17 @@ const appRoutes:Routes=[
     HeaderComponent,
     RedesComponent,    
     ApLogoComponent,
-    AcercaDeComponent,
-    LogeoComponent,
+    AcercaDeComponent,    
     BtnInicioSesionComponent,
     HomeComponent,
     ExperienciaComponent,
     EducacionComponent,
     SkillsComponent,
-    ProyectosComponent,
-    SideNavComponent,
+    ProyectosComponent,    
     MenuLateralComponent,
     CuerpoPrincipalComponent,
     FormularioLoginComponent,
-    HabilidadComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -82,7 +78,7 @@ const appRoutes:Routes=[
     ReactiveFormsModule,
     ChartsModule
   ],
-  providers: [SkillserviceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,164 +1,18 @@
-<div class="container row">
-<h2>Skills</h2>
+<div class="container row justify-content-center">
+<h2 id="skills">Skills</h2>
 
-  <div *ngFor="let skill of skills" class="d-flex grafico d-flex justify-content-between">
+  <div *ngFor="let label of chartLabels; let i=index" class="d-flex grafico d-flex justify-content-between col-12 col-sm-6 col-md-4 col-lg-3 pb-2">
     
       
         <canvas baseChart 
           chartType="doughnut"
-          [data]="chartData"
-          [labels]="chartLabels"
-          
+          [data]="chartData[i]" 
+          [labels]="chartLabels[i]"
+          [colors]="chartColors[i]"                           
           [options]="chartOptions">          
         </canvas>
-    
-    
+        
   </div>
+  
 </div>    
-   <!--  <div class="d-flex grafico col-6 col-md-4 justify-content-center m-0">
-        <app-habilidad [habilidad]="skills[0].habilidad " [porcentaje]="skills[0].valor"></app-habilidad>
-    </div>
-    <div class="d-flex grafico col-6 col-md-4 justify-content-center m-0">
-      <app-habilidad [habilidad]="skills[1].habilidad " [porcentaje]="skills[1].valor"></app-habilidad>
-    </div>
-    <div class="d-flex grafico col-6 col-md-4 justify-content-center m-0">
-      <app-habilidad [habilidad]="skills[2].habilidad " [porcentaje]="skills[2].valor"></app-habilidad>
-    </div>
-    <div class="d-flex grafico col-6 col-md-4 justify-content-center m-0">
-      <app-habilidad [habilidad]="skills[3].habilidad " [porcentaje]="skills[3].valor"></app-habilidad>
-    </div>
-    <div class="d-flex grafico col-6 col-md-4 justify-content-center m-0">
-      <app-habilidad [habilidad]="skills[4].habilidad " [porcentaje]="skills[4].valor"></app-habilidad>
-    </div>
-    <div class="d-flex grafico col-6 col-md-4 justify-content-center m-0">
-      <app-habilidad [habilidad]="skills[4].habilidad " [porcentaje]="skills[5].valor"></app-habilidad>
-    </div>
- -->
-
-
-    <!-- <div class="d-flex grafico fluid col-12 justify-content-between">
-      <app-habilidad *ngFor="let skill of skills " [habilidad]="skill"></app-habilidad>
-  </div> -->
-    <!-- <div class="grafico col-6 col-md-4">
-      <canvas baseChart 
-        chartType="doughnut"
-        [data]="chartData.datasets[0].data "
-        [labels]="chartLabels1"
-        [colors] ="colors1"
-        [options]="chartOptions1">
-        <div>
-          <p>1</p>
-        </div>
-      </canvas>
-    </div>
-
-    <div class="grafico col-6 col-md-4">    
-      <canvas baseChart 
-        chartType="doughnut"
-        [data]="chartData2"
-        [labels]="chartLabels2"
-        [colors] ="colors2"
-        [options]="chartOptions2">
-      </canvas>
-    </div>      
-
-    <div class="grafico col-6 col-md-4">    
-        <canvas baseChart 
-          chartType="doughnut"
-          [data]="chartData2"
-          [labels]="chartLabels2"
-          [colors] ="colors2"
-          [options]="chartOptions2">
-        </canvas>
-      </div>      
-
-
-      <div class="grafico col-6 col-md-4">
-        <canvas baseChart 
-          chartType="doughnut"
-          [data]="chartData1"
-          [labels]="chartLabels1"
-          [colors] ="colors1"
-          [options]="chartOptions1">
-          <div>
-            <p>1</p>
-          </div>
-        </canvas>
-      </div>
-
-  
-      <div class="grafico col-6 col-md-4">    
-        <canvas baseChart 
-          chartType="doughnut"
-          [data]="chartData2"
-          [labels]="chartLabels2"
-          [colors] ="colors2"
-          [options]="chartOptions2">
-        </canvas>
-      </div>      
-  
-      <div class="grafico col-6 col-md-4">     
-          <canvas baseChart 
-            chartType="doughnut"
-            [data]="chartData2"
-            [labels]="chartLabels2"
-            [colors] ="colors2"
-            [options]="chartOptions2">
-          </canvas>
-        </div>    --> 
- 
-<!-- </div> -->
-<!-- <div class="container" id="skills">
-    <h2>Skills</h2>
-    <div class="progress my-2">   
-        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">Dormir</div>
-    </div>
-    <div class="progress my-2">   
-        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Ejercitar</div>
-    </div>
-    <div class="progress my-2">    
-        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Leer</div>
-    </div>
-    <div class="progress my-2">        
-        <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">Practicar</div>
-    </div>
-    <div class="progress my-2">        
-        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Tomar mate</div>
-    </div>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati dicta voluptates labore? Veritatis, eaque mollitia suscipit impedit doloribus facilis debitis, perferendis ratione rerum hic aspernatur officia fugiat quasi quia rem?</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ut deserunt officiis, ipsum temporibus voluptatibus quas natus! Ipsum sapiente assumenda tempora recusandae totam in accusamus provident, dignissimos perferendis itaque rem.</p>
-</div>
- -->
-<!-- 
-<h2 id="skills">Skills</h2>
-<div class="container">
-    <div class="row">
-        <div class="col-md-3 col-sm-6">
-            <div class="progress blue">
-                <span class="progress-left">
-                    <span class="progress-bar"></span>
-                </span>
-                <span class="progress-right">
-                    <span class="progress-bar"></span>
-                </span>
-                <div class="progress-value">90%</div>
-            </div>
-            <p>Liderazgo</p>
-        </div>
-
-        <div class="col-md-3 col-sm-6">
-            <div class="progress blue">
-                <span class="progress-left">
-                    <span class="progress-bar"></span>
-                </span>
-                <span class="progress-right">
-                    <span class="progress-bar"></span>
-                </span>
-                <div class="progress-value">75%</div>
-            </div>
-            <p>Trabajo en equipo</p>
-        </div>
-    </div>
-</div> -->
-
-<!-- </div> -->
+   
