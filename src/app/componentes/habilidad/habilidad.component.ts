@@ -8,12 +8,13 @@ import { ChartOptions } from '@rinminase/ng-charts';
   styleUrls: ['./habilidad.component.css']
 })
 export class HabilidadComponent implements OnInit {
-
+/* 
   @Input() habilidad:string = '';
   @Input() porcentaje:number = 0;
-  @Input() color:string = '';
+  @Input() color:string = ''; */
+  @Input() habilidad:{} = {};
 
-
+  habilidades:any = [];
   constructor() { 
 
     
@@ -34,16 +35,19 @@ export class HabilidadComponent implements OnInit {
   };
 
   ngOnInit(): void { 
-        
-    /* this.colors[0].backgroundColor = this.color;
-    console.log(this.colors); */
 
-    this.chartData[0] = this.porcentaje;
-    this.chartData[1] = 100 - this.porcentaje;
-    console.log(this.chartData)
-
-    this.chartLabels = [this.habilidad]
-    console.log(this.chartLabels);
+    /* console.log(this.habilidad) */
+    this.habilidades.push(this.habilidad);
+    console.log(this.habilidades)
+    for (let i = 0; i < this.habilidades.length; i++) {
+      
+      this.chartData[i] = this.habilidades[i].valor;
+      this.chartData[i+1]  = 100 - this.habilidades[i].valor
+      this.chartLabels[i] =  this.habilidades[i].habilidad
+      /* console.log(this.chartData) */
+      console.log(this.chartLabels)
+    }
+   
   }
 
   

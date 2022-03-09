@@ -34,6 +34,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from "@rinminase/ng-charts";
 import { HabilidadComponent } from './componentes/habilidad/habilidad.component';
+import { SkillserviceService } from './servicios/skillservice.service';
 
 
 const appRoutes:Routes=[
@@ -81,7 +82,7 @@ const appRoutes:Routes=[
     ReactiveFormsModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [SkillserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

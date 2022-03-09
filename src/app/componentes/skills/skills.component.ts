@@ -16,10 +16,40 @@ export class SkillsComponent implements OnInit {
   habilidad2: string ="tomar mate";
   porcentaje2:number = 95;
 
+  skills:any =[
+    {habilidad: "Dormir", valor:"20"},
+    {habilidad: "Comer", valor:"90"},
+    {habilidad: "Leer", valor:"60"},
+    {habilidad: "Estudiar", valor:"60"},
+    {habilidad: "Practicar", valor:"90"},
+    {habilidad: "Tomar Mate", valor:"95"},
+  ]
+
+   
+  chartLabels = [""];
+  chartData = [0];
+  /* colors = [
+    {backgroundColor: "" }    
+  ]; */
+
+  chartOptions: ChartOptions  = {
+    cutoutPercentage: 80,
+    responsive:true,
+    maintainAspectRatio: false
+    
+  };
   constructor() { }
 
   ngOnInit(): void {
+    for (let i = 0; i < this.skills.length; i++) {
+      this.chartData[i] = this.skills[i].valor
+      this.chartData[i+1] = 100 - this.skills[i].valor
+      this.chartLabels[i] = this.skills[i].habilidad
+    }
+
   }
+
+
 
   /* chartData = {
     datasets: [{
