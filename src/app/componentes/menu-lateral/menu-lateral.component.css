@@ -1,6 +1,10 @@
 a{ 
   padding-bottom: 20px;
 }
+h6{
+  margin-left: -50px;
+}
+
 .navbar-top{
   height:100px;
 }
@@ -21,6 +25,10 @@ a{
   top: 0;
   z-index: 1;
 }
+.sidenav2 {
+  width: 100px;
+}
+
 @media screen and (max-width: 768px) {
   .ocultar-div{
   display:none;
@@ -31,3 +39,4 @@ a{
   display:none;
   }
 }
+

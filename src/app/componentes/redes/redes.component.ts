@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginServiceService } from 'src/app/servicios/login-service.service';
 
 @Component({
   selector: 'app-redes',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RedesComponent implements OnInit {
 
-  constructor() { }
+  log:boolean = false;
+
+  constructor(private logIn: LoginServiceService) { }
 
   ngOnInit(): void {
+    this.log = this.logIn.getLogueado()
   }
+
 
 }

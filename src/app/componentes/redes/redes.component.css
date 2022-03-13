@@ -3,6 +3,13 @@ img{
    /* border: 1px solid hsl(0, 0%, 100%); */
    border-radius: 50%;
 }
+ul{
+   list-style:none;
+   margin-left: -12px
+}
+.btn-inicio{
+   margin-left: -10px
+}
 @media screen and (max-width: 769px) {
    .d-flex{
       display: flex;

@@ -32,7 +32,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from "@rinminase/ng-charts";
 import { LoginServiceService } from './servicios/login-service.service';
-import { MenuLateralDchoComponent } from './componentes/menu-lateral-dcho/menu-lateral-dcho.component';
+
 
 
 
@@ -58,7 +58,7 @@ const appRoutes:Routes=[
     MenuLateralComponent,
     CuerpoPrincipalComponent,
     FormularioLoginComponent,
-    MenuLateralDchoComponent,
+    
     
   ],
   imports: [
