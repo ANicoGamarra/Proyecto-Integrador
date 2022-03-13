@@ -31,6 +31,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from "@rinminase/ng-charts";
+import { LoginServiceService } from './servicios/login-service.service';
+import { MenuLateralDchoComponent } from './componentes/menu-lateral-dcho/menu-lateral-dcho.component';
 
 
 
@@ -56,6 +58,7 @@ const appRoutes:Routes=[
     MenuLateralComponent,
     CuerpoPrincipalComponent,
     FormularioLoginComponent,
+    MenuLateralDchoComponent,
     
   ],
   imports: [
@@ -78,7 +81,7 @@ const appRoutes:Routes=[
     ReactiveFormsModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [LoginServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

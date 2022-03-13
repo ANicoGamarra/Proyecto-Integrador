@@ -1,0 +1,39 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav">
+      
+      <mat-nav-list class="container">
+        <nav class="nav flex-column pt-3">
+        <span>1</span>
+      </nav>
+      <!-- <div class="mostrar-div">
+        <nav class="nav flex-column pt-3">
+          <app-redes></app-redes>
+        </nav>
+      </div> -->
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="container navbar-top">
+        <nav color="primary" class="navbar d-flex justify-content-between">
+          <div class="d-flex justify-content-start align-items-center"> 
+              <button
+                type="button"
+                aria-label="Toggle sidenav"
+                mat-icon-button
+                (click)="drawer.toggle()">
+                
+                <img src="/assets/imagenes/perfil2.jpg" class="img-fluid border border-dark border-3" alt="foto de perfil">
+                
+              </button>
+               
+          </div>
+          <!-- <div class="ocultar-div">
+            <app-redes></app-redes>
+          </div> -->
+        </nav>
+      </div>
+      
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
