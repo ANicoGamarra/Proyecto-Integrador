@@ -8,12 +8,12 @@ import { LoginServiceService } from 'src/app/servicios/login-service.service';
 })
 export class RedesComponent implements OnInit {
 
-  log:boolean = false;
+  login:boolean = false;
 
-  constructor(private logIn: LoginServiceService) { }
+  constructor(private loginService: LoginServiceService) { }
 
   ngOnInit(): void {
-    this.log = this.logIn.getLogueado()
+    this.login = this.loginService.getLogueado()
   }
 
 

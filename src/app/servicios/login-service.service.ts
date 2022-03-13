@@ -9,9 +9,6 @@ export class LoginServiceService {
 
   constructor() { }
 
-  /* iniciarSesion(){
-    this.logueado = true;
-  } */
 
   getLogueado() {
     return this.logueado;
@@ -23,6 +20,6 @@ export class LoginServiceService {
     } else{
       this.logueado = true;
     }
-    /* console.log(this.logueado); */
+   
   }
 }

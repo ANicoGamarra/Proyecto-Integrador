@@ -32,6 +32,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from "@rinminase/ng-charts";
 import { LoginServiceService } from './servicios/login-service.service';
+import { DatosPorfolioService } from './servicios/datos-porfolio.service';
 
 
 
@@ -81,7 +82,7 @@ const appRoutes:Routes=[
     ReactiveFormsModule,
     ChartsModule
   ],
-  providers: [LoginServiceService],
+  providers: [LoginServiceService, DatosPorfolioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

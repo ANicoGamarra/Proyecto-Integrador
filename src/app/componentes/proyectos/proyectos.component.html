@@ -1,17 +1,26 @@
 <div class="container" id="proyectos">
-    <h2>Proyectos</h2>
-    <ul>
-        <li class="d-flex">
-            <div class="descripcion">
-                <h3>Nombre del proyecto</h3>                
-                <p>Fecha</p>
-                <p>Descripcion</p>
-                <a href="#">link del proyecto</a>
-            </div> 
-            <div class="imagen">
-                <img src="" alt="imagen del proyecto">
+    <h2 class="text-end pe-4" >Proyectos</h2>
+    <div *ngFor="let dato of datos">
+        <mat-card class="container d-flex mt-2">
+            <div>
+                <mat-card-title-group>
+                
+                    <mat-card-title class="nombre" >{{dato.nombre}} </mat-card-title>
+                    
+                    <mat-card-subtitle class="periodo">{{dato.fecha}}</mat-card-subtitle>
+                    <mat-card-subtitle class="link">
+                    <a [href]="dato.link">link</a>    
+                    </mat-card-subtitle>
+                    <mat-card-content class="ps-3 descripcion">
+                         {{dato.descripcion}}
+                    </mat-card-content>
+                
+                </mat-card-title-group>
             </div>
-        </li>
-    </ul>
+            <div class="pe-3">
+                <img mat-card-md-image [src]="dato.img">
+            </div>
+        </mat-card>
+    </div>
 
 </div>

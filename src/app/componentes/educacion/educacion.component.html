@@ -1,18 +1,27 @@
 <div class="container" id="educacion">
-    <h2>Educacion</h2>
-    <ul>
-        <li class="d-flex">
-            <div class="imagen">
-                <img src="" alt="logo-instituto">
+    <h2 class="text-end pe-4">Educacion</h2>
+    <div *ngFor="let dato of datos">
+        <mat-card class="container d-flex mt-2">
+            <div>
+                <mat-card-title-group>
+                
+                    <mat-card-title class="instituto" >{{dato.instituto}} </mat-card-title>
+                    <mat-card-subtitle class="titulo">{{dato.titulo}}</mat-card-subtitle>
+                    <mat-card-subtitle class="periodo">{{dato.ingreso}} {{dato.egreso}}</mat-card-subtitle>
+                    <mat-card-subtitle class="certificado">
+                    <a [href]="dato.src">certificado</a>    
+                    </mat-card-subtitle>
+                    <mat-card-content class="ps-3 descripcion">
+                         {{dato.descripcion}}
+                    </mat-card-content>
+                
+                </mat-card-title-group>
             </div>
-            <div class="descripcion">
-                <h3>Instituto</h3>
-                <p>titulo</p>
-                <p>periodo</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati dicta voluptates labore? Veritatis, eaque mollitia suscipit impedit doloribus facilis debitis, perferendis ratione rerum hic aspernatur officia fugiat quasi quia rem?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ut deserunt officiis, ipsum temporibus voluptatibus quas natus! Ipsum sapiente assumenda tempora recusandae totam in accusamus provident, dignissimos perferendis itaque rem.</p>
-            </div> 
-        </li>
-    </ul>
-
+            <div class="pe-3">
+                <img mat-card-md-image [src]="dato.src">
+            </div>
+        </mat-card>
+    </div>
 </div>
+
+

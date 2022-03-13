@@ -9,12 +9,12 @@ import { LoginServiceService } from 'src/app/servicios/login-service.service';
 })
 export class BtnInicioSesionComponent implements OnInit {
 
-  loginLogout: boolean = false;
+  login: boolean = false;
 
-  constructor(private router: Router, private loguinLogout : LoginServiceService ) { }
+  constructor(private router: Router, private loginService : LoginServiceService ) { }
 
   ngOnInit(): void {
-    this.loginLogout = this.loguinLogout.getLogueado()   
+    this.login = this.loginService.getLogueado()   
     /* console.log(this.loginLogout)  */
   }
 
@@ -23,7 +23,7 @@ export class BtnInicioSesionComponent implements OnInit {
   }
 
   cerrarSesion(){
-    this.loguinLogout.setLogueado();
+    this.loginService.setLogueado();
     this.router.navigate([''])
   }
   

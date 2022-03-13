@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions } from '@rinminase/ng-charts';
 import * as Chart from 'chart.js';
+import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 
 
 
@@ -11,9 +12,18 @@ import * as Chart from 'chart.js';
 })
 export class SkillsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private datosDb:DatosPorfolioService) { }
 
-  ngOnInit(): void {   }
+  /* chartLabels:any[] = [];
+  chartData:any[] = [];
+  chartColors:any[] = [] */
+
+  ngOnInit(): void { 
+   /*  this.chartLabels = this.datosDb.SKILLS[0];
+    this.chartData = this.datosDb.SKILLS[1];
+    this.chartColors = this.datosDb.SKILLS[2];
+    console.log(this.chartLabels) */
+    }
 
 
   chartLabels = [['Dormir'],['Comer'],['Leer'],['Estudiar'],['Practicar'],['Tomar Mate'],['Mirar series'],['Entrenar']];
