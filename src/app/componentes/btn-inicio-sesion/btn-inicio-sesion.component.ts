@@ -23,8 +23,11 @@ export class BtnInicioSesionComponent implements OnInit {
   }
 
   cerrarSesion(){
+    
     this.loginService.setLogueado();
+    this.login = this.loginService.getLogueado()
     this.router.navigate([''])
+    console.log(this.login)
   }
   
   

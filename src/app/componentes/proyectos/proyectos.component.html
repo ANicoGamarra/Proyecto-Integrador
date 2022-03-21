@@ -1,8 +1,17 @@
 <div class="container" id="proyectos">
-    <h2 class="text-end pe-4" >Proyectos</h2>
+    <!-- <h2 class="text-end pe-4" >Proyectos</h2> -->
+    <div class="d-flex justify-content-end">
+        <app-btn-editar *ngIf="login"></app-btn-editar>
+        <h2 class="text-end pe-4 position-relative ms-3">Proyectos</h2>        
+    </div>
     <div *ngFor="let dato of datos">
         <mat-card class="container d-flex mt-2">
-            <div>
+            <div class="d-flex">
+                <div class="d-flex row justify-content-evenly botones">
+                    <app-btn-editar *ngIf="login"></app-btn-editar>
+                    <br>
+                    <app-btn-eliminar class="" *ngIf="login"></app-btn-eliminar>
+                </div>
                 <mat-card-title-group>
                 
                     <mat-card-title class="nombre" >{{dato.nombre}} </mat-card-title>
@@ -24,3 +33,8 @@
     </div>
 
 </div>
+
+<!-- <div class="d-flex justify-content-end">
+    <app-btn-editar *ngIf="login"></app-btn-editar>
+    <h2 class="text-end pe-4 position-relative ms-3">Educacion</h2>        
+</div>  -->

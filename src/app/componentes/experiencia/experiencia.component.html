@@ -1,6 +1,8 @@
 <div class="container" id="experiencia">
-    <h2>Experiencia</h2>
-
+    <div class="d-flex">
+    <h2 class="position-relative me-3">Experiencia</h2>
+    <app-btn-editar *ngIf="login"></app-btn-editar>
+    </div>
 <div *ngFor="let dato of datos">
     <mat-card class="container d-flex mt-2">
         <div class="pe-3 inst-logo">
@@ -8,14 +10,18 @@
         </div>
         <div>
             <mat-card-title-group>
-            
+                
                 <mat-card-title>{{dato.empresa}} </mat-card-title>
                 <mat-card-subtitle>{{dato.puesto}}</mat-card-subtitle>
                 <mat-card-subtitle>{{dato.ingreso}} {{dato.egreso}}</mat-card-subtitle>
                 <mat-card-content class="ps-3">
                      {{dato.descripcion}}
                 </mat-card-content>
-            
+                <div class="d-flex row justify-content-evenly botones">
+                    <app-btn-editar *ngIf="login"></app-btn-editar>
+                    <br>
+                    <app-btn-eliminar class="" *ngIf="login"></app-btn-eliminar>
+                </div>
             </mat-card-title-group>
         </div>
     </mat-card>

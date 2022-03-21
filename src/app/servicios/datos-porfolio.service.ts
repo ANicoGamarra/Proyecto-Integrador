@@ -22,21 +22,18 @@ export class DatosPorfolioService {
     { nombre: "BBBB", fecha:2222, descripcion:"magnam est libero facilis veniam odit recusandae, maxime omnis qui voluptates quas ea, ducimus facere nemo quibusdam nLorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus am ratione volup", img:"https://material.angular.io/assets/img/examples/shiba2.jpg", link:"https://material.angular.io/assets/img/examples/shiba2.jpg" },
     { nombre: "CCCC", fecha:3333, descripcion:"psum dolor sit amet consectetur adipisicing elit. Voluptatibus magnam est libLorem iero facilis veniam odit recusandae, maxime omnis qui voluptates quas ea, ducimus facere nemo quibusdam nam ratione volup", img:"https://material.angular.io/assets/img/examples/shiba2.jpg", link: "https://material.angular.io/assets/img/examples/shiba2.jpg" }
   ];
-  
- /*  SKILLS:any[] = [
-    {chartLabels : [['Dormir'],['Comer'],['Leer'],['Estudiar'],['Practicar'],['Tomar Mate'],['Mirar series'],['Entrenar']]},
-    {chartData : [[20,80],[90,10],[70,30],[75,25],[90,10],[95,5],[30,70], [25,75]]},
-    {chartColors : [
-      [{backgroundColor:["orange"],borderColor:["black","black"]}], 
-      [{backgroundColor:["red"],borderColor:["black","black"] }], 
-      [{backgroundColor:["blue"],borderColor:["black","black"] }],
-      [{backgroundColor:["green"],borderColor:["black","black"] }],
-      [{backgroundColor:["yellow"],borderColor:["black","black"] }],
-      [{backgroundColor:["purple"],borderColor:["black","black"] }], 
-      [{backgroundColor:["violet"],borderColor:["black","black"] }],
-      [{backgroundColor:["lightblue"],borderColor:["black","black"] }]    
-    ]}
-  ] */
+
+  SKILLS:any[] = [
+    { habilidad: "Dormir", porcentaje:20 },
+    { habilidad: "Comer", porcentaje:90 },
+    { habilidad: "Leer", porcentaje:70 },
+    { habilidad: "Estudiar", porcentaje:85 },
+    { habilidad: "Practicar", porcentaje:90 },
+    { habilidad: "Tomar mate", porcentaje:99 },
+    { habilidad: "Mirar series", porcentaje:25 },
+    { habilidad: "Entrenar", porcentaje:10 },
+  ];
+
 
   constructor() { }
 }

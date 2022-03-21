@@ -1,20 +1,30 @@
 <div class="container" id="educacion">
-    <h2 class="text-end pe-4">Educacion</h2>
+    
+    <div class="d-flex justify-content-end">
+        <app-btn-editar *ngIf="login"></app-btn-editar>
+        <h2 class="text-end pe-4 position-relative ms-3">Educacion</h2>        
+    </div> 
     <div *ngFor="let dato of datos">
         <mat-card class="container d-flex mt-2">
-            <div>
+            <div class="d-flex">
+                <div class="d-flex row justify-content-evenly botones">
+                    <app-btn-editar *ngIf="login"></app-btn-editar>
+                    <br>
+                    <app-btn-eliminar class="" *ngIf="login"></app-btn-eliminar>
+                </div>
                 <mat-card-title-group>
-                
+                    
                     <mat-card-title class="instituto" >{{dato.instituto}} </mat-card-title>
                     <mat-card-subtitle class="titulo">{{dato.titulo}}</mat-card-subtitle>
                     <mat-card-subtitle class="periodo">{{dato.ingreso}} {{dato.egreso}}</mat-card-subtitle>
                     <mat-card-subtitle class="certificado">
                     <a [href]="dato.src">certificado</a>    
                     </mat-card-subtitle>
+                    
                     <mat-card-content class="ps-3 descripcion">
                          {{dato.descripcion}}
                     </mat-card-content>
-                
+                    
                 </mat-card-title-group>
             </div>
             <div class="pe-3">
@@ -23,5 +33,4 @@
         </mat-card>
     </div>
 </div>
-
 

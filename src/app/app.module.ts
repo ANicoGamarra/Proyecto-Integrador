@@ -30,11 +30,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ChartsModule } from "@rinminase/ng-charts";
+
 import { LoginServiceService } from './servicios/login-service.service';
 import { DatosPorfolioService } from './servicios/datos-porfolio.service';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
+
+import { BtnEditarComponent } from './componentes/btn-editar/btn-editar.component';
+import { BtnEliminarComponent } from './componentes/btn-eliminar/btn-eliminar.component'; 
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 
 
@@ -59,6 +64,8 @@ const appRoutes:Routes=[
     MenuLateralComponent,
     CuerpoPrincipalComponent,
     FormularioLoginComponent,
+    BtnEditarComponent,
+    BtnEliminarComponent,
     
     
   ],
@@ -80,9 +87,26 @@ const appRoutes:Routes=[
     MatRadioModule,
     MatCardModule,
     ReactiveFormsModule,
-    ChartsModule
+    
+    MatDialogModule,
+    NgCircleProgressModule.forRoot({
+      
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#004080",
+      innerStrokeColor: "#80ffff",
+      animationDuration: 300,
+      titleFontSize: "45",
+      showSubtitle: false,
+      responsive: true
+      
+    })
+    
   ],
   providers: [LoginServiceService, DatosPorfolioService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: []
+  
 })
 export class AppModule { }

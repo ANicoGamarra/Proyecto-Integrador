@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
+import { LoginServiceService } from 'src/app/servicios/login-service.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -8,12 +9,14 @@ import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 })
 export class ExperienciaComponent implements OnInit {
 
+  login:boolean = false;
+
   datos:any[] = []; 
-  constructor(private datosDb:DatosPorfolioService ) { }
+  constructor(private datosDb:DatosPorfolioService, private loginServices: LoginServiceService ) { }
 
   ngOnInit(): void {
    this.datos = this.datosDb.EXPERIENCIA
-   console.log(this.datos)
+   this.login = this.loginServices.getLogueado()
   }
 
 }

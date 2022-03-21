@@ -1,18 +1,22 @@
 <div class="container row justify-content-center">
 <h2 id="skills">Skills</h2>
 
-  <div *ngFor="let label of chartLabels; let i=index" class="d-flex grafico d-flex justify-content-between col-12 col-sm-6 col-md-4 col-lg-3 pb-2">
-    
-      
-        <canvas baseChart 
-          chartType="doughnut"
-          [data]="chartData[i]" 
-          [labels]="chartLabels[i]"
-          [colors]="chartColors[i]"                           
-          [options]="chartOptions">          
-        </canvas>
-        
-  </div>
+  <div class="row">
+  <div *ngFor="let skill of datos" class="col-6 col-sm-4 col-md-3 " >
+      <div >
+        <h3 class="text-center">{{skill.habilidad}} </h3>
+        <circle-progress
+        [percent]= skill.porcentaje
+        [radius]="100"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'#004080'"
+        [innerStrokeColor]="'#80ffff'"
+        [animation]="true"
+        [animationDuration]="300"
+        ></circle-progress>
+      </div>    
+  </div> 
+</div>
   
 </div>    
-   

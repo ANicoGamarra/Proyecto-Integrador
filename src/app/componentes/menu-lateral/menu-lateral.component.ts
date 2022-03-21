@@ -15,6 +15,6 @@ export class MenuLateralComponent {
 
   ngOnInit(): void {
     this.login = this.loginService.getLogueado()   
-    console.log(this.login + " se muestra") 
+     
   }
 }

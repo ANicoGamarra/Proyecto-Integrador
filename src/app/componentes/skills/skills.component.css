@@ -6,3 +6,8 @@
     display: inline;
     
 }
+.botones{
+    max-width: 50px;
+    position: absolute;
+    transform: translateX(2em);
+}

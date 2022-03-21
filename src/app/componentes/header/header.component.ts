@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginServiceService } from 'src/app/servicios/login-service.service';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  login:boolean = false;
+  
+  constructor(private loginService: LoginServiceService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.login = this.loginService.getLogueado()
   }
 
+  abrirModal(){
+
+  }
 }
