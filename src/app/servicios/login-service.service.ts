@@ -1,16 +1,29 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginServiceService {
 
-  logueado:boolean = false;
+  /* logueado:boolean = false; */
+  private loggedo$ = new BehaviorSubject<boolean>(false);
 
   constructor() { }
 
+  LogIn(){
+    this.loggedo$.next(true);
+  }
+  
+  LogOut(){
+    this.loggedo$.next(false);
+  }
+  
+  LogState() {
+    return this.loggedo$.asObservable();
+  }
 
-  getLogueado() {
+  /* getLogueado() {
     return this.logueado;
   }
 
@@ -21,5 +34,5 @@ export class LoginServiceService {
       this.logueado = true;
     }
    
-  }
+  } */
 }

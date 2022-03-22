@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   constructor(private loginService: LoginServiceService) { }
 
   ngOnInit(): void {
-    this.loginService.getLogueado
+    /* this.loginService.getLogueado */
   }
 
 }

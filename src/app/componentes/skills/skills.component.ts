@@ -12,7 +12,7 @@ import { LoginServiceService } from 'src/app/servicios/login-service.service';
 })
 export class SkillsComponent implements OnInit {
 
-  login:boolean = false;
+  login:any;
   datos:any[] = [];
 
   constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService) { }
@@ -20,7 +20,8 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit(): void { 
     this.datos = this.datosDb.SKILLS;
-    this.login = this.loginService.getLogueado();
+    /* this.login = this.loginService.getLogueado(); */
+    this.loginService.LogState().subscribe((login) => (this.login = login));
     }
 
   

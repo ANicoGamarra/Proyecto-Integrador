@@ -10,12 +10,14 @@ import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 })
 export class HeaderComponent implements OnInit {
 
-  login:boolean = false;
+  /* login:boolean = false; */
+  login:any
   
   constructor(private loginService: LoginServiceService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.login = this.loginService.getLogueado()
+    /* this.login = this.loginService.getLogueado() */
+    this.loginService.LogState().subscribe((login) => (this.login = login))
   }
 
   abrirModal(){

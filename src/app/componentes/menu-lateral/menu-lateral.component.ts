@@ -9,12 +9,12 @@ import { LoginServiceService } from 'src/app/servicios/login-service.service';
 })
 export class MenuLateralComponent {
 
-  login:boolean = false;
+  login:any;
 
   constructor(private loginService: LoginServiceService) {}
 
   ngOnInit(): void {
-    this.login = this.loginService.getLogueado()   
-     
+    /* this.login = this.loginService.getLogueado()    */
+    this.loginService.LogState().subscribe((login) => (this.login = login));     
   }
 }

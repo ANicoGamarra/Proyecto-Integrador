@@ -9,14 +9,15 @@ import { LoginServiceService } from 'src/app/servicios/login-service.service';
 })
 export class ExperienciaComponent implements OnInit {
 
-  login:boolean = false;
+  login:any;
 
   datos:any[] = []; 
-  constructor(private datosDb:DatosPorfolioService, private loginServices: LoginServiceService ) { }
+  constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService ) { }
 
   ngOnInit(): void {
    this.datos = this.datosDb.EXPERIENCIA
-   this.login = this.loginServices.getLogueado()
+   /* this.login = this.loginServices.getLogueado() */
+   this.loginService.LogState().subscribe((login) => (this.login = login));    
   }
 
 }

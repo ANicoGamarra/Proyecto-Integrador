@@ -9,13 +9,14 @@ import { LoginServiceService } from 'src/app/servicios/login-service.service';
 })
 export class BtnInicioSesionComponent implements OnInit {
 
-  login: boolean = false;
+  login: any;
 
   constructor(private router: Router, private loginService : LoginServiceService ) { }
 
   ngOnInit(): void {
-    this.login = this.loginService.getLogueado()   
+    /* this.login = this.loginService.getLogueado()    */
     /* console.log(this.loginLogout)  */
+    this.loginService.LogState().subscribe((login) => (this.login = login));    
   }
 
   iniciarSesion(){
@@ -24,10 +25,18 @@ export class BtnInicioSesionComponent implements OnInit {
 
   cerrarSesion(){
     
-    this.loginService.setLogueado();
+    /* this.loginService.setLogueado();
     this.login = this.loginService.getLogueado()
     this.router.navigate([''])
-    console.log(this.login)
+    console.log(this.login) */
+  }
+  logOut(): void {
+    this.loginService.LogOut();
+    this.router.navigate(['cerrarSesion']);   
+  }
+
+  logState():void{
+    this.loginService.LogState();
   }
   
   

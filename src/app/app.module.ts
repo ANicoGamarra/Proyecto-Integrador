@@ -43,9 +43,11 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 
 
 
+
 const appRoutes:Routes=[
   {path: '', component:HomeComponent},
-  {path: 'logeo', component:FormularioLoginComponent}
+  {path: 'logeo', component:FormularioLoginComponent},
+  {path: 'cerrarSesion', component:HomeComponent},
 ]
 
 @NgModule({
@@ -66,6 +68,7 @@ const appRoutes:Routes=[
     FormularioLoginComponent,
     BtnEditarComponent,
     BtnEliminarComponent,
+    
     
     
   ],

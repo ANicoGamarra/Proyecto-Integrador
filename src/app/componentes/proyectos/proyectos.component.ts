@@ -8,13 +8,14 @@ import { LoginServiceService } from 'src/app/servicios/login-service.service';
   styleUrls: ['./proyectos.component.css']
 })
 export class ProyectosComponent implements OnInit {
-  login:boolean = false;
+  login:any;
   datos:any[] = [];
   constructor(private datosDb:DatosPorfolioService, private loginService:LoginServiceService) { }
 
   ngOnInit(): void {
     this.datos = this.datosDb.PROYECTOS;
-    this.login = this.loginService.getLogueado();
+    /* this.login = this.loginService.getLogueado(); */
+    this.loginService.LogState().subscribe((login) => (this.login = login));
   }
   
 
