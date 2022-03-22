@@ -1,5 +1,9 @@
 <div class="container row justify-content-center">
-<h2 id="skills">Skills</h2>
+  <div class="d-flex bg-danger">
+    <h2 id="skills" class="pe-2">Skills</h2>
+    <app-btn-editar *ngIf="login"></app-btn-editar>
+   
+  </div>
 
   <div class="row">
   <div *ngFor="let skill of datos" class="col-6 col-sm-4 col-md-3 " >
