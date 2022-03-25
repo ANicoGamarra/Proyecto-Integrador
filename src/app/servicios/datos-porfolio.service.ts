@@ -5,6 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class DatosPorfolioService {
 
+  ACERCADE:any[] = [
+    {nombre:"Nicolas", apellido:"Gamarra", titulo: "Full Stack Developer Jr.", descripcion:" Lorem ipsum dolor sit amet consectetur adipisicing elit. A alias sint consectetur voluptates et sunt sed deleniti reiciendis dolorum, nam, voluptatum aspernatur quibusdam dolore aut reprehenderit ab amet esse eum! "}
+  ];
+  
   EXPERIENCIA:any[] = [
     { empresa: "AAAA", puesto:"asdf", ingreso:1111, egreso:2222, descripcion:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus magnam est libero facilis veniam odit recusandae, maxime omnis qui voluptates quas ea, ducimus facere nemo quibusdam nam ratione volup", src:"https://material.angular.io/assets/img/examples/shiba2.jpg"   },
     { empresa: "BBBB", puesto:"qwre", ingreso:2222, egreso:3333, descripcion:"magnam est libero facilis veniam odit recusandae, maxime omnis qui voluptates quas ea, ducimus facere nemo quibusdam nLorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus am ratione volup", src:"https://material.angular.io/assets/img/examples/shiba2.jpg" },

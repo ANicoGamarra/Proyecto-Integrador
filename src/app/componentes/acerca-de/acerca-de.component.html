@@ -6,18 +6,21 @@
                 <app-btn-editar class="btn-imgaen position-absolute top-0 start-100" *ngIf="login" ></app-btn-editar>
             </div>
             <div class="d-flex position-relative">
-                <h4 class="text-center ">Nicolas Gamarra</h4>
-                <app-btn-editar class="position-absolute top-0 start-100" *ngIf="login" ></app-btn-editar>
+                <h4 class="text-center "> {{datosbd[0].nombre}} {{datosbd[0].apellido}} </h4>                
             </div>
-            <h5 class="text-center">Full Stack Developer Jr</h5>
+            <h5 class="text-center"> {{datosbd[0].titulo}} </h5>
         </div>
         <div class="d-flex flex-column align-items-end">
             <div class="d-flex justify-content-between">
-                <app-btn-editar *ngIf="login" (abrirModal)="abrirModal()" ></app-btn-editar>
+                <app-btn-editar *ngIf="login" (click)="open(datosbd)" ></app-btn-editar>
                 <app-btn-eliminar *ngIf="login" class="ms-2" ></app-btn-eliminar>
-                <h2 class="ms-4 pe-4">Acerca de mi</h2>                
+                <h2 class="ms-4 pe-4"> Acerca de mi  </h2>                
             </div>
-            <p class="text-end">Lorem ipsum dolor sit amet consectetur adipisicing elit. A alias sint consectetur voluptates et sunt sed deleniti reiciendis dolorum, nam, voluptatum aspernatur quibusdam dolore aut reprehenderit ab amet esse eum!</p>
+            <p class="text-end"> {{datosbd[0].descripcion}}</p>        
         </div>
     </div>
 </div>
+
+<!-- <app-acerca-de-modal [datos]="datosbd" ></app-acerca-de-modal> -->
+<!-- (2) crear el ng-template para mostrar en el modal -->
+

@@ -16,8 +16,8 @@ export class BtnEditarComponent implements OnInit {
   }
 
   llamarModal(){
-    this.abrirModal.emit();
-    console.log("pasa algo")
+    /* this.abrirModal.emit();
+    console.log("pasa algo") */
   }
 
 }

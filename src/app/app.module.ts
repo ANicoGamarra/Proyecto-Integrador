@@ -29,7 +29,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LoginServiceService } from './servicios/login-service.service';
 import { DatosPorfolioService } from './servicios/datos-porfolio.service';
@@ -40,6 +40,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { BtnEditarComponent } from './componentes/btn-editar/btn-editar.component';
 import { BtnEliminarComponent } from './componentes/btn-eliminar/btn-eliminar.component'; 
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { AcercaDeModalComponent } from './componentes/modal/acerca-de-modal/acerca-de-modal.component';
 
 
 
@@ -68,6 +69,7 @@ const appRoutes:Routes=[
     FormularioLoginComponent,
     BtnEditarComponent,
     BtnEliminarComponent,
+    AcercaDeModalComponent,
     
     
     
@@ -90,7 +92,7 @@ const appRoutes:Routes=[
     MatRadioModule,
     MatCardModule,
     ReactiveFormsModule,
-    
+    FormsModule,
     MatDialogModule,
     NgCircleProgressModule.forRoot({
       
@@ -109,7 +111,7 @@ const appRoutes:Routes=[
   ],
   providers: [LoginServiceService, DatosPorfolioService],
   bootstrap: [AppComponent],
-  entryComponents: []
+  entryComponents: [AcercaDeModalComponent]
   
 })
 export class AppModule { }
