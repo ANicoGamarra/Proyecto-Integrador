@@ -1,7 +1,7 @@
 <div class="container row justify-content-center">
   <div class="d-flex">
     <h2 id="skills" class="pe-2">Skills</h2>
-    <app-btn-editar *ngIf="login"></app-btn-editar>
+    <app-btn-agregar *ngIf="login" (click)="abrirModal()" ></app-btn-agregar>
    
   </div>
 

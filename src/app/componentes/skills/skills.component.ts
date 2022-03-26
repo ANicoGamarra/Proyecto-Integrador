@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 import { LoginServiceService } from 'src/app/servicios/login-service.service';
+import { SkillsModalComponent } from '../modal/skills-modal/skills-modal.component';
 
 
 
@@ -15,7 +17,7 @@ export class SkillsComponent implements OnInit {
   login:any;
   datos:any[] = [];
 
-  constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService) { }
+  constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService, private modalService: NgbModal ) { }
 
 
   ngOnInit(): void { 
@@ -24,7 +26,11 @@ export class SkillsComponent implements OnInit {
     this.loginService.LogState().subscribe((login) => (this.login = login));
     }
 
-  
+    abrirModal(){
+      const modalRef = this.modalService.open(SkillsModalComponent,  { centered: true });   
+      modalRef.componentInstance.datos = this.datos;    
+      
+    }
   
 
 }

@@ -1,7 +1,8 @@
+
 <div class="modal-header">
-    <h4 class="modal-title">Edición</h4>    
-    <button type="button" class="rounded-pill btn-cerrar btn btn-dark" (click)="activeModal.dismiss('Cross click')">      
-      <mat-icon class="rounded-pill">close</mat-icon>
+    <h4 class="modal-title">Editar acerca de mi</h4>    
+    <button type="button" class="rounded-circle btn-cerrar btn btn-dark" (click)="activeModal.dismiss('Cross click')">      
+      <mat-icon class="rounded-circle pt-1">close</mat-icon>
     </button>
   </div>
   
@@ -11,36 +12,22 @@
         <span class="input-group-text">Nombre: </span>
         <input type="text" class="form-control" placeholder="nombre" [(ngModel)]="datos[0].nombre">
       </div>
-      <!-- <div class="mt-2">
-        <label for="">Nombre: </label>
-        <input type="text" placeholder="{{datos[0].nombre}} " [(ngModel)]="datos[0].nombre">
-      </div> -->
+      
       <div class="input-group flex-nowrap mt-2">
         <span class="input-group-text">Apellido: </span>
         <input type="text" class="form-control" placeholder="apellido" [(ngModel)]="datos[0].apellido">
       </div>
-      <!-- <div class="mt-2">
-        <label for="">Apellido: </label>
-        <input type="text" placeholder="{{datos[0].apellido}} " [(ngModel)]="datos[0].apellido">
-      </div> -->
+      
       <div class="input-group flex-nowrap mt-2">
         <label class="input-group-text texto-titulo">Titulo: </label>
         <input type="text" class="form-control" placeholder="titulo" [(ngModel)]="datos[0].titulo">
       </div>
-      <!-- <div class="mt-2">
-        <label for="">Título: </label>
-        <input type="text" placeholder="{{datos[0].titulo}} " [(ngModel)]="datos[0].titulo">
-      </div> -->
+    
       <div class="input-group flex-nowrap mt-2">
         <span class="input-group-text">Descripción: </span>
         <textarea class="form-control" aria-label="With textarea" [(ngModel)]="datos[0].descripcion"></textarea>  
       </div>
-      <!-- <div class="mt-2">
-        <label for="">Descripcion: </label>
-        <textarea class="form-control" aria-label="With textarea" [(ngModel)]="datos[0].descripcion"></textarea>        
-      </div> -->
-
-
+      
       <div class="d-flex justify-content-center mt-3">
         <button type="button" class="btn btn-dark" (click)="activeModal.close('Close click')">Guardar</button>
       </div>

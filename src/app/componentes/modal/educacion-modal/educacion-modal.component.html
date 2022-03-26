@@ -1,0 +1,61 @@
+<div class="modal-header">
+    <h4 class="modal-title">Editar educacion</h4>    
+    <button type="button" class="rounded-circle btn-cerrar btn btn-dark" (click)="activeModal.dismiss('Cross click')">      
+      <mat-icon class="rounded-circle pt-1">close</mat-icon>
+    </button>
+  </div>
+  
+  <div class="modal-body">
+    
+    
+      <div class="input-group flex-nowrap mt-2">
+        <span class="input-group-text">Instito: </span>
+        <input type="text" class="form-control" placeholder= "Instituto" [(ngModel)]="datos.instituto">
+      </div>
+      
+      <div class="input-group flex-nowrap mt-2">
+        <span class="input-group-text">Título: </span>
+        <input type="text" class="form-control" placeholder="Título" [(ngModel)]="datos.titulo">
+      </div>
+      
+      <div class="input-group flex-nowrap mt-2">
+        <label class="input-group-text texto-titulo">Ingreso: </label>
+        <input type="date" class="form-control" placeholder="Ingreso" [(ngModel)]="datos.ingreso">
+      </div>
+
+      <div class="input-group flex-nowrap mt-2">
+        <label class="input-group-text texto-titulo">Egreso: </label>
+        <input type="date" class="form-control" placeholder="Egreso" [(ngModel)]="datos.egreso">
+      </div>
+    
+      <div class="input-group flex-nowrap mt-2">
+        <span class="input-group-text">Descripción: </span>
+        <textarea class="form-control" aria-label="With textarea" [(ngModel)]="datos.descripcion"></textarea>  
+      </div>        
+
+      <div class="input-group flex-nowrap mt-2">
+        <span class="input-group-text">URL: </span>
+        <input type="text" class="form-control" placeholder="subir foto" [(ngModel)]="datos.logoInstituto">
+      </div>
+      
+      
+      <div class="input-group flex-nowrap mt-2">
+        <span class="input-group-text">Certificado: </span>
+        <input type="text" class="form-control" placeholder="subir foto" [(ngModel)]="datos.certificado">
+      </div>
+
+      <div class="d-flex mt-3 justify-content-evenly">
+
+        <div class=" ">
+            <button type="button" class="btn btn-dark align-self-center" (click)="activeModal.close('Close click')">Examinar</button>
+        </div>
+
+
+        <div class=" align-self-end">
+            <button type="button" class="btn btn-dark " (click)="activeModal.close('Close click')">Guardar</button>
+        </div>
+       </div>
+
+      
+  </div>
+

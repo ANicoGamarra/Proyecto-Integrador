@@ -1,14 +1,14 @@
 <div class="container" id="educacion">
     
     <div class="d-flex justify-content-end">
-        <app-btn-editar *ngIf="login"></app-btn-editar>
+        <app-btn-agregar *ngIf="login" (click)="agregarEducacion()" ></app-btn-agregar>
         <h2 class="text-end pe-4 position-relative ms-3">Educacion</h2>        
     </div> 
-    <div *ngFor="let dato of datos">
+    <div *ngFor="let dato of datos; let i = index">
         <mat-card class="container d-flex mt-2">
-            <div class="d-flex">
+            <div class="d-flex w-100">
                 <div class="d-flex row justify-content-evenly botones">
-                    <app-btn-editar *ngIf="login"></app-btn-editar>
+                    <app-btn-editar *ngIf="login" (click)="abrirModal(i)" ></app-btn-editar>
                     <br>
                     <app-btn-eliminar class="" *ngIf="login"></app-btn-eliminar>
                 </div>
@@ -21,14 +21,14 @@
                     <a [href]="dato.src">certificado</a>    
                     </mat-card-subtitle>
                     
-                    <mat-card-content class="ps-3 descripcion">
+                    <mat-card-content class="ps-3 descripcion w-100">
                          {{dato.descripcion}}
                     </mat-card-content>
                     
                 </mat-card-title-group>
             </div>
             <div class="pe-3">
-                <img mat-card-md-image [src]="dato.src">
+                <img mat-card-md-image [src]="dato.logoInstituto">
             </div>
         </mat-card>
     </div>

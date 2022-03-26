@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, } from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap'
+
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -11,16 +11,13 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 export class AcercaDeModalComponent implements OnInit {
 
-  @Input() datos:any;
-  @Input() my_modal_title: any;
-  @Input() my_modal_content: any;
+  centered:boolean = true
 
+  @Input() datos:any; 
 
- 
+  constructor(public activeModal: NgbActiveModal) { }
 
-  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) { }
-
-  closeResult: string = ''
+  
   /* 
  open(content:any) {
   this.modalService.open(content).result.then((result) => {
@@ -42,7 +39,7 @@ private getDismissReason(reason: any): string {
 
 
   ngOnInit(): void {
-    console.log(this.datos)
+    /* console.log(this.datos) */
   }
 
 }

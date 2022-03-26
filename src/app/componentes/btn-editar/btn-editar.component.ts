@@ -15,9 +15,5 @@ export class BtnEditarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  llamarModal(){
-    /* this.abrirModal.emit();
-    console.log("pasa algo") */
-  }
 
 }

@@ -41,12 +41,20 @@ import { BtnEditarComponent } from './componentes/btn-editar/btn-editar.componen
 import { BtnEliminarComponent } from './componentes/btn-eliminar/btn-eliminar.component'; 
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { AcercaDeModalComponent } from './componentes/modal/acerca-de-modal/acerca-de-modal.component';
+import { HeaderModalComponent } from './componentes/modal/header-modal/header-modal.component';
+import { FotoPerfilModalComponent } from './componentes/modal/foto-perfil-modal/foto-perfil-modal.component';
+import { BtnAgregarComponent } from './componentes/btn-agregar/btn-agregar.component';
+import { ExperienciaModalComponent } from './componentes/modal/experiencia-modal/experiencia-modal.component';
+import { EducacionModalComponent } from './componentes/modal/educacion-modal/educacion-modal.component';
+import { ProyectosModalComponent } from './componentes/modal/proyectos-modal/proyectos-modal.component';
+import { SkillsModalComponent } from './componentes/modal/skills-modal/skills-modal.component';
+
 
 
 
 
 const appRoutes:Routes=[
-  {path: '', component:HomeComponent},
+  {path: '', component:HomeComponent },
   {path: 'logeo', component:FormularioLoginComponent},
   {path: 'cerrarSesion', component:HomeComponent},
 ]
@@ -70,6 +78,14 @@ const appRoutes:Routes=[
     BtnEditarComponent,
     BtnEliminarComponent,
     AcercaDeModalComponent,
+    HeaderModalComponent,
+    FotoPerfilModalComponent,
+    BtnAgregarComponent,
+    ExperienciaModalComponent,
+    EducacionModalComponent,
+    ProyectosModalComponent,
+    SkillsModalComponent,
+    
     
     
     
@@ -111,7 +127,7 @@ const appRoutes:Routes=[
   ],
   providers: [LoginServiceService, DatosPorfolioService],
   bootstrap: [AppComponent],
-  entryComponents: [AcercaDeModalComponent]
+  entryComponents: [AcercaDeModalComponent, HeaderModalComponent, FotoPerfilModalComponent,ExperienciaModalComponent, EducacionModalComponent, ProyectosModalComponent, SkillsModalComponent]
   
 })
 export class AppModule { }

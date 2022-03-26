@@ -2,8 +2,8 @@
     <div class="d-flex justify-content-between">
         <div class="foto-perfil me-3">
             <div class="position-relative">
-                <img src="/assets/imagenes/perfil2.jpg" class="img-fluid border border-dark border-3" alt="foto de perfil">
-                <app-btn-editar class="btn-imgaen position-absolute top-0 start-100" *ngIf="login" ></app-btn-editar>
+                <img [src]="datosbd[0].imgPerfil" class="img-fluid border border-dark border-3" alt="foto de perfil">
+                <app-btn-editar class="btn-imgaen position-absolute top-0 start-100" *ngIf="login" (click)="openFotoPerfilModal()" ></app-btn-editar>
             </div>
             <div class="d-flex position-relative">
                 <h4 class="text-center "> {{datosbd[0].nombre}} {{datosbd[0].apellido}} </h4>                
@@ -12,7 +12,7 @@
         </div>
         <div class="d-flex flex-column align-items-end">
             <div class="d-flex justify-content-between">
-                <app-btn-editar *ngIf="login" (click)="open(datosbd)" ></app-btn-editar>
+                <app-btn-editar *ngIf="login" (click)="open()" ></app-btn-editar>
                 <app-btn-eliminar *ngIf="login" class="ms-2" ></app-btn-eliminar>
                 <h2 class="ms-4 pe-4"> Acerca de mi  </h2>                
             </div>

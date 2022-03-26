@@ -1,5 +1,5 @@
 <div class="container">
-    <app-btn-editar *ngIf="login" (abrirModal)="abrirModal()" ></app-btn-editar>
-    <img class="img-fluid"src="assets/imagenes/portal-2.jpg" alt="">
+    <app-btn-editar *ngIf="login" (click)="open()" ></app-btn-editar>
+    <img class="img-fluid" [src]="datosbd[0].imgPortada" alt="">
     
 </div>
