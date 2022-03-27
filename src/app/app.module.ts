@@ -6,7 +6,7 @@ import { HeaderComponent } from './componentes/header/header.component';
 import { RedesComponent } from './componentes/redes/redes.component';
 import { ApLogoComponent } from './componentes/ap-logo/ap-logo.component';
 import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
-import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { BtnInicioSesionComponent } from './componentes/btn-inicio-sesion/btn-inicio-sesion.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
@@ -52,12 +52,12 @@ import { SkillsModalComponent } from './componentes/modal/skills-modal/skills-mo
 
 
 
-
+/* 
 const appRoutes:Routes=[
   {path: '', component:HomeComponent },
   {path: 'logeo', component:FormularioLoginComponent},
   {path: 'cerrarSesion', component:HomeComponent},
-]
+] */
 
 @NgModule({
   declarations: [
@@ -93,7 +93,7 @@ const appRoutes:Routes=[
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes),
+    /* RouterModule.forRoot(appRoutes), */
     FontAwesomeModule,
     BrowserAnimationsModule,
     MatSliderModule,
@@ -122,7 +122,8 @@ const appRoutes:Routes=[
       showSubtitle: false,
       responsive: true
       
-    })
+    }),
+    HttpClientModule
     
   ],
   providers: [LoginServiceService, DatosPorfolioService],

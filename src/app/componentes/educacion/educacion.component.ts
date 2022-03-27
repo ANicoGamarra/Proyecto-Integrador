@@ -29,6 +29,7 @@ export class EducacionComponent implements OnInit {
   }
   agregarEducacion(){
     const modalRef = this.modalService.open(EducacionModalComponent,  { centered: true });
+    modalRef.componentInstance.datos = this.datos; 
   }
 
 }

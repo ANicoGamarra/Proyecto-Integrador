@@ -29,6 +29,7 @@ export class ExperienciaComponent implements OnInit {
   }
   agregarExperiencia(){
     const modalRef = this.modalService.open(ExperienciaModalComponent,  { centered: true });
+    modalRef.componentInstance.datos = this.datos;
   }
 
 

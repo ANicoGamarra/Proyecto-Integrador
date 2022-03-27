@@ -27,6 +27,7 @@ export class ProyectosComponent implements OnInit {
   }
   agregarProyecto(){
     const modalRef = this.modalService.open(ProyectosModalComponent,  { centered: true });
+    modalRef.componentInstance.datos = this.datos;    
   }
 
   

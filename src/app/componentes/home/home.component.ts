@@ -8,7 +8,11 @@ import { LoginServiceService } from 'src/app/servicios/login-service.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private loginService: LoginServiceService) { }
+  loading: boolean;
+
+  constructor(private loginService: LoginServiceService) { 
+    this.loading = false;
+  }
 
   ngOnInit(): void {
     /* this.loginService.getLogueado */
