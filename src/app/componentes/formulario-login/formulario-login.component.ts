@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginServiceService } from 'src/app/servicios/login-service.service';
 
@@ -13,34 +13,43 @@ export class FormularioLoginComponent {
   login:any;
   usuario:string = "";
   password:string = "";
-
   loading:boolean =false;
 
-  constructor(private router: Router, private loginService: LoginServiceService) {
 
+  form:FormGroup;
+
+  constructor(private router: Router, private loginService: LoginServiceService, private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group(
+        {
+          email:["",[Validators.required, Validators.email]],
+          password:["",[Validators.required, Validators.minLength(8)]]
+
+
+
+        }
+      )
   }
 
   onSubmit(): void {
-    this.loginService.LogState().subscribe((login) => (this.login = login))
-
-
+    this.loginService.LogState().subscribe((login) => (this.login = login));
   }
+
+  get Email(){
+    return this.form.get("email"); 
+  }
+
+  get Password(){
+    return this.form.get("password");
+  }
+
   volverHome(){
     this.router.navigate([''])
   }
-/* 
-  loguearUsuario(){
-     console.log(this.loginService.logueado) 
-    this.loginService.setLogueado();
-    this.router.navigate([''])
-     console.log(this.loginService.logueado) 
-  } */
 
   logIn(): void {
     this.loginService.LogIn();
     this.volverHome();
-    /* console.log(this.usuario);
-    console.log(this.password); */
+  
   }
 
   logOut(): void {
@@ -56,9 +65,9 @@ export class FormularioLoginComponent {
 
   logInWalter() {
     this.loading = true;
-    const user = {email: this.usuario, password: this.password};
+    const user = {email: this.form.value.email, password: this.form.value.password};
     this.loginService.login(user).subscribe( data => {
-      /* console.log(data); */
+      
       this.loginService.setToken(data.token);
       if(data.token !== null){
         this.logIn();
@@ -69,5 +78,18 @@ export class FormularioLoginComponent {
     
   }
 
+  //login ArgentinaPrograma
+
+  onEnviar(e:Event){
+    e.preventDefault();
+    console.log("esto funciono o no lpm!!")
+    console.log(this.form.value.email)
+    console.log(this.form.value.password)
+   /*  this.loginService.iniciarSesion(this.form.value).subscribe( data => {
+      console.log("DATA: " + JSON.stringify(data));
+      this.router.navigate(['']); 
+    })
+ */
+  }
 
 }
