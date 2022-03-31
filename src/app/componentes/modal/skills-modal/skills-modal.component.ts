@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-skills-modal',
@@ -8,12 +9,19 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SkillsModalComponent implements OnInit {
 
+  btnAgregarSkill: boolean= false;
+
   @Input() datos:any;
   @Input() id:number | undefined;
+  
 
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal ) { }
 
   ngOnInit(): void {
+  }
+
+  toggleBtnAgregarSkills() {
+    this.btnAgregarSkill = !this.btnAgregarSkill;
   }
 
 }

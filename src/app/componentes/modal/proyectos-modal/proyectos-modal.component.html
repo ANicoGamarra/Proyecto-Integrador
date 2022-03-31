@@ -24,19 +24,22 @@
       </div>        
 
       <div class="input-group flex-nowrap mt-2">
-        <span class="input-group-text">URL: </span>
-        <input type="text" class="form-control" placeholder="subir foto" [(ngModel)]="datos.img">
+        <span class="input-group-text">link: </span>
+        <input type="text" class="form-control" placeholder="link al proyecto" [(ngModel)]="datos.link">
+        <!-- <a href="">www.ejemploProyecto.com</a> -->
       </div>
 
       <div class="input-group flex-nowrap mt-2">
-        <span class="input-group-text">link: </span>
-        <input type="text" class="form-control" placeholder="subir foto" [(ngModel)]="datos.link">
+        <span class="input-group-text">URL: </span>
+        <input type="text" class="form-control" placeholder="subir foto" [(ngModel)]="datos.img">
+        <button type="button" class="btn btn-dark align-self-center" (click)="activeModal.close('Close click')">Examinar</button>
       </div>
+      
       
       <div class="d-flex mt-3 justify-content-evenly">
 
         <div class=" ">
-            <button type="button" class="btn btn-dark align-self-center" (click)="activeModal.close('Close click')">Examinar</button>
+            
         </div>
 
       </div>

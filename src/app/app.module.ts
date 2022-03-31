@@ -52,6 +52,7 @@ import { SkillsModalComponent } from './componentes/modal/skills-modal/skills-mo
 
 
 
+
 /* 
 const appRoutes:Routes=[
   {path: '', component:HomeComponent },
@@ -85,6 +86,7 @@ const appRoutes:Routes=[
     EducacionModalComponent,
     ProyectosModalComponent,
     SkillsModalComponent,
+
     
     
     

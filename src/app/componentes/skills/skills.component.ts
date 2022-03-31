@@ -16,7 +16,7 @@ export class SkillsComponent implements OnInit {
 
   login:any;
   datos:any[] = [];
-
+ 
   constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService, private modalService: NgbModal ) { }
 
 
@@ -31,6 +31,7 @@ export class SkillsComponent implements OnInit {
       modalRef.componentInstance.datos = this.datos;    
       
     }
+
   
 
 }
