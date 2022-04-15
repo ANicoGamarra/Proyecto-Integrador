@@ -16,6 +16,7 @@ export class SkillsComponent implements OnInit {
 
   login:any;
   datos:any[] = [];
+  datosPorfolio:any;
  
   constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService, private modalService: NgbModal ) { }
 
@@ -24,6 +25,9 @@ export class SkillsComponent implements OnInit {
     this.datos = this.datosDb.SKILLS;
     /* this.login = this.loginService.getLogueado(); */
     this.loginService.LogState().subscribe((login) => (this.login = login));
+    this.datosDb.getDatosSkills().subscribe((datos) => (
+      console.log(datos),  
+      this.datosPorfolio = datos));
     }
 
     abrirModal(){

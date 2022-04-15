@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +42,31 @@ export class DatosPorfolioService {
   ];
 
 
-  constructor() { }
+  url="http://localhost:8080/api";
+
+  constructor(private http:HttpClient) { }
+
+  getDatosPersona():Observable<any>{
+    return this.http.get(this.url+"/personas/findAll");
+  }
+
+  getDatosExperiencia():Observable<any>{
+    return this.http.get(this.url+"/experiencias/findAll");
+  }
+
+  getExperienciaById (id:number):Observable<any>{
+    return this.http.get(this.url+"/experiencias/findById/"+id);
+  }
+
+  getDatosEducaciones():Observable<any>{
+    return this.http.get(this.url+"/educaciones/findAll");
+  }
+
+  getDatosProyectos():Observable<any>{
+    return this.http.get(this.url+"/proyectos/findAll");
+  }
+
+  getDatosSkills():Observable<any>{
+    return this.http.get(this.url+"/skills/findAll");
+  }
 }

@@ -18,6 +18,7 @@ export class AcercaDeComponent implements OnInit {
 
   login:any;
   datosbd:any;
+  datosPorfolio:any
 
   
   constructor(private loginService : LoginServiceService, private modalService: NgbModal, private BaseDatosService: DatosPorfolioService ) { }
@@ -26,6 +27,9 @@ export class AcercaDeComponent implements OnInit {
     /* this.login = this.loginService.getLogueado() */
     this.loginService.LogState().subscribe((login) => (this.login = login));    
     this.datosbd = this.BaseDatosService.ACERCADE
+    this.BaseDatosService.getDatosPersona().subscribe((datos) => ( 
+      this.datosPorfolio = datos));
+    
     
   }
 
@@ -42,6 +46,8 @@ openFotoPerfilModal(){
  
   modalRef.componentInstance.datos = this.datosbd;
 }
+
+
   
 
 }

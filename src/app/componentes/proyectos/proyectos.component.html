@@ -4,7 +4,7 @@
         <app-btn-agregar *ngIf="login" (click)="agregarProyecto()" ></app-btn-agregar>
         <h2 class="text-end pe-4 position-relative ms-3">Proyectos</h2>        
     </div>
-    <div *ngFor="let dato of datos, let i = index">
+    <div *ngFor="let dato of datosPorfolio, let i = index">
         <mat-card class="container d-flex mt-2">
             <div class="d-flex">
                 <div class="d-flex row justify-content-evenly botones">
@@ -18,7 +18,7 @@
                     
                     <mat-card-subtitle class="periodo">{{dato.fecha}}</mat-card-subtitle>
                     <mat-card-subtitle class="link">
-                    <a [href]="dato.link" target="_blank" >link</a>    
+                    <a [href]="dato.enlace" target="_blank" >link</a>    
                     </mat-card-subtitle>
                     <mat-card-content class="ps-3 descripcion">
                          {{dato.descripcion}}

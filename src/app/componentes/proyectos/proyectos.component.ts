@@ -12,12 +12,16 @@ import { ProyectosModalComponent } from '../modal/proyectos-modal/proyectos-moda
 export class ProyectosComponent implements OnInit {
   login:any;
   datos:any[] = [];
+  datosPorfolio:any;
   constructor(private datosDb:DatosPorfolioService, private loginService:LoginServiceService, private modalService: NgbModal ) { }
 
   ngOnInit(): void {
     this.datos = this.datosDb.PROYECTOS;
     /* this.login = this.loginService.getLogueado(); */
     this.loginService.LogState().subscribe((login) => (this.login = login));
+    this.datosDb.getDatosProyectos().subscribe((datos) => (
+      //console.log(datos),  
+      this.datosPorfolio = datos));
   }
 
   abrirModal(id:number){

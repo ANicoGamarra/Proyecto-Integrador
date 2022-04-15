@@ -4,7 +4,7 @@
         <app-btn-agregar *ngIf="login" (click)="agregarEducacion()" ></app-btn-agregar>
         <h2 class="text-end pe-4 position-relative ms-3">Educacion</h2>        
     </div> 
-    <div *ngFor="let dato of datos; let i = index">
+    <div *ngFor="let dato of datosPorfolio; let i = index">
         <mat-card class="container d-flex mt-2">
             <div class="d-flex w-100">
                 <div class="d-flex row justify-content-evenly botones">
@@ -14,11 +14,11 @@
                 </div>
                 <mat-card-title-group>
                     
-                    <mat-card-title class="instituto" >{{dato.instituto}} </mat-card-title>
+                    <mat-card-title class="instituto" >{{dato.institucion}} </mat-card-title>
                     <mat-card-subtitle class="titulo">{{dato.titulo}}</mat-card-subtitle>
-                    <mat-card-subtitle class="periodo">{{dato.ingreso}} {{dato.egreso}}</mat-card-subtitle>
+                    <mat-card-subtitle class="periodo">{{dato.fecha_egresado}}</mat-card-subtitle>
                     <mat-card-subtitle class="certificado">
-                    <a [href]="dato.src">certificado</a>    
+                    <a [href]="dato.certificado">certificado</a>    
                     </mat-card-subtitle>
                     
                     <mat-card-content class="ps-3 descripcion w-100">
@@ -28,7 +28,7 @@
                 </mat-card-title-group>
             </div>
             <div class="pe-3">
-                <img mat-card-md-image [src]="dato.logoInstituto">
+                <img mat-card-md-image [src]="dato.logo_educacion">
             </div>
         </mat-card>
     </div>

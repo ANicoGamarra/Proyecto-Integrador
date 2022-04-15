@@ -13,12 +13,16 @@ export class EducacionComponent implements OnInit {
 
   login:any;
   datos:any[] = [];
+  datosPorfolio:any;
   constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.datos = this.datosDb.EDUCACION;
     /* this.login = this.loginService.getLogueado(); */
     this.loginService.LogState().subscribe((login) => (this.login = login));    
+    this.datosDb.getDatosEducaciones().subscribe((datos) => (
+      //console.log(datos),  
+      this.datosPorfolio = datos));
   }
 
   

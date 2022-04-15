@@ -7,39 +7,39 @@
   
   <div class="modal-body">
     
-    
+    <form [formGroup]="formularioExperiencia" (ngSubmit)="enviarDatos()">
       <div class="input-group flex-nowrap mt-2">
         <span class="input-group-text">Empresa: </span>
-        <input type="text" class="form-control" placeholder= "empresa" [(ngModel)]="datos.empresa">
+        <input type="text" class="form-control" placeholder= "empresa" formControlName="empresa">
       </div>
       
       <div class="input-group flex-nowrap mt-2">
         <span class="input-group-text">Puesto: </span>
-        <input type="text" class="form-control" placeholder="apellido" [(ngModel)]="datos.puesto">
+        <input type="text" class="form-control" placeholder="puesto" formControlName="puesto" >
       </div>
       
       <div class="input-group flex-nowrap mt-2">
         <label class="input-group-text texto-titulo">Ingreso: </label>
-        <input type="date" class="form-control" placeholder="titulo" [(ngModel)]="datos.ingreso">
+        <input type="date" class="form-control" placeholder="fecha ingreso" formControlName="fecha_ingreso">
       </div>
 
       <div class="input-group flex-nowrap mt-2">
         <label class="input-group-text texto-titulo">Salida: </label>
-        <input type="date" class="form-control" placeholder="titulo" [(ngModel)]="datos.salida">
+        <input type="date" class="form-control" placeholder="fecha egreso" formControlName="fecha_egreso">
       </div>
     
       <div class="input-group flex-nowrap mt-2">
         <span class="input-group-text">Descripción: </span>
-        <textarea class="form-control" aria-label="With textarea" [(ngModel)]="datos.descripcion"></textarea>  
+        <textarea class="form-control" aria-label="With textarea" formControlName="descripcion"></textarea>  
       </div>        
 
       <div class="input-group flex-nowrap mt-2">
         <span class="input-group-text">URL: </span>
-        <input type="text" class="form-control" placeholder="subir foto" [(ngModel)]="datos.logoEmpresa">
+        <input type="text" class="form-control" placeholder="subir foto" formControlName="logo_empresa">
       </div>
-      
+    </form>    
   </div>
-
+  
   <div class="modal-footer d-flex justify-content-evenly">
 
     <div class=" ">
@@ -48,6 +48,6 @@
 
 
     <div class=" align-self-end">
-        <button type="button" class="btn btn-dark " (click)="activeModal.close('Close click')">Guardar</button>
+        <button type="submit" class="btn btn-dark " (click)="activeModal.close('Close click')">Guardar</button>
     </div>
    </div>

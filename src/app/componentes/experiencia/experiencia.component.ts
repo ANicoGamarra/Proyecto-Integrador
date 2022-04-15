@@ -12,7 +12,7 @@ import { ExperienciaModalComponent } from '../modal/experiencia-modal/experienci
 export class ExperienciaComponent implements OnInit {
 
   login:any;
-
+  datosPorfolio:any;
   datos:any[] = []; 
   constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService,  private modalService: NgbModal ) { }
 
@@ -20,6 +20,9 @@ export class ExperienciaComponent implements OnInit {
    this.datos = this.datosDb.EXPERIENCIA
    /* this.login = this.loginServices.getLogueado() */
    this.loginService.LogState().subscribe((login) => (this.login = login));    
+   this.datosDb.getDatosExperiencia().subscribe((datos) => (
+    //console.log(datos),  
+    this.datosPorfolio = datos));
   }
 
   abrirModal(id:number){

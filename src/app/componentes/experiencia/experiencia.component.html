@@ -3,7 +3,7 @@
     <h2 class="position-relative me-3">Experiencia</h2>
     <app-btn-agregar *ngIf="login" (click)="agregarExperiencia()" ></app-btn-agregar>
     </div>
-<div *ngFor="let dato of datos; let i = index">
+<div *ngFor="let dato of datosPorfolio; let i = index">
     <mat-card class="container d-flex mt-2">
         <div class="pe-3 inst-logo">
             <img mat-card-md-image [src]="dato.logoEmpresa">
@@ -13,12 +13,12 @@
                 
                 <mat-card-title>{{dato.empresa}} </mat-card-title>
                 <mat-card-subtitle>{{dato.puesto}}</mat-card-subtitle>
-                <mat-card-subtitle>{{dato.ingreso}} {{dato.salida}}</mat-card-subtitle>
+                <mat-card-subtitle>{{dato.fecha_ingreso}} {{dato.fecha_egreso}}</mat-card-subtitle>
                 <mat-card-content class="ps-3 w-100">
                      {{dato.descripcion}}
                 </mat-card-content>
                 <div class="d-flex row justify-content-evenly botones">
-                    <app-btn-editar *ngIf="login" (click)="abrirModal(i)"></app-btn-editar>
+                    <app-btn-editar *ngIf="login" (click)="abrirModal(dato.id_experiencia)"></app-btn-editar>
                     <br>
                     <app-btn-eliminar class="" *ngIf="login"></app-btn-eliminar>
                 </div>

@@ -6,7 +6,7 @@
                 <app-btn-editar class="btn-imgaen position-absolute top-0 start-100" *ngIf="login" (click)="openFotoPerfilModal()" ></app-btn-editar>
             </div>
             <div class="d-flex position-relative">
-                <h4 class="text-center "> {{datosbd[0].nombre}} {{datosbd[0].apellido}} </h4>                
+                <h4 class="text-center "> {{datosPorfolio[0].nombre}} {{datosPorfolio[0].apellido}} </h4>                
             </div>
             <h5 class="text-center"> {{datosbd[0].titulo}} </h5>
         </div>
@@ -16,7 +16,7 @@
                 <app-btn-eliminar *ngIf="login" class="ms-2" ></app-btn-eliminar>
                 <h2 class="ms-4 pe-4"> Acerca de mi  </h2>                
             </div>
-            <p class="text-end"> {{datosbd[0].descripcion}}</p>        
+            <p class="text-end fs-6"> {{datosPorfolio[0].descripcion}}</p>        
         </div>
     </div>
 </div>

@@ -19,7 +19,7 @@ export class LoginServiceService {
 
   constructor(private http: HttpClient) {
     this.loading = false;
-    console.log("El servicio de autentificación está corriendo");     //ArgentinaPrograma
+    //console.log("El servicio de autentificación está corriendo");     //ArgentinaPrograma
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('currentUser')|| '{}')); //ArgentinaPrograma
    }
 
