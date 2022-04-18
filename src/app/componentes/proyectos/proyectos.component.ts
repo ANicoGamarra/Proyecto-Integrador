@@ -13,13 +13,15 @@ export class ProyectosComponent implements OnInit {
   login:any;
   datos:any[] = [];
   datosPorfolio:any;
+  componente: string= "proyectos"
+
   constructor(private datosDb:DatosPorfolioService, private loginService:LoginServiceService, private modalService: NgbModal ) { }
 
   ngOnInit(): void {
     this.datos = this.datosDb.PROYECTOS;
     /* this.login = this.loginService.getLogueado(); */
     this.loginService.LogState().subscribe((login) => (this.login = login));
-    this.datosDb.getDatosProyectos().subscribe((datos) => (
+    this.datosDb.getDatos(this.componente).subscribe((datos) => (
       //console.log(datos),  
       this.datosPorfolio = datos));
   }

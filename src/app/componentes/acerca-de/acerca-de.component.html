@@ -2,13 +2,13 @@
     <div class="d-flex justify-content-between">
         <div class="foto-perfil me-3">
             <div class="position-relative">
-                <img [src]="datosbd[0].imgPerfil" class="img-fluid border border-dark border-3" alt="foto de perfil">
+                <img [src]="datosPorfolio[0].imgPerfil" class="img-fluid border border-dark border-3" alt="foto de perfil">
                 <app-btn-editar class="btn-imgaen position-absolute top-0 start-100" *ngIf="login" (click)="openFotoPerfilModal()" ></app-btn-editar>
             </div>
             <div class="d-flex position-relative">
                 <h4 class="text-center "> {{datosPorfolio[0].nombre}} {{datosPorfolio[0].apellido}} </h4>                
             </div>
-            <h5 class="text-center"> {{datosbd[0].titulo}} </h5>
+            <h5 class="text-center"> Full Stack Developer Jr{{datosPorfolio[0].titulo}} </h5>
         </div>
         <div class="d-flex flex-column align-items-end">
             <div class="d-flex justify-content-between">
@@ -21,6 +21,5 @@
     </div>
 </div>
 
-<!-- <app-acerca-de-modal [datos]="datosbd" ></app-acerca-de-modal> -->
-<!-- (2) crear el ng-template para mostrar en el modal -->
+
 

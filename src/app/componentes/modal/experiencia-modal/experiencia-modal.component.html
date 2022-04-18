@@ -37,10 +37,9 @@
         <span class="input-group-text">URL: </span>
         <input type="text" class="form-control" placeholder="subir foto" formControlName="logo_empresa">
       </div>
-    </form>    
-  </div>
+    
   
-  <div class="modal-footer d-flex justify-content-evenly">
+  <div class="modal-footer d-flex justify-content-evenly mt-2">
 
     <div class=" ">
         <button type="button" class="btn btn-dark align-self-center" (click)="activeModal.close('Close click')">Examinar</button>
@@ -48,6 +47,9 @@
 
 
     <div class=" align-self-end">
-        <button type="submit" class="btn btn-dark " (click)="activeModal.close('Close click')">Guardar</button>
+        <button type="submit" class="btn btn-dark" (click)="activeModal.close('Close click')"  >Guardar</button>
     </div>
    </div>
+
+  </form>    
+</div>

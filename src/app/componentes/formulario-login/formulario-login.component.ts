@@ -23,9 +23,6 @@ export class FormularioLoginComponent {
         {
           email:["",[Validators.required, Validators.email]],
           password:["",[Validators.required, Validators.minLength(3)]]
-
-
-
         }
       )
   }
@@ -78,18 +75,5 @@ export class FormularioLoginComponent {
     
   }
 
-  //login ArgentinaPrograma
-
-  onEnviar(e:Event){
-    e.preventDefault();
-    console.log("esto funciono o no lpm!!")
-    console.log(this.form.value.email)
-    console.log(this.form.value.password)
-   /*  this.loginService.iniciarSesion(this.form.value).subscribe( data => {
-      console.log("DATA: " + JSON.stringify(data));
-      this.router.navigate(['']); 
-    })
- */
-  }
 
 }

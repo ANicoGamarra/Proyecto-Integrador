@@ -5,6 +5,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap'
 import { AcercaDeModalComponent } from '../modal/acerca-de-modal/acerca-de-modal.component';
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 import { FotoPerfilModalComponent } from '../modal/foto-perfil-modal/foto-perfil-modal.component';
+import { Persona } from 'src/app/servicios/Persona';
 
 
 
@@ -18,19 +19,25 @@ export class AcercaDeComponent implements OnInit {
 
   login:any;
   datosbd:any;
-  datosPorfolio:any
+  datosPorfolio:any; 
+  componente: string = "personas"
 
   
-  constructor(private loginService : LoginServiceService, private modalService: NgbModal, private BaseDatosService: DatosPorfolioService ) { }
+  constructor(private loginService : LoginServiceService, private modalService: NgbModal, private datosDB: DatosPorfolioService ) { 
+ 
+  }
 
   ngOnInit(): void {
     /* this.login = this.loginService.getLogueado() */
     this.loginService.LogState().subscribe((login) => (this.login = login));    
-    this.datosbd = this.BaseDatosService.ACERCADE
-    this.BaseDatosService.getDatosPersona().subscribe((datos) => ( 
-      this.datosPorfolio = datos));
-    
-    
+    //this.datosbd = this.BaseDatosService.ACERCADE
+    //this.cargarDatos()
+    this.datosDB.getDatos(this.componente).subscribe(
+      (datos) => {
+      console.log(datos)        
+      this.datosPorfolio = datos
+      console.log(this.datosPorfolio)
+    });
   }
 
  
@@ -47,7 +54,11 @@ openFotoPerfilModal(){
   modalRef.componentInstance.datos = this.datosbd;
 }
 
-
+cargarDatos(){
+  this.datosDB.getDatos(this.componente).subscribe((datos) => (
+    this.datosPorfolio = datos));
+    
+}
   
 
 }

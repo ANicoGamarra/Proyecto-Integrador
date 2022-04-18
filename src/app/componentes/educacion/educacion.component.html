@@ -8,7 +8,7 @@
         <mat-card class="container d-flex mt-2">
             <div class="d-flex w-100">
                 <div class="d-flex row justify-content-evenly botones">
-                    <app-btn-editar *ngIf="login" (click)="abrirModal(i)" ></app-btn-editar>
+                    <app-btn-editar *ngIf="login" (click)="abrirModal(dato.id_educacion)" ></app-btn-editar>
                     <br>
                     <app-btn-eliminar class="" *ngIf="login"></app-btn-eliminar>
                 </div>
@@ -22,7 +22,7 @@
                     </mat-card-subtitle>
                     
                     <mat-card-content class="ps-3 descripcion w-100">
-                         {{dato.descripcion}}
+                         
                     </mat-card-content>
                     
                 </mat-card-title-group>

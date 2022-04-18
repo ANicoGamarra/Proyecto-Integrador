@@ -17,17 +17,19 @@ export class SkillsComponent implements OnInit {
   login:any;
   datos:any[] = [];
   datosPorfolio:any;
+  componente: string = "skills"
  
   constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService, private modalService: NgbModal ) { }
 
 
   ngOnInit(): void { 
     this.datos = this.datosDb.SKILLS;
-    /* this.login = this.loginService.getLogueado(); */
+    
     this.loginService.LogState().subscribe((login) => (this.login = login));
-    this.datosDb.getDatosSkills().subscribe((datos) => (
-      console.log(datos),  
+    this.datosDb.getDatos(this.componente) .subscribe((datos) => (
+      //console.log(datos),  
       this.datosPorfolio = datos));
+      
     }
 
     abrirModal(){

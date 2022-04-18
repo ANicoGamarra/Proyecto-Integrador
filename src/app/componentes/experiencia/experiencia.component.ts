@@ -13,27 +13,42 @@ export class ExperienciaComponent implements OnInit {
 
   login:any;
   datosPorfolio:any;
-  datos:any[] = []; 
+  nuevo:boolean = true
+  xps:any;
+  componente:string = "experiencias";
+
   constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService,  private modalService: NgbModal ) { }
 
   ngOnInit(): void {
-   this.datos = this.datosDb.EXPERIENCIA
+   //this.datos = this.datosDb.EXPERIENCIA
    /* this.login = this.loginServices.getLogueado() */
    this.loginService.LogState().subscribe((login) => (this.login = login));    
-   this.datosDb.getDatosExperiencia().subscribe((datos) => (
+   this.datosDb.getDatos(this.componente).subscribe((datos) => (
     //console.log(datos),  
     this.datosPorfolio = datos));
+    
   }
 
   abrirModal(id:number){
-    const modalRef = this.modalService.open(ExperienciaModalComponent,  { centered: true });   
-    modalRef.componentInstance.datos = this.datos[id];    
+    const modalRef = this.modalService.open(ExperienciaModalComponent,  { centered: true });       
     modalRef.componentInstance.id = id;
   }
   agregarExperiencia(){
     const modalRef = this.modalService.open(ExperienciaModalComponent,  { centered: true });
-    modalRef.componentInstance.datos = this.datos;
+    modalRef.componentInstance.expNueva = this.nuevo;
   }
 
+  eliminarExperiencia(id:number){
+    
+    this.datosDb.deleteDato(id, this.componente)
+      .subscribe(() => {
+       
+      });
+      console.log(id)
+  }
+
+  
+
+  
 
 }

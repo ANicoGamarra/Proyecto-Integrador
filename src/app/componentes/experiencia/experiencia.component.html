@@ -20,7 +20,7 @@
                 <div class="d-flex row justify-content-evenly botones">
                     <app-btn-editar *ngIf="login" (click)="abrirModal(dato.id_experiencia)"></app-btn-editar>
                     <br>
-                    <app-btn-eliminar class="" *ngIf="login"></app-btn-eliminar>
+                    <app-btn-eliminar class="" *ngIf="login"(click)="eliminarExperiencia(dato.id_experiencia)"></app-btn-eliminar>
                 </div>
             </mat-card-title-group>
         </div>

@@ -1,12 +1,20 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import {tap, catchError } from 'rxjs/operators'
+import { Experiencia } from './Experiencia';
+
+const httpOptions = {
+  headers: new HttpHeaders ({'Content-Type' : 'application/json', 'Access-Control-Allow-Origin': '*'})
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatosPorfolioService {
+
+
 
   ACERCADE:any[] = [
     {nombre:"Nicolas", apellido:"Gamarra", titulo: "Full Stack Developer Jr.", descripcion:" Lorem ipsum dolor sit amet consectetur adipisicing elit. A alias sint consectetur voluptates et sunt sed deleniti reiciendis dolorum, nam, voluptatum aspernatur quibusdam dolore aut reprehenderit ab amet esse eum!" , imgPerfil:"/assets/imagenes/perfil2.jpg", imgPortada:"assets/imagenes/portal-2.jpg"}
@@ -41,32 +49,88 @@ export class DatosPorfolioService {
     { habilidad: "Entrenar", porcentaje:10 },
   ];
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
+ // url="https://porfolio-api-ap.herokuapp.com/api"
   url="http://localhost:8080/api";
+  log: any;
 
   constructor(private http:HttpClient) { }
 
-  getDatosPersona():Observable<any>{
-    return this.http.get(this.url+"/personas/findAll");
-  }
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
 
-  getDatosExperiencia():Observable<any>{
-    return this.http.get(this.url+"/experiencias/findAll");
-  }
+        // TODO: send the error to remote logging infrastructure
+        console.error(error); // log to console instead
 
-  getExperienciaById (id:number):Observable<any>{
-    return this.http.get(this.url+"/experiencias/findById/"+id);
-  }
+        // TODO: better job of transforming error for user consumption
+        this.log(`${operation} failed: ${error.message}`);
 
-  getDatosEducaciones():Observable<any>{
-    return this.http.get(this.url+"/educaciones/findAll");
-  }
+        // Let the app keep running by returning an empty result.
+        return of(result as T);
+    };
+}
 
-  getDatosProyectos():Observable<any>{
-    return this.http.get(this.url+"/proyectos/findAll");
+  /*
+  getDatos(componente:string):Observable<any>{
+    return this.http.get(this.url+"/"+componente+"/findAll");
+    
   }
+  */
+  
+  getDatos(componente:string): Observable<[]> {
+    
+    return this.http.get<[]>(`${this.url}/${componente}/findAll`).pipe(        
+        tap(data => console.log(data)),
+        catchError(this.handleError<[]>('getDatos', []))
+   
+        );
+  
+  }
+  
+  getDatoId(id: number, componente: string): Observable<any> {
+    //console.log(`${this.url}/${componente}/`+id)
+     const url = `${this.url}/${componente}/findById/`+id;
+      return this.http.get<Experiencia>(url).pipe(
+       tap(data => console.log(data)),
+       catchError(this.handleError<any>(`getXp id=${id}`))
+     );
+   }
+   
+      
+   updateDato(dato:any, componente: string): Observable<any> {
+     console.log(this.url+'/'+componente+'/edit')
+     console.log(dato)
+     return this.http.put(this.url+'/'+componente+'/edit', dato, this.httpOptions).pipe(
+         tap(_ => console.log(`xp id=${dato}`)),
+         catchError(this.handleError<any>('updateXp'))
+     );
+   }
 
-  getDatosSkills():Observable<any>{
-    return this.http.get(this.url+"/skills/findAll");
-  }
+   addDato(dato:any, componente: string):Observable<any> {
+     console.log(dato)
+    return this.http.post<any>(this.url+'/'+componente+'/new', dato, this.httpOptions).pipe(
+      tap((newDato: any) => console.log(`se agrego el dato =${newDato}`)),
+      catchError(this.handleError<any>('addDato'))
+    );
+    }
+
+    deleteDato(id:number, componente:string): Observable<any> {
+      console.log(id)
+      const url = `${this.url}/${componente}/delete/`+id;
+      return this.http.delete<any>(url, this.httpOptions).pipe(
+        tap(_ => console.log(`deleted id=${id}`)),
+        catchError(this.handleError<any>('delete'))
+      );
+    }
+  
+ 
+
+
+
+
+
+
 }
