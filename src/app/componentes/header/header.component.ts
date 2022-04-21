@@ -18,20 +18,21 @@ export class HeaderComponent implements OnInit {
 
   /* login:boolean = false; */
   login:any;
-  datosbd:any;
+  datosPorfolio:any;
+  componente:string = "usuarios"
   
-  constructor(private loginService: LoginServiceService, private BaseDatosService: DatosPorfolioService, private modalService: NgbModal) { }
+  constructor(private loginService: LoginServiceService, private datosDB: DatosPorfolioService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     /* this.login = this.loginService.getLogueado() */
     this.loginService.LogState().subscribe((login) => (this.login = login));
-    this.datosbd = this.BaseDatosService.ACERCADE
+    this.datosPorfolio = this.datosDB.getDatos(this.componente)
   }
 
   open() {
   
     const modalRef = this.modalService.open(HeaderModalComponent,  { centered: true });
    
-    modalRef.componentInstance.datos = this.datosbd;
+    modalRef.componentInstance.datos = this.datosPorfolio;
   }
 }

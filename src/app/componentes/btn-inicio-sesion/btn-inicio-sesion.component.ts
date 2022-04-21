@@ -34,10 +34,10 @@ export class BtnInicioSesionComponent implements OnInit {
     this.loginService.LogOut();
     this.router.navigate(['cerrarSesion']);   
   }
-
+/*
   logState():void{
     this.loginService.LogState();
   }
-  
+  */
   
 }

@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { Experiencia } from 'src/app/servicios/Experiencia';
+import { ModalServiceService } from 'src/app/servicios/modal-service.service';
 
 @Component({
   selector: 'app-experiencia-modal',
@@ -11,15 +12,18 @@ import { Experiencia } from 'src/app/servicios/Experiencia';
   styleUrls: ['./experiencia-modal.component.css']
 })
 export class ExperienciaModalComponent implements OnInit {
-
+  
   @Input()  expNueva:boolean;
   @Input()  id!:number;
+  
+  
 
   componente:string = "experiencias"
   xp!:Experiencia;
   formularioExperiencia!: FormGroup;
+  
 
-  constructor(public activeModal: NgbActiveModal, private datosDb:DatosPorfolioService, private formulario: FormBuilder)  { 
+  constructor(public activeModal: NgbActiveModal, private datosDb:DatosPorfolioService, private formulario: FormBuilder, private actualizarVistaServ: ModalServiceService)  { 
     this.expNueva = false;
     this.formularioExperiencia = formulario.group({
       id_experiencia:[''],
@@ -95,7 +99,7 @@ export class ExperienciaModalComponent implements OnInit {
 
   actualizarExperiencia(){
     this.datosDb.updateDato(this.xp, this.componente).subscribe(() => {
-      //this.ngOnInit();        
+      this.activeModal.close();     
   });
   }
 
@@ -105,9 +109,19 @@ export class ExperienciaModalComponent implements OnInit {
     
       this.datosDb.addDato(this.xp, this.componente)
         .subscribe(xp => {
-          
+          this.activeModal.close(); 
         });
       console.log(this.xp)
   }
+/*
+  guardarDatos(){
+    console.log('pasa por aca?')
+    this.actualizarVistaServ.actualizarVistaVerdadero();
+    this.activeModal.close();
+  }
 
+  actualizarVistaVerdadero(){
+    this.actualizarVistaServ.actualizarVistaVerdadero();
+  }
+*/
 }

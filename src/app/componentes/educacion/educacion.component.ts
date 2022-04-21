@@ -18,7 +18,7 @@ export class EducacionComponent implements OnInit {
   constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.datos = this.datosDb.EDUCACION;
+    
     /* this.login = this.loginService.getLogueado(); */
     this.loginService.LogState().subscribe((login) => (this.login = login));    
     this.datosDb.getDatos(this.componente).subscribe((datos) => (

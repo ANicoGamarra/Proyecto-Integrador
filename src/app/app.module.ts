@@ -48,6 +48,7 @@ import { ExperienciaModalComponent } from './componentes/modal/experiencia-modal
 import { EducacionModalComponent } from './componentes/modal/educacion-modal/educacion-modal.component';
 import { ProyectosModalComponent } from './componentes/modal/proyectos-modal/proyectos-modal.component';
 import { SkillsModalComponent } from './componentes/modal/skills-modal/skills-modal.component';
+import { ModalServiceService } from './servicios/modal-service.service';
 
 
 
@@ -125,10 +126,10 @@ const appRoutes:Routes=[
       responsive: true
       
     }),
-    HttpClientModule
+    HttpClientModule,
     
   ],
-  providers: [LoginServiceService, DatosPorfolioService],
+  providers: [LoginServiceService, DatosPorfolioService, ModalServiceService],
   bootstrap: [AppComponent],
   entryComponents: [AcercaDeModalComponent, HeaderModalComponent, FotoPerfilModalComponent,ExperienciaModalComponent, EducacionModalComponent, ProyectosModalComponent, SkillsModalComponent]
   

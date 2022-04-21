@@ -23,7 +23,7 @@ export class SkillsComponent implements OnInit {
 
 
   ngOnInit(): void { 
-    this.datos = this.datosDb.SKILLS;
+    
     
     this.loginService.LogState().subscribe((login) => (this.login = login));
     this.datosDb.getDatos(this.componente) .subscribe((datos) => (

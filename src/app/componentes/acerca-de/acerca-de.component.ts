@@ -30,13 +30,13 @@ export class AcercaDeComponent implements OnInit {
   ngOnInit(): void {
     /* this.login = this.loginService.getLogueado() */
     this.loginService.LogState().subscribe((login) => (this.login = login));    
-    //this.datosbd = this.BaseDatosService.ACERCADE
+    
     //this.cargarDatos()
     this.datosDB.getDatos(this.componente).subscribe(
       (datos) => {
-      console.log(datos)        
+      //console.log(datos)        
       this.datosPorfolio = datos
-      console.log(this.datosPorfolio)
+      //console.log(this.datosPorfolio)
     });
   }
 
@@ -45,13 +45,13 @@ open() {
   
   const modalRef = this.modalService.open(AcercaDeModalComponent,  { centered: true });
  
-  modalRef.componentInstance.datos = this.datosbd;
+  modalRef.componentInstance.datos = this.datosPorfolio;
 }
 
 openFotoPerfilModal(){
   const modalRef = this.modalService.open(FotoPerfilModalComponent,  { centered: true });
  
-  modalRef.componentInstance.datos = this.datosbd;
+  modalRef.componentInstance.datos = this.datosPorfolio;
 }
 
 cargarDatos(){
