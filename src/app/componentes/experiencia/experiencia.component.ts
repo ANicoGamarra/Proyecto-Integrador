@@ -2,7 +2,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges  } from '@angular/co
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 import { LoginServiceService } from 'src/app/servicios/login-service.service';
-import { ModalServiceService } from 'src/app/servicios/modal-service.service';
+
 import { ExperienciaModalComponent } from '../modal/experiencia-modal/experiencia-modal.component';
 
 @Component({
@@ -12,16 +12,13 @@ import { ExperienciaModalComponent } from '../modal/experiencia-modal/experienci
 })
 export class ExperienciaComponent implements OnInit {
 
-  //@Input() actualizarVista!:boolean ;
-
   login:any;
   datosPorfolio:any;
   nuevo:boolean = true
-  xps:any;
   componente:string = "experiencias";
-  actualizarVista!:boolean 
+  
 
-  constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService,  private modalService: NgbModal, private actualizarVistaServ:ModalServiceService ) { }
+  constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService,  private modalService: NgbModal ) { }
 
   ngOnInit(): void {
    
@@ -64,7 +61,7 @@ export class ExperienciaComponent implements OnInit {
     
     this.datosDb.deleteDato(id, this.componente)
       .subscribe(() => {
-        this.ngOnInit();
+        this.actualizarVistaExperiencia();
       });
       console.log(id)
   }

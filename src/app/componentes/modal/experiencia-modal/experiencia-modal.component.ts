@@ -3,7 +3,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { Experiencia } from 'src/app/servicios/Experiencia';
+import { Experiencia } from 'src/app/servicios/interfaces/Experiencia';
 import { ModalServiceService } from 'src/app/servicios/modal-service.service';
 
 @Component({
@@ -23,7 +23,7 @@ export class ExperienciaModalComponent implements OnInit {
   formularioExperiencia!: FormGroup;
   
 
-  constructor(public activeModal: NgbActiveModal, private datosDb:DatosPorfolioService, private formulario: FormBuilder, private actualizarVistaServ: ModalServiceService)  { 
+  constructor(public activeModal: NgbActiveModal, private datosDb:DatosPorfolioService, private formulario: FormBuilder)  { 
     this.expNueva = false;
     this.formularioExperiencia = formulario.group({
       id_experiencia:[''],
@@ -113,15 +113,5 @@ export class ExperienciaModalComponent implements OnInit {
         });
       console.log(this.xp)
   }
-/*
-  guardarDatos(){
-    console.log('pasa por aca?')
-    this.actualizarVistaServ.actualizarVistaVerdadero();
-    this.activeModal.close();
-  }
 
-  actualizarVistaVerdadero(){
-    this.actualizarVistaServ.actualizarVistaVerdadero();
-  }
-*/
 }

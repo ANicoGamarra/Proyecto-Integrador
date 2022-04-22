@@ -26,13 +26,23 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     /* this.login = this.loginService.getLogueado() */
     this.loginService.LogState().subscribe((login) => (this.login = login));
-    this.datosPorfolio = this.datosDB.getDatos(this.componente)
+    this.actualizarVistaHeader()
   }
 
   open() {
   
-    const modalRef = this.modalService.open(HeaderModalComponent,  { centered: true });
-   
+    const modalRef = this.modalService.open(HeaderModalComponent,  { centered: true });   
     modalRef.componentInstance.datos = this.datosPorfolio;
+
+    modalRef.result.then((data) => {
+      this.actualizarVistaHeader();
+    }, (reason) => {
+      alert("no funciono")
+    })
   }
+
+  actualizarVistaHeader(){
+    this.datosPorfolio = this.datosDB.getDatos(this.componente)
+  }
+
 }

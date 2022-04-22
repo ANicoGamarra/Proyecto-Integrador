@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {tap, catchError } from 'rxjs/operators'
-import { Experiencia } from './Experiencia';
+import { Experiencia } from './interfaces/Experiencia';
 
 const httpOptions = {
   headers: new HttpHeaders ({'Content-Type' : 'application/json', 'Access-Control-Allow-Origin': '*'})

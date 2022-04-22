@@ -12,29 +12,55 @@ import { EducacionModalComponent } from '../modal/educacion-modal/educacion-moda
 export class EducacionComponent implements OnInit {
 
   login:any;
-  datos:any[] = [];
   datosPorfolio:any;
-  componente: string = "educaciones"
+  nuevo:boolean = true
+  componente:string = "educaciones";
   constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     
-    /* this.login = this.loginService.getLogueado(); */
     this.loginService.LogState().subscribe((login) => (this.login = login));    
-    this.datosDb.getDatos(this.componente).subscribe((datos) => (
-      //console.log(datos),  
-      this.datosPorfolio = datos));
+    
+    this.actualizarVistaEducacion()
   }
 
   
   abrirModal(id:number){
-    const modalRef = this.modalService.open(EducacionModalComponent,  { centered: true });   
-    modalRef.componentInstance.datos = this.datos[id];    
+    const modalRef = this.modalService.open(EducacionModalComponent,  { centered: true });       
     modalRef.componentInstance.id = id;
+
+    modalRef.result.then((data) => {
+      this.actualizarVistaEducacion();
+    }, (reason) => {
+      alert("no funciono")
+    })
+
+
   }
   agregarEducacion(){
     const modalRef = this.modalService.open(EducacionModalComponent,  { centered: true });
-    modalRef.componentInstance.datos = this.datos; 
+    modalRef.componentInstance.eduNueva = this.nuevo;
+    modalRef.result.then((data) => {
+      this.actualizarVistaEducacion();
+    }, (reason) => {
+      alert("no funciono")
+    })
+  }
+
+  eliminarEducacion(id:number){
+    
+    this.datosDb.deleteDato(id, this.componente)
+      .subscribe(() => {
+        this.actualizarVistaEducacion();
+      });
+      console.log(id)
+  }
+
+  actualizarVistaEducacion(){
+   
+    this.datosDb.getDatos(this.componente).subscribe((datos) => (
+      //console.log(datos),  
+      this.datosPorfolio = datos));
   }
 
 }

@@ -4,33 +4,29 @@
       <mat-icon class="rounded-circle pt-1">close</mat-icon>
     </button>
   </div>
+
   
   <div class="modal-body">
     
-    
+     <form [formGroup]="formularioEducacion" (ngSubmit)="enviarDatos()">
       <div class="input-group flex-nowrap mt-2">
         <span class="input-group-text">Instito: </span>
-        <input type="text" class="form-control" placeholder= "Instituto" [(ngModel)]="datos.instituto">
+        <input type="text" class="form-control" placeholder= "Instituto" formControlName="instituto">
       </div>
       
       <div class="input-group flex-nowrap mt-2">
         <span class="input-group-text">Título: </span>
-        <input type="text" class="form-control" placeholder="Título" [(ngModel)]="datos.titulo">
+        <input type="text" class="form-control" placeholder="Título" formControlName="titulo">
       </div>
       
       <div class="input-group flex-nowrap mt-2">
-        <label class="input-group-text texto-titulo">Ingreso: </label>
-        <input type="date" class="form-control" placeholder="Ingreso" [(ngModel)]="datos.ingreso">
-      </div>
-
-      <div class="input-group flex-nowrap mt-2">
         <label class="input-group-text texto-titulo">Egreso: </label>
-        <input type="date" class="form-control" placeholder="Egreso" [(ngModel)]="datos.egreso">
+        <input type="date" class="form-control" placeholder="Egreso" formControlName="fecha_egresado">
       </div>
     
       <div class="input-group flex-nowrap mt-2">
         <span class="input-group-text">Descripción: </span>
-        <textarea class="form-control" aria-label="With textarea" [(ngModel)]="datos.descripcion"></textarea>  
+        <textarea class="form-control" aria-label="With textarea" v >  
       </div>        
 
       <div class="input-group flex-nowrap mt-2">
@@ -45,7 +41,7 @@
       </div>
 
       
-  </div>
+
 
   <div class="modal-footer d-flex justify-content-evenly">
 
@@ -58,3 +54,5 @@
         <button type="button" class="btn btn-dark " (click)="activeModal.close('Close click')">Guardar</button>
     </div>
    </div>
+  </form> 
+  </div>
