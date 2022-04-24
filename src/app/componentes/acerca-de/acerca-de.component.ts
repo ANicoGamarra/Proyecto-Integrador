@@ -21,44 +21,75 @@ export class AcercaDeComponent implements OnInit {
   datosbd:any;
   datosPorfolio:any; 
   componente: string = "personas"
-
-  
-  constructor(private loginService : LoginServiceService, private modalService: NgbModal, private datosDB: DatosPorfolioService ) { 
- 
+  educacion:string = "educaciones"
+  titulo:any
+  fotoPerfil:any;
+  foto:string = "";
+  constructor(private loginService : LoginServiceService, private modalService: NgbModal, private datosDb: DatosPorfolioService ) { 
+    
+    
+    
   }
 
   ngOnInit(): void {
     /* this.login = this.loginService.getLogueado() */
-    this.loginService.LogState().subscribe((login) => (this.login = login));    
-    
-    //this.cargarDatos()
-    this.datosDB.getDatos(this.componente).subscribe(
-      (datos) => {
-      //console.log(datos)        
-      this.datosPorfolio = datos
-      //console.log(this.datosPorfolio)
-    });
+    this.loginService.LogState().subscribe((login) => (this.login = login));        
+    this.cargarDatos();
+    this.cargarFotoPerfil();
+    this.cargarDatoTitulo();
   }
 
  
 open() {
   
   const modalRef = this.modalService.open(AcercaDeModalComponent,  { centered: true });
- 
-  modalRef.componentInstance.datos = this.datosPorfolio;
+  
+  modalRef.componentInstance.datosPorfolio = this.datosPorfolio;
+  modalRef.componentInstance.datostitulo = this.titulo[1];
+  modalRef.result.then((data) => {
+    this.cargarDatos();
+  }, (reason) => {
+    alert("no funciono")
+  })
 }
 
 openFotoPerfilModal(){
   const modalRef = this.modalService.open(FotoPerfilModalComponent,  { centered: true });
  
-  modalRef.componentInstance.datos = this.datosPorfolio;
+  modalRef.componentInstance.datosPorfolio = this.datosPorfolio;
+  modalRef.result.then((data) => {
+    this.cargarDatos();
+  }, (reason) => {
+    alert("no funciono")
+  })
 }
 
 cargarDatos(){
-  this.datosDB.getDatos(this.componente).subscribe((datos) => (
-    this.datosPorfolio = datos));
-    
+  this.datosDb.getDatos(this.componente).subscribe((datos) => {
+    console.log(datos)
+    this.datosPorfolio = datos
+  });
+  
+}
+
+cargarDatoTitulo(){
+  
+  this.datosDb.getDatos("educaciones").subscribe((data) => {
+    console.log(data)
+    this.titulo = data
+  });
+
+}
+
+cargarFotoPerfil() {
+
+  this.datosDb.getDatos("usuarios").subscribe((datos) => (
+    this.fotoPerfil = datos));
+    console.log(this.fotoPerfil);
 }
   
+filtrarFotoPerfil() {
+  this.foto = this.fotoPerfil[0].foto_perfil
+}
 
 }

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 import { Educacion } from 'src/app/servicios/interfaces/Educacion';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-educacion-modal',
@@ -14,7 +15,7 @@ export class EducacionModalComponent implements OnInit {
   @Input()  eduNueva!:boolean;
   @Input()  id!:number;
 
-  componente:string = "experiencias"
+  componente:string = "educaciones"
   edu!:Educacion;
   formularioEducacion: FormGroup;
 
@@ -25,6 +26,7 @@ export class EducacionModalComponent implements OnInit {
       titulo: [''],
       institucion: [''],
       fecha_egresado: [''],
+      descripcion: [''],
       certificado: [''],
       logo_educacion: [''],
       
@@ -33,7 +35,8 @@ export class EducacionModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    console.log(this.id)
+    console.log(this.eduNueva)
     if(this.eduNueva === false){
       this.getEducacionId();
     }
@@ -42,7 +45,7 @@ export class EducacionModalComponent implements OnInit {
   getEducacionId(): void {
     this.datosDb.getDatoId(this.id, this.componente).subscribe(edu => {
       this.edu = edu
-      //console.log(this.xp)
+      console.log(this.edu)
       this.editForm(edu);
     });
   }
@@ -53,6 +56,7 @@ export class EducacionModalComponent implements OnInit {
       titulo:edu.titulo ,
       institucion:edu.institucion, 
       fecha_egresado:edu.fecha_egresado,
+      descripcion:edu.descripcion,
       certificado:edu.certificado,
       logo_educacion:edu.logo_educacion,
     });
@@ -60,25 +64,25 @@ export class EducacionModalComponent implements OnInit {
 
   enviarDatos(){
    
-    console.log(this.eduNueva)
+    //console.log(this.eduNueva)
     
     if(this.eduNueva === true){
       this.edu = this.formularioEducacion.value
       //console.log(this.xp)
       //console.log("si es nueva deberia salir esto")
-      this.agregarExperiencia()
+      this.agregarEducacion()
     }else{
       this.armarModeloEducacion()
-      this.actualizarEducacion()
+      this.editarEducacion()
     }
   }
 
   armarModeloEducacion(){
     
     this.edu.institucion = this.formularioEducacion.value.institucion ,
-    this.edu.titulo = this.formularioEducacion.value.titulo, 
-    
+    this.edu.titulo = this.formularioEducacion.value.titulo,     
     this.edu.fecha_egresado = this.formularioEducacion.value.fecha_egresado,
+    this.edu.descripcion = this.formularioEducacion.value.descripcion,
     this.edu.certificado = this.formularioEducacion.value.certificado,
     this.edu.logo_educacion = this.formularioEducacion.value.logo_educacion
 
@@ -90,9 +94,10 @@ export class EducacionModalComponent implements OnInit {
   });
   }
 
-  agregarExperiencia(){
+  enviarEducacion(){
     this.eduNueva = false;
     this.edu.id_persona = 1;
+    this.edu.id_nivel_educacion = 3;
     
       this.datosDb.addDato(this.edu, this.componente)
         .subscribe(edu => {
@@ -100,5 +105,45 @@ export class EducacionModalComponent implements OnInit {
         });
       //console.log(this.edu)
   }
+
+  editarEducacion() {
+  
+    Swal.fire({
+      title: '¿Desea guardar los cambios?',
+      //showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      //denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('¡Guardados!', '', 'success')
+        this.actualizarEducacion()
+      
+        
+      } /*else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }*/
+    })
+    
+  }
+
+  
+  agregarEducacion() {
+  Swal.fire({
+    title: '¿Desea agregar el Titulo?',
+    //showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: 'Agregar',
+    //denyButtonText: `Don't save`,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      Swal.fire('¡Agregado!', '', 'success');
+      this.enviarEducacion();
+    } 
+  })
+}
+  
 
 }

@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges  } from '@angular/co
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 import { LoginServiceService } from 'src/app/servicios/login-service.service';
+import Swal from 'sweetalert2';
 
 import { ExperienciaModalComponent } from '../modal/experiencia-modal/experiencia-modal.component';
 
@@ -57,13 +58,13 @@ export class ExperienciaComponent implements OnInit {
     
   }
 
-  eliminarExperiencia(id:number){
+  borrarExperiencia(id:number){
     
     this.datosDb.deleteDato(id, this.componente)
       .subscribe(() => {
         this.actualizarVistaExperiencia();
       });
-      console.log(id)
+    //  console.log(id)
   }
 
   actualizarVistaExperiencia(){
@@ -73,6 +74,28 @@ export class ExperienciaComponent implements OnInit {
       this.datosPorfolio = datos));
   }
 
+  
+
+  eliminarExperiencia(id:number){
+    
+    Swal.fire({
+      title: '¿Desea borrar la experiencia?',
+      text: "No se podrá revertir esta acción!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Borrar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          '¡Borrada!',
+                   
+        );
+       this.borrarExperiencia(id); 
+      }
+    })
+  }
   
 
 }

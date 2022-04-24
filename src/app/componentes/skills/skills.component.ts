@@ -15,9 +15,9 @@ import { SkillsModalComponent } from '../modal/skills-modal/skills-modal.compone
 export class SkillsComponent implements OnInit {
 
   login:any;
-  datos:any[] = [];
   datosPorfolio:any;
-  componente: string = "skills"
+  //nuevo:boolean = true
+  componente:string = "skills";
  
   constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService, private modalService: NgbModal ) { }
 
@@ -25,17 +25,28 @@ export class SkillsComponent implements OnInit {
   ngOnInit(): void { 
     
     
-    this.loginService.LogState().subscribe((login) => (this.login = login));
-    this.datosDb.getDatos(this.componente) .subscribe((datos) => (
-      //console.log(datos),  
-      this.datosPorfolio = datos));
+    this.loginService.LogState().subscribe((login) => (this.login = login));    
+    
+    this.actualizarVistaSkill()
       
     }
 
     abrirModal(){
-      const modalRef = this.modalService.open(SkillsModalComponent,  { centered: true });   
-      modalRef.componentInstance.datos = this.datos;    
+      const modalRef = this.modalService.open(SkillsModalComponent,  { windowClass : "myCustomModalClass", centered: true });   
+      modalRef.componentInstance.datosPorfolio = this.datosPorfolio;
+      modalRef.result.then((data) => {
+        this.actualizarVistaSkill();
+      }, (reason) => {
+        alert("no funciono")
+      })
       
+    }
+
+    actualizarVistaSkill(){
+   
+      this.datosDb.getDatos(this.componente).subscribe((datos) => (
+        //console.log(datos),  
+        this.datosPorfolio = datos));
     }
 
   

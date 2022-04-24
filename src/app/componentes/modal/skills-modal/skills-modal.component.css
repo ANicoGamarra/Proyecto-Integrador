@@ -1,3 +1,4 @@
+
 .modal-header, 
 .modal-footer{
     background-color: #a3a3a3;
@@ -5,4 +6,16 @@
 
 .modal-body{
     background-color: #5c5c5c;
+}
+
+.porcentaje{
+    width: 20px;
+}
+
+.boton{
+    width: 10px;
+}
+
+.tipo{
+    width: 20px;
 }

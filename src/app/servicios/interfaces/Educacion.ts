@@ -4,6 +4,7 @@ export interface Educacion {
     titulo: string;
     institucion: string;
     fecha_egresado: Date;
+    descripcion: string;
     certificado: string;
     logo_educacion: string;
     id_persona: number;

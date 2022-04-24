@@ -1,6 +1,11 @@
 import { Component, Input, OnInit, } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
+import { Educacion } from 'src/app/servicios/interfaces/Educacion';
+import { Persona } from 'src/app/servicios/interfaces/Persona';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -11,35 +16,99 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 export class AcercaDeModalComponent implements OnInit {
 
-  centered:boolean = true
+//  @Input() datosPorfolio!:Persona []; 
 
-  @Input() datos:any; 
 
-  constructor(public activeModal: NgbActiveModal) { }
+  formularioAcerca!: FormGroup;
+  formularioTitulo!: FormGroup;  
+  component: string = "personas"
+  datosPorfolio:Persona [] = []
+  datosTitulo:Educacion [] = [];
+  
+
+
+  constructor(public activeModal: NgbActiveModal, private formulario: FormBuilder, private datosDb:DatosPorfolioService) { 
+  this.formularioAcerca = formulario.group({
+    id_persona:[''],
+    nombre: [''],
+    apellido: [''],
+    
+    fecha_nac: [''],
+    descripcion:[''],
+    
+ })
+this.formularioTitulo = formulario.group({
+
+  titulo: [''],
+})
+
+ 
+  }
+  ngOnInit(): void {
+   // this.getTitulo()
+   
+     this.armarFormulario()
+     this.armarTitulo()
+    
+    
+  }
+
+  armarFormulario(){
+    //console.log(this.datosPorfolio)
+   // console.log(this.datosTitulo)
+    this.formularioAcerca.setValue({
+      id_persona:this.datosPorfolio[0].id_persona,
+      nombre: this.datosPorfolio[0].nombre,
+      apellido: this.datosPorfolio[0].apellido,
+      
+      fecha_nac: this.datosPorfolio[0].fecha_nac,
+      descripcion: this.datosPorfolio[0].descripcion,
+      
+    })
+    
+  }
+
+  armarTitulo(){
+    this.formularioTitulo.setValue({
+      titulo: this.datosTitulo[0].titulo,
+    })
+  }
+
+  actualizarDatos(){
+    Swal.fire({
+      title: '¿Desea guardar los cambios?',
+      //showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      //denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('¡Guardados!', '', 'success')
+        this.enviarDatos()
+      
+        
+      } /*else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }*/
+    })
+  }
+
+  enviarDatos(){
+    this.datosDb.updateDato(this.formularioAcerca.value, this.component).subscribe(() => {
+      this.activeModal.close();  
+      console.log(this.formularioAcerca.value)   
+  });
+  }
+
+  getTitulo(){
+    this.datosDb.getDatoId(6, "educaciones").subscribe((data:any) => {
+      console.log(data)
+      this.datosTitulo = data
+    });
+    
+    
+  }
 
   
-  /* 
- open(content:any) {
-  this.modalService.open(content).result.then((result) => {
-    this.closeResult = `Closed with: ${result}`;
-  }, (reason) => {
-    this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-  });
-} 
-
-private getDismissReason(reason: any): string {
-  if (reason === ModalDismissReasons.ESC) {
-    return 'by pressing ESC';
-  } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-    return 'by clicking on a backdrop';
-  } else {
-    return  `with: ${reason}`;
-  }
-} */
-
-
-  ngOnInit(): void {
-    /* console.log(this.datos) */
-  }
-
 }

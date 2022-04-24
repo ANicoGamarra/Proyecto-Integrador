@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 import { LoginServiceService } from 'src/app/servicios/login-service.service';
+import Swal from 'sweetalert2';
 import { EducacionModalComponent } from '../modal/educacion-modal/educacion-modal.component';
 
 @Component({
@@ -47,7 +48,7 @@ export class EducacionComponent implements OnInit {
     })
   }
 
-  eliminarEducacion(id:number){
+  borrarEducacion(id:number){
     
     this.datosDb.deleteDato(id, this.componente)
       .subscribe(() => {
@@ -63,4 +64,25 @@ export class EducacionComponent implements OnInit {
       this.datosPorfolio = datos));
   }
 
+  eliminarEducacion(id:number){
+    
+    Swal.fire({
+      title: '¿Desea borrar el titulo?',
+      text: "No se podrá revertir esta acción!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Borrar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          '¡Borrado!',
+          
+          
+        );
+       this.borrarEducacion(id); 
+      }
+    })
+  }
 }

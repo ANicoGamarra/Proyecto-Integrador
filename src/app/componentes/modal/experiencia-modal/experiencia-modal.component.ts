@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { Experiencia } from 'src/app/servicios/interfaces/Experiencia';
 import { ModalServiceService } from 'src/app/servicios/modal-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-experiencia-modal',
@@ -79,7 +80,7 @@ export class ExperienciaModalComponent implements OnInit {
       this.agregarExperiencia()
     }else{
       this.armarModeloExperiencia()
-      this.actualizarExperiencia()
+      this.editarExperiencia()
     }
 
     
@@ -103,7 +104,7 @@ export class ExperienciaModalComponent implements OnInit {
   });
   }
 
-  agregarExperiencia(){
+  enviarExperiencia(){
     this.expNueva = false;
     this.xp.id_persona = 1;
     
@@ -113,5 +114,45 @@ export class ExperienciaModalComponent implements OnInit {
         });
       console.log(this.xp)
   }
+
+  editarExperiencia() {
+  
+    Swal.fire({
+      title: '¿Desea guardar los cambios?',
+      //showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      //denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('¡Guardados!', '', 'success')
+        this.actualizarExperiencia()
+      
+        
+      } /*else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }*/
+    })
+    
+  }
+
+  
+  agregarExperiencia() {
+  Swal.fire({
+    title: '¿Desea agregar la experiencia?',
+    //showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: 'Agregar',
+    //denyButtonText: `Don't save`,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      Swal.fire('¡Agregado!', '', 'success');
+      this.enviarExperiencia();
+    } 
+  })
+}
+  
 
 }

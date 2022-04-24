@@ -6,8 +6,31 @@
   </div>
 
   <div class="row">
+  <h2 class="mt-2">Soft</h2> 
   <div *ngFor="let skill of datosPorfolio" class="col-6 col-sm-4 col-md-3 " >
-      <div >
+    
+    <div *ngIf="skill.id_tipo_skill === 1">               
+        <h3 class="text-center">{{skill.habilidad}} </h3>
+        <circle-progress
+        [percent]= skill.porcentaje
+        [radius]="100"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'#036403'"
+        [innerStrokeColor]="'#80ffff'"
+        [animation]="true"
+        [animationDuration]="300"
+        [lazy]="true"
+        ></circle-progress>
+      </div>    
+  </div> 
+</div>
+
+<div class="row">
+  <h2 class="mt-2">Hard</h2> 
+  <div *ngFor="let skill of datosPorfolio" class="col-6 col-sm-4 col-md-3 " >
+    
+    <div *ngIf="skill.id_tipo_skill === 2">               
         <h3 class="text-center">{{skill.habilidad}} </h3>
         <circle-progress
         [percent]= skill.porcentaje
