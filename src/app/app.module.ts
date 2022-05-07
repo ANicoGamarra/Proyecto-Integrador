@@ -49,6 +49,7 @@ import { EducacionModalComponent } from './componentes/modal/educacion-modal/edu
 import { ProyectosModalComponent } from './componentes/modal/proyectos-modal/proyectos-modal.component';
 import { SkillsModalComponent } from './componentes/modal/skills-modal/skills-modal.component';
 import { ModalServiceService } from './servicios/modal-service.service';
+import { NgxScrollTopModule } from 'ngx-scrolltop';
 
 
 
@@ -127,6 +128,7 @@ const appRoutes:Routes=[
       
     }),
     HttpClientModule,
+    NgxScrollTopModule,
     
   ],
   providers: [LoginServiceService, DatosPorfolioService, ModalServiceService],
