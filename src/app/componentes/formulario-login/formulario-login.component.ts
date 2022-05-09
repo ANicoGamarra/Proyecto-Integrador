@@ -21,7 +21,7 @@ export class FormularioLoginComponent {
   constructor(private router: Router, private loginService: LoginServiceService, private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group(
         {
-          email:["",[Validators.required, Validators.email]],
+          username:["",[Validators.required, Validators.email]],
           password:["",[Validators.required, Validators.minLength(3)]]
         }
       )
@@ -62,8 +62,9 @@ export class FormularioLoginComponent {
 
   logInWalter() {
     this.loading = true;
-    const user = {email: this.form.value.email, password: this.form.value.password};
-    this.loginService.login(user).subscribe( data => {
+    const user = {username: this.form.value.username, password: this.form.value.password};
+    console.log(user);
+    this.loginService.iniciarSesion(user).subscribe( data => {
       
       this.loginService.setToken(data.token);
       if(data.token !== null){

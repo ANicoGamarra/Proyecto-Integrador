@@ -13,20 +13,21 @@
                     <app-btn-eliminar class="" *ngIf="login" (click)="eliminarProyecto(dato.id_proyecto)" ></app-btn-eliminar>
                 </div>
                 <mat-card-title-group>
-                
-                    <mat-card-title class="nombre" >{{dato.nombre}} </mat-card-title>
-                    
-                    <mat-card-subtitle class="periodo">{{dato.fecha}}</mat-card-subtitle>
-                    <mat-card-subtitle class="link">
-                    <a [href]="dato.enlace" target="_blank" >link</a>    
-                    </mat-card-subtitle>
+                    <div class="w-25">
+                        <mat-card-title class="nombre" >{{dato.nombre}} </mat-card-title>
+                        
+                        <mat-card-subtitle class="periodo">{{dato.fecha}}</mat-card-subtitle>
+                        <mat-card-subtitle class="link">
+                            <a [href]="dato.enlace" target="_blank" >link</a>    
+                        </mat-card-subtitle>
+                    </div>
                     <mat-card-content class="ps-3 descripcion">
                          {{dato.descripcion}}
                     </mat-card-content>
                 
                 </mat-card-title-group>
             </div>
-            <div class="pe-3">
+            <div class="pe-3 imagen-proy">
                 <img mat-card-md-image [src]="dato.img">
             </div>
         </mat-card>

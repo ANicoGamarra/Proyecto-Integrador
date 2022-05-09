@@ -19,6 +19,14 @@ img{
     margin-bottom: -85px;
     
 }
+
+.texto-descripcion{
+    text-align: justify;       
+}
+
+.descripcion{
+    max-width: 85%;
+}
 /* .btn-editar-imgaen{
     z-index: 2;
     

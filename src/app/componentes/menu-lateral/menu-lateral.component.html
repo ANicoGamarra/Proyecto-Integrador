@@ -1,47 +1,7 @@
-<!-- <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav">
-    
-    <mat-nav-list class="container">
-      <nav class="nav flex-column pt-3">
-      <a href="#acerca-de"> <mat-icon class="ps-4" title="Acerca de mi" (click)="drawer.toggle()">info</mat-icon>	 </a>
-      <a href="#experiencia"><mat-icon class="ps-4" title="Experiencia" (click)="drawer.toggle()">work</mat-icon></a>
-      <a href="#educacion"><mat-icon class="ps-4" title="Estudios" (click)="drawer.toggle()">school</mat-icon></a>
-      <a href="#skills"><mat-icon class="ps-4" title="Skills" (click)="drawer.toggle()">equalizer</mat-icon></a>
-      <a href="#proyectos"> <mat-icon class="ps-4" title="Proyectos" (click)="drawer.toggle()">description</mat-icon> </a>      
-    </nav>
-    <div class="mostrar-div">
-      <nav class="nav flex-column pt-3">
-        <app-redes></app-redes>
-      </nav>
-    </div>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div class="container navbar-top">
-      <nav color="primary" class="navbar d-flex justify-content-between">
-      <div class="d-flex justify-content-start align-items-center"> 
-          <button
-            type="button"
-            aria-label="Toggle sidenav"
-            mat-icon-button
-            (click)="drawer.toggle()">
-            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-          </button>
-          <app-ap-logo></app-ap-logo>  
-      </div>
-      <div class="ocultar-div">
-      <app-redes></app-redes>
-      </div>
-      </nav>
-    </div>
-    
-    <app-cuerpo-principal></app-cuerpo-principal>
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
-
 
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav">
+  
+  <mat-sidenav #drawer class="sidenav navbarSuperiorFija"  >
     
     <mat-nav-list class="container">
       <nav class="nav flex-column pt-3">
@@ -52,20 +12,19 @@
       <a href="#proyectos"> <mat-icon class="ps-4" title="Proyectos" (click)="drawer.toggle()">description</mat-icon> </a>      
     </nav>
     <div class="mostrar-div">
-      <nav class="nav flex-column pt-3">
+      <nav *ngIf="!login" class="nav flex-column pt-3">
         <app-redes></app-redes>
       </nav>
     </div>
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav #drawer2 class="sidenav2" position="end">
+  <mat-sidenav #drawer2 class="sidenav2 navbarSuperiorFija" position="end">
     <mat-nav-list class="container">
       <nav class="nav flex-column pt-3">
         
             <app-redes></app-redes>
             
-        
       </nav>
     
     </mat-nav-list>

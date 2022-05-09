@@ -40,3 +40,13 @@ h6{
   }
 }
 
+@media screen and (max-width: 575px) {
+  .ocultar-nombre{
+     display: none;
+   }
+
+   .mostrar-nombre{
+      display: block;
+   }
+}
+

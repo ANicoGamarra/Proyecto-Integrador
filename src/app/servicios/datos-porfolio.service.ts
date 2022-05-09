@@ -27,8 +27,8 @@ export class DatosPorfolioService {
     })
   };
 
-    //url="https://porfolio-api-ap.herokuapp.com/api"
-    url="http://localhost:8080/api";
+    url="https://porfolio-api-ap.herokuapp.com/api"
+    //url="http://localhost:8080/api";
   log: any;
 
   constructor(private http:HttpClient) { }

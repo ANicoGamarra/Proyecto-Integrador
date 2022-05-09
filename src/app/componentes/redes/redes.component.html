@@ -1,4 +1,4 @@
-<div class="d-flex" *ngIf="!login else sinSesion">    
+<div class="d-flex" *ngIf="!login else conSesion">    
     <a href="https://github.com/ANicoGamarra" target="_blank" class="me-2">
         <img class="img-fluid" class="bg-light" src="assets/imagenes/git3.png" alt="">
     </a>    
@@ -16,31 +16,33 @@
     
 </div>
 
-<ng-template #sinSesion>
-    <ul >    
-        <li class="pt-3">
-            <a href="https://github.com/ANicoGamarra" target="_blank">
-                <img class="img-fluid" class="bg-light" src="assets/imagenes/git3.png" alt="">
-            </a>    
-        </li>   
-        <li  class="pt-3"> 
-            <a href="#">
-                <img class="img-fluid" class="bg-light" src="assets/imagenes/lnkd2.png" alt="">
-            </a>    
-        </li>    
-        <li  class="pt-3"> 
-            <a href="#">
-                <img class="img-fluid" class="bg-light" src="assets/imagenes/inst2.png" alt="">
-            </a>    
-        </li>
-        <li  class="pt-3">
-            <a href="#">
-                <img class="img-fluid" class="bg-light" src="assets/imagenes/fbk2.png" alt="">
-            </a>    
-        </li>
+<ng-template #conSesion>
+    <div>
+        <ul>    
+            <li class="d-flex pt-3 justify-content-center">
+                <a href="https://github.com/ANicoGamarra" target="_blank">
+                    <img class="img-fluid" class="bg-light" src="assets/imagenes/git3.png" alt="">
+                </a>    
+            </li>   
+            <li  class="d-flex pt-3 justify-content-center pt-3"> 
+                <a href="#">
+                    <img class="img-fluid" class="bg-light" src="assets/imagenes/lnkd2.png" alt="">
+                </a>    
+            </li>    
+            <li  class="d-flex pt-3 justify-content-center pt-3"> 
+                <a href="#">
+                    <img class="img-fluid" class="bg-light" src="assets/imagenes/inst2.png" alt="">
+                </a>    
+            </li>
+            <li  class="d-flex pt-3 justify-content-center pt-3">
+                <a href="#">
+                    <img class="img-fluid" class="bg-light" src="assets/imagenes/fbk2.png" alt="">
+                </a>    
+            </li>
 
-        <li class="m-0 p-0 justify-content-center">
-            <app-btn-inicio-sesion class="btn-inicio"></app-btn-inicio-sesion>
-        </li>
-    </ul>
+            <li class="m-0 p-0 justify-content-center">
+                <app-btn-inicio-sesion class="btn-inicio"></app-btn-inicio-sesion>
+            </li>
+        </ul>
+    </div>
 </ng-template>

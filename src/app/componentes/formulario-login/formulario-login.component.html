@@ -12,7 +12,7 @@
       <div>
         <mat-form-field [formGroup]="form"  appearance="fill" >
           <mat-label>Ingrese su usuario</mat-label>          
-          <input matInput formControlName="email" matInput placeholder="example@example.com">          
+          <input matInput formControlName="username" matInput placeholder="example@example.com">          
           <mat-error *ngIf="Email?.errors && Email?.touched">
             <p *ngIf="Email?.hasError('required')">El email es requerido.</p>           
             <p *ngIf="Email?.hasError('email')">El formato debe ser válido.</p>     
@@ -35,7 +35,7 @@
 
     </mat-card-content>
     <mat-card-actions class="py-3 d-flex justify-content-center">
-      <button class=" btn btn-lg btn btn-dark " mat-raised-button color="secondary"  type="submit" (click)="logInWalter()">Ingresar</button>
+      <button class=" btn btn-lg btn btn-dark " mat-raised-button color="secondary"  type="submit" (click)="logIn()">Ingresar</button>
     </mat-card-actions>
        
     <mat-card-actions class="pb-2 ps-2 d-flex justify-content-start">

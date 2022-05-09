@@ -12,7 +12,7 @@ export class LoginServiceService {
   logueado:boolean = false;
   private loggedo$ = new BehaviorSubject<boolean>(false);
   loading:boolean ;
-
+  url:string = "https://porfolio-api-ap.herokuapp.com/api"
   
   //"eve.holt@reqres.in" usuario para la api "https://reqres.in/api/login"
 
@@ -50,4 +50,7 @@ export class LoginServiceService {
     
   }  
 
+  iniciarSesion(user: any): Observable<any> {
+    return this.http.post(this.url, user)
+  }
 }

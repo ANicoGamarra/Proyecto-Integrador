@@ -5,7 +5,8 @@ img{
 }
 ul{
    list-style:none;
-   margin-left: -12px
+   padding: 0;
+   
 }
 .btn-inicio{
    margin-left: -10px
@@ -26,3 +27,4 @@ ul{
    }
    
  }
+
