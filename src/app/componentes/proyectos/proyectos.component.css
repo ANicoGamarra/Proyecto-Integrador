@@ -4,8 +4,8 @@ p{
 }
 
 .imagen-proy{
-    width:20rem; /* or whatever width you want. */
-    max-width:20rem; /* or whatever width you want. */
+    width:10rem; /* or whatever width you want. */
+    max-width:10rem; /* or whatever width you want. */
 }
 
 .cuerpoTarjeta{
@@ -17,9 +17,17 @@ p{
 }
 
 .titulos{
-    width:15rem; /* or whatever width you want. */
-    max-width:15rem; /* or whatever width you want. */
-   
+    width:10rem; /* or whatever width you want. */
+    max-width:10rem; /* or whatever width you want. */
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.descripcion{
+    width: 80%;
+    max-width: 80%; 
+    display: flex;
+    align-items: center;
 }
 
 @media screen and (max-width: 767.98px) {
@@ -34,6 +42,22 @@ p{
     .botones{
         width:5rem; /* or whatever width you want. */
         max-width:5rem; /* or whatever width you want. */
+    }
+
+    .pantallasPequeñas{
+        margin:0;
+        padding:0;
+    }
+    .encabezado{
+        padding-right: 0;
+    }
+    .titulos{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .descripcion{
+        width: 100%;
+        max-width: 100%;
     }
     
 }

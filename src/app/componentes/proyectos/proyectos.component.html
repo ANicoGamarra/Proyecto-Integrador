@@ -8,13 +8,13 @@
         <mat-card class="container d-flex mt-2">
             <div class="pantallasGrandes">
                 <div class="d-flex ">
-                    <div class="d-flex row justify-content-evenly botones">
+                    <div class="d-flex row botones">
                         <app-btn-editar *ngIf="login" (click)="abrirModal(dato.id_proyecto)" ></app-btn-editar>
                         <br>
                         <app-btn-eliminar class="" *ngIf="login" (click)="eliminarProyecto(dato.id_proyecto)" ></app-btn-eliminar>
                     </div>
-                    <mat-card-title-group >
-                        <div class="titulos">
+                    <mat-card-title-group class="d-flex col justify-content-between">
+                        <div class="titulos ">
                             <mat-card-title class="nombre" >{{dato.nombre}} </mat-card-title>
                             
                             <mat-card-subtitle class="periodo">{{dato.fecha}}</mat-card-subtitle>
@@ -22,12 +22,12 @@
                                 <a [href]="dato.enlace" target="_blank" >link</a>    
                             </mat-card-subtitle>
                         </div>
-                        <mat-card-content class="px-3 descripcion flex-fill">
+                        <mat-card-content class="px-3 descripcion" >
                             <p class="text-wrap"> {{dato.descripcion}} </p>   
                         </mat-card-content>
                     
                     </mat-card-title-group>
-                    <div class="position-relative imagen-proy">
+                    <div class="position-relative imagen-proy ms-auto ">
 
                         <img mat-card-md-image src="\assets\imagenes\nft-preview-card-component-main\portada-image-equilibrium.jpg" class="img-fluid position-absolute top-50 start-50 translate-middle" (click)="abrirModalImagenes()"> <!-- [src]="dato.img"  -->
                     </div>
@@ -38,11 +38,11 @@
 
 
 
-            <div class=" pantallasPequeñas row">
-                <div class="d-flex row ">
+            <div class="container pantallasPequeñas row">
+                <div class="d-flex row encabezado ">
                    
-                    <mat-card-title-group  class="d-flex justify-content-between">
-                        <div class="titulos">
+                    <mat-card-title-group  class="d-flex encabezado">
+                        <div class="titulos me-auto">
                             <mat-card-title class="nombre" >{{dato.nombre}} </mat-card-title>
                             
                             <mat-card-subtitle class="periodo">{{dato.fecha}}</mat-card-subtitle>
@@ -53,14 +53,14 @@
                         <div class="position-relative imagen-proy">
                             <img mat-card-md-image src="\assets\imagenes\nft-preview-card-component-main\portada-image-equilibrium.jpg" class="img-fluid position-absolute top-50 start-50 translate-middle" (click)="abrirModalImagenes()"> <!-- [src]="dato.img"  -->
                         </div> 
-                        <div class="row botones">
-                            <app-btn-editar *ngIf="login" (click)="abrirModal(dato.id_proyecto)" ></app-btn-editar>
+                        <div class="row botones" *ngIf="login">
+                            <app-btn-editar  (click)="abrirModal(dato.id_proyecto)" ></app-btn-editar>
                             <br>
-                            <app-btn-eliminar class="" *ngIf="login" (click)="eliminarProyecto(dato.id_proyecto)"   ></app-btn-eliminar>
+                            <app-btn-eliminar class="" (click)="eliminarProyecto(dato.id_proyecto)"   ></app-btn-eliminar>
                         </div>                   
                     </mat-card-title-group>
                 </div>
-                <mat-card-content class="descripcion ">
+                <mat-card-content class="descripcion mt-2">
                     <p class="text-wrap"> {{dato.descripcion}} </p>   
                 </mat-card-content>
                 
