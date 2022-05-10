@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 import { LoginServiceService } from 'src/app/servicios/login-service.service';
 import Swal from 'sweetalert2';
+import { ProyectosImagenesModalComponent } from '../modal/proyectos-imagenes-modal/proyectos-imagenes-modal.component';
 import { ProyectosModalComponent } from '../modal/proyectos-modal/proyectos-modal.component';
 
 @Component({
@@ -17,7 +18,7 @@ export class ProyectosComponent implements OnInit {
   nuevo:boolean = true
   componente:string = "proyectos";
 
-  constructor(private datosDb:DatosPorfolioService, private loginService:LoginServiceService, private modalService: NgbModal ) { }
+  constructor(private datosDb:DatosPorfolioService, private loginService:LoginServiceService, private modalService: NgbModal, private modalImagenes: NgbModal ) { }
 
   ngOnInit(): void {
     
@@ -85,6 +86,17 @@ export class ProyectosComponent implements OnInit {
   }
   
   
+  abrirModalImagenes(){
+    const modalRef = this.modalService.open(ProyectosImagenesModalComponent,  { centered: true, size: 'xl' });       
+    //modalRef.componentInstance.id = id;
+    /*modalRef.result.then((data) => {
+      this.actualizarVistaProyectos();
+    }, (reason) => {
+      alert("no funciono")
+    })
+*/
+  }
+
 
 
 }

@@ -6,11 +6,11 @@
   </div>
 
   <div class="row">
-  <h2 class="mt-2 text-center">Soft</h2> 
+  <h2 class="mt-2 ms-2 tipoSkill"><mat-icon>play_arrow</mat-icon> Soft</h2> 
   <div *ngFor="let skill of datosPorfolio" class="col-6 col-md-3 " >
     
     <div *ngIf="skill.id_tipo_skill === 1">               
-        <h3 class="d-flex justify-content-center align-items-end text-center habilidad">{{skill.habilidad}} </h3>
+        <h4 class="d-flex justify-content-center align-items-end text-center habilidad">{{skill.habilidad}} </h4>
         <circle-progress
         [percent]= skill.porcentaje
         [radius]="100"
@@ -26,12 +26,12 @@
   </div> 
 </div>
 
-<div class="row">
-  <h2 class="mt-2 text-center">Hard</h2> 
+<div class="row mt-2">
+  <h2 class="mt-2 ms-2 tipoSkill"><mat-icon>play_arrow</mat-icon>Hard</h2> 
   <div *ngFor="let skill of datosPorfolio" class="col-6 col-md-3 " >
     
     <div *ngIf="skill.id_tipo_skill === 2">               
-        <h3 class="d-flex justify-content-center align-items-end text-center habilidad">{{skill.habilidad}} </h3>
+        <h4 class="d-flex justify-content-center align-items-end text-center habilidad">{{skill.habilidad}} </h4>
         <circle-progress
         [percent]= skill.porcentaje
         [radius]="100"

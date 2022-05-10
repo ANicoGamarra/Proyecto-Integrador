@@ -1,3 +1,46 @@
+p{
+    text-align: justify;   
+    
+}
+
 .imagen-proy{
-    max-width: 10%;
+    width:20rem; /* or whatever width you want. */
+    max-width:20rem; /* or whatever width you want. */
+}
+
+.cuerpoTarjeta{
+    width: 75%;
+}
+
+.nombre{
+    font-size: 1.25rem;    
+}
+
+.titulos{
+    width:15rem; /* or whatever width you want. */
+    max-width:15rem; /* or whatever width you want. */
+   
+}
+
+@media screen and (max-width: 767.98px) {
+    .pantallasGrandes{
+        display: none;
+    }
+  
+    .imagen-proy{
+        width:10rem; /* or whatever width you want. */
+        max-width:10rem; /* or whatever width you want. */
+    }
+    .botones{
+        width:5rem; /* or whatever width you want. */
+        max-width:5rem; /* or whatever width you want. */
+    }
+    
+}
+@media screen and (min-width: 768.2px) {
+    .pantallasPequeñas{
+        display: none;
+    }
+  
+        
 }

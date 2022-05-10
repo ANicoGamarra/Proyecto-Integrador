@@ -2,33 +2,68 @@
     <!-- <h2 class="text-end pe-4" >Proyectos</h2> -->
     <div class="d-flex justify-content-end">
         <app-btn-agregar *ngIf="login" (click)="agregarProyecto()" ></app-btn-agregar>
-        <h2 class="text-end pe-4 position-relative ms-3">Proyectos</h2>        
+        <h2 class="text-end pe-4 position-relative ms-3 fw-bold fst-italic">Proyectos</h2>        
     </div>
     <div *ngFor="let dato of datosPorfolio">
         <mat-card class="container d-flex mt-2">
-            <div class="d-flex">
-                <div class="d-flex row justify-content-evenly botones">
-                    <app-btn-editar *ngIf="login" (click)="abrirModal(dato.id_proyecto)" ></app-btn-editar>
-                    <br>
-                    <app-btn-eliminar class="" *ngIf="login" (click)="eliminarProyecto(dato.id_proyecto)" ></app-btn-eliminar>
-                </div>
-                <mat-card-title-group>
-                    <div class="w-25">
-                        <mat-card-title class="nombre" >{{dato.nombre}} </mat-card-title>
-                        
-                        <mat-card-subtitle class="periodo">{{dato.fecha}}</mat-card-subtitle>
-                        <mat-card-subtitle class="link">
-                            <a [href]="dato.enlace" target="_blank" >link</a>    
-                        </mat-card-subtitle>
+            <div class="pantallasGrandes">
+                <div class="d-flex ">
+                    <div class="d-flex row justify-content-evenly botones">
+                        <app-btn-editar *ngIf="login" (click)="abrirModal(dato.id_proyecto)" ></app-btn-editar>
+                        <br>
+                        <app-btn-eliminar class="" *ngIf="login" (click)="eliminarProyecto(dato.id_proyecto)" ></app-btn-eliminar>
                     </div>
-                    <mat-card-content class="ps-3 descripcion">
-                         {{dato.descripcion}}
-                    </mat-card-content>
+                    <mat-card-title-group >
+                        <div class="titulos">
+                            <mat-card-title class="nombre" >{{dato.nombre}} </mat-card-title>
+                            
+                            <mat-card-subtitle class="periodo">{{dato.fecha}}</mat-card-subtitle>
+                            <mat-card-subtitle class="link">
+                                <a [href]="dato.enlace" target="_blank" >link</a>    
+                            </mat-card-subtitle>
+                        </div>
+                        <mat-card-content class="px-3 descripcion flex-fill">
+                            <p class="text-wrap"> {{dato.descripcion}} </p>   
+                        </mat-card-content>
+                    
+                    </mat-card-title-group>
+                    <div class="position-relative imagen-proy">
+
+                        <img mat-card-md-image src="\assets\imagenes\nft-preview-card-component-main\portada-image-equilibrium.jpg" class="img-fluid position-absolute top-50 start-50 translate-middle" (click)="abrirModalImagenes()"> <!-- [src]="dato.img"  -->
+                    </div>
+                </div>
                 
-                </mat-card-title-group>
             </div>
-            <div class="pe-3 imagen-proy">
-                <img mat-card-md-image [src]="dato.img">
+
+
+
+
+            <div class=" pantallasPequeñas row">
+                <div class="d-flex row ">
+                   
+                    <mat-card-title-group  class="d-flex justify-content-between">
+                        <div class="titulos">
+                            <mat-card-title class="nombre" >{{dato.nombre}} </mat-card-title>
+                            
+                            <mat-card-subtitle class="periodo">{{dato.fecha}}</mat-card-subtitle>
+                            <mat-card-subtitle class="link">
+                                <a [href]="dato.enlace" target="_blank" >link</a>    
+                            </mat-card-subtitle>
+                        </div>
+                        <div class="position-relative imagen-proy">
+                            <img mat-card-md-image src="\assets\imagenes\nft-preview-card-component-main\portada-image-equilibrium.jpg" class="img-fluid position-absolute top-50 start-50 translate-middle" (click)="abrirModalImagenes()"> <!-- [src]="dato.img"  -->
+                        </div> 
+                        <div class="row botones">
+                            <app-btn-editar *ngIf="login" (click)="abrirModal(dato.id_proyecto)" ></app-btn-editar>
+                            <br>
+                            <app-btn-eliminar class="" *ngIf="login" (click)="eliminarProyecto(dato.id_proyecto)"   ></app-btn-eliminar>
+                        </div>                   
+                    </mat-card-title-group>
+                </div>
+                <mat-card-content class="descripcion ">
+                    <p class="text-wrap"> {{dato.descripcion}} </p>   
+                </mat-card-content>
+                
             </div>
         </mat-card>
     </div>

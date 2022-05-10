@@ -50,6 +50,8 @@ import { ProyectosModalComponent } from './componentes/modal/proyectos-modal/pro
 import { SkillsModalComponent } from './componentes/modal/skills-modal/skills-modal.component';
 import { ModalServiceService } from './servicios/modal-service.service';
 import { NgxScrollTopModule } from 'ngx-scrolltop';
+import { FooterComponent } from './componentes/footer/footer.component';
+import { ProyectosImagenesModalComponent } from './componentes/modal/proyectos-imagenes-modal/proyectos-imagenes-modal.component';
 
 
 
@@ -88,6 +90,8 @@ const appRoutes:Routes=[
     EducacionModalComponent,
     ProyectosModalComponent,
     SkillsModalComponent,
+    FooterComponent,
+    ProyectosImagenesModalComponent,
 
     
     
@@ -133,7 +137,7 @@ const appRoutes:Routes=[
   ],
   providers: [LoginServiceService, DatosPorfolioService, ModalServiceService],
   bootstrap: [AppComponent],
-  entryComponents: [AcercaDeModalComponent, HeaderModalComponent, FotoPerfilModalComponent,ExperienciaModalComponent, EducacionModalComponent, ProyectosModalComponent, SkillsModalComponent]
+  entryComponents: [AcercaDeModalComponent, HeaderModalComponent, FotoPerfilModalComponent,ExperienciaModalComponent, EducacionModalComponent, ProyectosModalComponent, SkillsModalComponent, ProyectosImagenesModalComponent]
   
 })
 export class AppModule { }

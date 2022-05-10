@@ -12,12 +12,12 @@
             <h5 class="text-center"> Full Stack Development Jr </h5> <!-- {{titulo.titulo}} -->
         </div>
         <div class="d-flex flex-column align-items-end descripcion">
-            <div class="d-flex justify-content-between">
+            <div class="d-flex">
                 <app-btn-editar *ngIf="login" (click)="open()" ></app-btn-editar>
                 
-                <h2 class="ms-4 pe-4"> Acerca de mi  </h2>                
+                <h2 class="ms-4 pe-4 fw-bold fst-italic"> Acerca de mi </h2>                
             </div>
-            <p class="texto-descricpcion fs-6"> {{datosPorfolio[0].descripcion}}</p>        
+            <p class="text-justify pe-3"> {{datosPorfolio[0].descripcion}}</p>                 
         </div>
     </div>
 </div>
