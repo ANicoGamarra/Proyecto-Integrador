@@ -85,10 +85,10 @@ export class DatosPorfolioService {
 
    addDato(dato:any, componente: string):Observable<any> {
      console.log(dato)
-    return this.http.post<any>(this.url+'/'+componente+'/new', dato, httpOptions).pipe(
-      tap((newDato: any) => console.log(`se agrego el dato =${newDato}`)),
-      catchError(this.handleError<any>('addDato'))
-    );
+      return this.http.post<any>(this.url+'/'+componente+'/new', dato, httpOptions).pipe(
+        tap((newDato: any) => console.log(`se agrego el dato =${newDato}`)),
+        catchError(this.handleError<any>('addDato'))
+      );
     }
 
     deleteDato(id:number, componente:string): Observable<any> {
