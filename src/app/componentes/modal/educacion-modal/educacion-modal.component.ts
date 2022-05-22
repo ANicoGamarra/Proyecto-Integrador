@@ -89,6 +89,7 @@ export class EducacionModalComponent implements OnInit {
   }
 
   actualizarEducacion(){
+    console.log(this.edu)
     this.datosDb.updateDato(this.edu, this.componente).subscribe(() => {
       this.activeModal.close();     
   });
@@ -97,7 +98,7 @@ export class EducacionModalComponent implements OnInit {
   enviarEducacion(){
     this.eduNueva = false;
     this.edu.id_persona = 1;
-    this.edu.id_nivel_educacion = 3;
+    
     
       this.datosDb.addDato(this.edu, this.componente)
         .subscribe(edu => {

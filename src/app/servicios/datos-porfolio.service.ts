@@ -19,15 +19,12 @@ export class DatosPorfolioService {
   httpOptions = {
     headers: new HttpHeaders({ 
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': '*',
-      'Access-Control-Allow-Headers': '*',
-      'Access-Control-Max-Age': '3600',
-
     })
   };
 
-    url="https://porfolio-api-ap.herokuapp.com/api"
+    url="https://api-portfolio-arg-programa.herokuapp.com/api";
+    //url2="https://argentina-programa-api-sinjwt.herokuapp.com/api"
+    
     //url="http://localhost:8080/api";
   log: any;
 
@@ -53,10 +50,15 @@ export class DatosPorfolioService {
     
   }
   */
-  
-  getDatos(componente:string): Observable<[]> {
+/*
+getAll(): Observable<any> {
+  console.log("pasa por getAll?")
+  return this.http.get(this.url2+'/educacion');
+}
+*/  
+  getDatos(componente:string): Observable<any> {
     
-    return this.http.get<[]>(`${this.url}/${componente}/findAll`, httpOptions).pipe(        
+    return this.http.get(`${this.url}/${componente}/findAll`).pipe(        
         tap(data => console.log(data)),
         catchError(this.handleError<[]>('getDatos', []))
    
@@ -77,7 +79,7 @@ export class DatosPorfolioService {
    updateDato(dato:any, componente: string): Observable<any> {
      console.log(this.url+'/'+componente+'/edit')
      console.log(dato)
-     return this.http.put(this.url+'/'+componente+'/edit', dato, httpOptions).pipe(
+     return this.http.put(this.url+'/'+componente+'/edit', dato).pipe(
          tap(_ => console.log(`xp id=${dato}`)),
          catchError(this.handleError<any>('updateXp'))
      );

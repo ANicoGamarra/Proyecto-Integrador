@@ -35,8 +35,8 @@ export class AcercaDeComponent implements OnInit {
     /* this.login = this.loginService.getLogueado() */
     this.loginService.LogState().subscribe((login) => (this.login = login));        
     this.cargarDatos();
-    this.cargarFotoPerfil();
-    this.cargarDatoTitulo();
+    
+    
   }
 
  
@@ -69,7 +69,7 @@ cargarDatos(){
     console.log(datos)
     this.datosPorfolio = datos
   });
-  
+  this.cargarFotoPerfil();
 }
 
 cargarDatoTitulo(){
@@ -83,9 +83,12 @@ cargarDatoTitulo(){
 
 cargarFotoPerfil() {
 
-  this.datosDb.getDatos("usuarios").subscribe((datos) => (
-    this.fotoPerfil = datos));
-    console.log(this.fotoPerfil);
+  this.datosDb.getDatos("usuarios").subscribe((datos) => {
+    console.log(datos)
+    this.fotoPerfil = datos
+  });
+    
+    this.cargarDatoTitulo();
 }
   
 filtrarFotoPerfil() {

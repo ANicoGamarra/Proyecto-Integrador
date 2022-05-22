@@ -5,11 +5,10 @@ p{
 
 .imagen-proy{
     width:10rem; /* or whatever width you want. */
-    max-width:10rem; /* or whatever width you want. */
-}
-
-.cuerpoTarjeta{
-    width: 75%;
+    max-width:10rem; 
+    height: 8rem;
+    max-height: 8rem;/* or whatever width you want. */
+    margin-top: -0.5rem;
 }
 
 .nombre{
@@ -27,7 +26,22 @@ p{
     width: 80%;
     max-width: 80%; 
     display: flex;
-    align-items: center;
+    /* align-items: center; */
+}
+
+.botones{
+    width:4rem; /* or whatever width you want. */
+    max-width:4rem; /* or whatever width you want. */
+    height: 8rem;
+    max-height: 8rem;
+
+}
+
+.boton{
+    height:3rem; /* or whatever width you want. */
+    max-height:3rem; /* or whatever width you want. */
+    margin-left: 0;
+    padding-left: 0;
 }
 
 @media screen and (max-width: 767.98px) {
@@ -62,6 +76,11 @@ p{
     
 }
 @media screen and (min-width: 768px) {
+    mat-card{
+        height: 9rem;
+        max-height: 9rem;
+    }
+
     .pantallasPequeñas{
         display: none;
     }

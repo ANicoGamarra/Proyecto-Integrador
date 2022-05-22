@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AutentificacionService } from 'src/app/servicios/autentificacion.service';
 import { LoginServiceService } from 'src/app/servicios/login-service.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class BtnInicioSesionComponent implements OnInit {
 
   login: any;
 
-  constructor(private router: Router, private loginService : LoginServiceService ) { }
+  constructor(private router: Router, private loginService : LoginServiceService, private autentificacionServ: AutentificacionService) { }
 
   ngOnInit(): void {
     /* this.login = this.loginService.getLogueado()    */
@@ -24,11 +25,9 @@ export class BtnInicioSesionComponent implements OnInit {
   }
 
   cerrarSesion(){
-    
-    /* this.loginService.setLogueado();
-    this.login = this.loginService.getLogueado()
-    this.router.navigate([''])
-    console.log(this.login) */
+    this.autentificacionServ.cerrarSesion();
+    this.router.navigate(['cerrarSesion']);   
+   
   }
   logOut(): void {
     this.loginService.LogOut();

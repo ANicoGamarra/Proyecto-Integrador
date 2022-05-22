@@ -1,3 +1,81 @@
+p{
+    text-align: justify;      
+}
+
+.nombre{
+    font-size: 1.25rem;    
+}
+
 .botones{
     max-width: 75px;
+}
+
+.imagen-edu{
+    width:10rem; /* or whatever width you want. */
+    max-width:10rem; /* or whatever width you want. */
+}
+
+.titulos{
+    width:10rem; /* or whatever width you want. */
+    max-width:10rem; /* or whatever width you want. */
+    
+}
+
+.descripcion{
+    width: 100%;
+    max-width: 100%; 
+    display: flex;
+    align-items: center;
+    padding-right: 0;
+}
+
+.titulo{
+    font-size: 1.25rem;    
+}
+
+
+@media screen and (max-width: 767.98px) {
+    .pantallasGrandes{
+        display: none;
+    }
+      
+    .botones{
+        width:5rem; /* or whatever width you want. */
+        max-width:5rem; /* or whatever width you want. */
+    }
+
+    .pantallasPequeñas{
+        margin:0;
+        padding:0;
+    }
+    .encabezado{
+        padding-right: 0;
+    }
+    .titulos{
+        
+        padding-right: 0;
+        width:100%; 
+        max-width:100%; 
+        height: 5rem;
+        max-height: 5rem;  
+
+    }
+    .descripcion{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .detalles{
+        width:8rem; /* or whatever width you want. */
+        max-width:8rem; /* or whatever width you want. */
+    }
+    
+}
+@media screen and (min-width: 768px) {
+    .pantallasPequeñas{
+        display: none;
+    }
+    
+  
+        
 }

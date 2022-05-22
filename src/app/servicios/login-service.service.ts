@@ -12,7 +12,7 @@ export class LoginServiceService {
   logueado:boolean = false;
   private loggedo$ = new BehaviorSubject<boolean>(false);
   loading:boolean ;
-  url:string = "https://porfolio-api-ap.herokuapp.com/api"
+  url:string = "https://api-portfolio-arg-programa.herokuapp.com/api"
   
   //"eve.holt@reqres.in" usuario para la api "https://reqres.in/api/login"
 

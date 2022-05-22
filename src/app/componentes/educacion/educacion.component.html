@@ -4,31 +4,74 @@
         <app-btn-agregar *ngIf="login" (click)="agregarEducacion()" ></app-btn-agregar>
         <h2 class="text-end pe-4 position-relative ms-3">Educacion</h2>        
     </div> 
-    <div *ngFor="let dato of datosPorfolio; let i = index">
+    <div *ngFor="let dato of datosPorfolio; let i = index">       
         <mat-card class="container d-flex mt-2">
-            <div class="d-flex w-100">
-                <div class="d-flex row justify-content-evenly botones">
-                    <app-btn-editar *ngIf="login" (click)="abrirModal(dato.id_educacion)" ></app-btn-editar>
-                    <br>
-                    <app-btn-eliminar class="" *ngIf="login" (click)="eliminarEducacion(dato.id_educacion)" ></app-btn-eliminar>
+            <div class="pantallasGrandes">
+                <div class="d-flex">
+                    <div class="d-flex row justify-content-evenly botones">
+                        <app-btn-editar *ngIf="login" (click)="abrirModal(dato.id_educacion)" ></app-btn-editar>
+                        <br>
+                        <app-btn-eliminar class="" *ngIf="login" (click)="eliminarEducacion(dato.id_educacion)" ></app-btn-eliminar>
+                    </div>
+                    <mat-card-title-group class="d-flex col justify-content-between">
+                        <div class="titulos ">                        
+                            <mat-card-subtitle class="titulo">{{dato.institucion}}</mat-card-subtitle>
+                            <mat-card-subtitle class="periodo">{{dato.fecha_egresado}}</mat-card-subtitle>
+                            <mat-card-subtitle class="certificado">
+                                <a [href]="dato.certificado">certificado</a>    
+                            </mat-card-subtitle>
+                        </div>    
+                        <div>
+                            <mat-card-title class="ps-3 instituto" >{{dato.titulo}} </mat-card-title>
+                            <mat-card-content class="px-3 descripcion">
+                                <p class="text-wrap"> {{dato.descripcion}} </p>
+                            </mat-card-content>
+                        </div>
+                    </mat-card-title-group>
+                    <div  class="position-relative imagen-edu ms-auto">
+                        <img mat-card-md-image [src]="dato.logo_educacion" class="img-fluid position-absolute top-50 start-50 translate-middle">
+                    </div>
+
                 </div>
-                <mat-card-title-group>
-                    
-                    <mat-card-title class="instituto" >{{dato.institucion}} </mat-card-title>
-                    <mat-card-subtitle class="titulo">{{dato.titulo}}</mat-card-subtitle>
-                    <mat-card-subtitle class="periodo">{{dato.fecha_egresado}}</mat-card-subtitle>
-                    <mat-card-subtitle class="certificado">
-                    <a [href]="dato.certificado">certificado</a>    
-                    </mat-card-subtitle>
-                    
-                    <mat-card-content class="ps-3 descripcion w-100">
-                        {{dato.descripcion}}
-                    </mat-card-content>
-                    
-                </mat-card-title-group>
+          
             </div>
-            <div class="pe-3">
-                <img mat-card-md-image [src]="dato.logo_educacion">
+            
+            
+            <div class="container pantallasPequeñas row">
+                <div class="d-flex row encabezado ">
+                   
+                    <mat-card-title-group  class="row encabezado">
+                        
+                            <div class="d-flex justify-content-between titulos">
+                                <div>
+                                    <mat-card-title class="instituto mt-3" >{{dato.titulo}} </mat-card-title>
+                                </div>
+                                <div  class="position-relative imagen-edu">
+                                    <img mat-card-md-image [src]="dato.logo_educacion" class="img-fluid position-absolute top-50 start-50 translate-middle">
+                                </div>                                
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <mat-card-subtitle class="titulo">{{dato.institucion}}</mat-card-subtitle>
+                                <div class="detalles">
+                                    <mat-card-subtitle class="periodo text-center">{{dato.fecha_egresado}}</mat-card-subtitle>
+                                    <mat-card-subtitle class="text-center certificado">
+                                        <a [href]="dato.certificado">certificado</a>    
+                                    </mat-card-subtitle>
+                                </div>
+                            </div>    
+                    
+                        
+                        <div class="row botones" *ngIf="login">
+                            <app-btn-editar *ngIf="login" (click)="abrirModal(dato.id_educacion)" ></app-btn-editar>
+                            <br>
+                            <app-btn-eliminar class="" *ngIf="login" (click)="eliminarEducacion(dato.id_educacion)" ></app-btn-eliminar>
+                        </div>                   
+                    </mat-card-title-group>
+                </div>
+                <mat-card-content class="descripcion mt-2">
+                    <p class="text-wrap"> {{dato.descripcion}} </p>
+                </mat-card-content>
+                
             </div>
         </mat-card>
     </div>

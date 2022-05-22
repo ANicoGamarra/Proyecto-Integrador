@@ -6,7 +6,7 @@ import { HeaderComponent } from './componentes/header/header.component';
 import { RedesComponent } from './componentes/redes/redes.component';
 import { ApLogoComponent } from './componentes/ap-logo/ap-logo.component';
 import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BtnInicioSesionComponent } from './componentes/btn-inicio-sesion/btn-inicio-sesion.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
@@ -52,6 +52,7 @@ import { ModalServiceService } from './servicios/modal-service.service';
 import { NgxScrollTopModule } from 'ngx-scrolltop';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { ProyectosImagenesModalComponent } from './componentes/modal/proyectos-imagenes-modal/proyectos-imagenes-modal.component';
+import { InterceptorService } from './servicios/interceptor.service';
 
 
 
@@ -135,7 +136,11 @@ const appRoutes:Routes=[
     NgxScrollTopModule,
     
   ],
-  providers: [LoginServiceService, DatosPorfolioService, ModalServiceService],
+  providers: [LoginServiceService, DatosPorfolioService, ModalServiceService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent],
   entryComponents: [AcercaDeModalComponent, HeaderModalComponent, FotoPerfilModalComponent,ExperienciaModalComponent, EducacionModalComponent, ProyectosModalComponent, SkillsModalComponent, ProyectosImagenesModalComponent]
   

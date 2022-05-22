@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AutentificacionService } from 'src/app/servicios/autentificacion.service';
 import { LoginServiceService } from 'src/app/servicios/login-service.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class FormularioLoginComponent {
 
   form:FormGroup;
 
-  constructor(private router: Router, private loginService: LoginServiceService, private formBuilder: FormBuilder) {
+  constructor(private router: Router, private loginService: LoginServiceService, private formBuilder: FormBuilder, private autentificacionServ:AutentificacionService) {
     this.form = this.formBuilder.group(
         {
           username:["",[Validators.required, Validators.email]],
@@ -60,17 +61,21 @@ export class FormularioLoginComponent {
   
 //login walter
 
-  logInWalter() {
+  iniciarSesion() {
     this.loading = true;
-    const user = {username: this.form.value.username, password: this.form.value.password};
-    console.log(user);
-    this.loginService.iniciarSesion(user).subscribe( data => {
+    
+    console.log(this.form.value);
+    this.autentificacionServ.iniciarSesion(this.form.value.username, this.form.value.password).subscribe( data => {
       
+      this.volverHome();
+      /*
       this.loginService.setToken(data.token);
       if(data.token !== null){
         this.logIn();
       }
+      */
      this.loading= false; 
+     
     });
     
     

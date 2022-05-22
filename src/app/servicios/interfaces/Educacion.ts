@@ -8,7 +8,7 @@ export interface Educacion {
     certificado: string;
     logo_educacion: string;
     id_persona: number;
-    id_nivel_educacion: number;
+    
 
 
 }
