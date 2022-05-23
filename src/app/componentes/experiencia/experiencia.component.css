@@ -1,9 +1,52 @@
+p{
+    text-align: justify;
+}
+
+mat-card-title{
+    width:7rem; /* or whatever width you want. */
+    max-width:7rem; /* or whatever width you want. */
+}
+
+.subtitulos{
+    width:6rem; /* or whatever width you want. */
+    max-width:6rem; /* or whatever width you want. */
+}
+
+.img-edu{
+    width:10rem; /* or whatever width you want. */
+    max-width:10rem; /* or whatever width you want. */
+}
+
 .botones{
-    max-width: 50px;
+   
 }
-.inst-logo{
-    max-width: 10%;
-}
+
 .titulos{
-    max-width: 30%;
+    
+}
+.descripcion{
+    width: 100%;
+    max-width: 100%;
+}
+
+
+@media screen and (max-width: 767.98px) {
+/* pantallas pequeñas */
+    .pantallas-grandes{
+        display: none;
+    }
+      
+   
+    
+}
+
+@media screen and (min-width: 768px) {
+/* pantallas grandes */
+    .pantallas-pequeñas{
+        display: none;
+    }
+    
+      
+   
+    
 }
