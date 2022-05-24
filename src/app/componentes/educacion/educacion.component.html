@@ -4,17 +4,18 @@
         <app-btn-agregar *ngIf="login" (click)="agregarEducacion()" ></app-btn-agregar>
         <h2 class="text-end pe-4 position-relative ms-3">Educacion</h2>        
     </div> 
-    <div *ngFor="let dato of datosPorfolio; let i = index">       
-        <mat-card class="container d-flex mt-2">
-            <div class="pantallasGrandes">
-                <div class="d-flex">
-                    <div class="d-flex row justify-content-evenly botones">
-                        <app-btn-editar *ngIf="login" (click)="abrirModal(dato.id_educacion)" ></app-btn-editar>
-                        <br>
-                        <app-btn-eliminar class="" *ngIf="login" (click)="eliminarEducacion(dato.id_educacion)" ></app-btn-eliminar>
-                    </div>
+    <div *ngFor="let dato of datosPorfolio; let i = index">    
+        <div *ngIf="login" class="d-flex my-2">
+            <app-btn-editar class="me-3" (click)="abrirModal(dato.id_educacion)" ></app-btn-editar>
+            <br>
+            <app-btn-eliminar (click)="eliminarEducacion(dato.id_educacion)" ></app-btn-eliminar>
+        </div> 
+        <mat-card class="container mt-2">  
+
+             <div *ngIf="!pantallasPequenias">
+                <div class="d-flex">                 
                     <mat-card-title-group class="d-flex col justify-content-between">
-                        <div class="titulos ">                        
+                        <div class="titulos">                        
                             <mat-card-subtitle class="titulo">{{dato.institucion}}</mat-card-subtitle>
                             <mat-card-subtitle class="periodo">{{dato.fecha_egresado}}</mat-card-subtitle>
                             <mat-card-subtitle class="certificado">
@@ -31,21 +32,15 @@
                     <div  class="position-relative imagen-edu ms-auto">
                         <img mat-card-md-image [src]="dato.logo_educacion" class="img-fluid position-absolute top-50 start-50 translate-middle">
                     </div>
-
-                </div>
-          
+                </div>          
             </div>
-            
-            
-            <div class="container pantallasPequeñas row">
-                <div class="d-flex row encabezado ">
-                   
-                    <mat-card-title-group  class="row encabezado">
-                        
+
+            <div *ngIf="pantallasPequenias">
+                <div class="d-flex row encabezado ">                   
+                    <mat-card-title-group  class="row encabezado">                        
                             <div class="d-flex justify-content-between titulos">
-                                <div>
-                                    <mat-card-title class="instituto mt-3" >{{dato.titulo}} </mat-card-title>
-                                </div>
+                                <mat-card-title class="instituto mt-3" >{{dato.titulo}} </mat-card-title>
+                                
                                 <div  class="position-relative imagen-edu">
                                     <img mat-card-md-image [src]="dato.logo_educacion" class="img-fluid position-absolute top-50 start-50 translate-middle">
                                 </div>                                
@@ -59,20 +54,14 @@
                                     </mat-card-subtitle>
                                 </div>
                             </div>    
-                    
-                        
-                        <div class="row botones" *ngIf="login">
-                            <app-btn-editar *ngIf="login" (click)="abrirModal(dato.id_educacion)" ></app-btn-editar>
-                            <br>
-                            <app-btn-eliminar class="" *ngIf="login" (click)="eliminarEducacion(dato.id_educacion)" ></app-btn-eliminar>
-                        </div>                   
                     </mat-card-title-group>
                 </div>
                 <mat-card-content class="descripcion mt-2">
                     <p class="text-wrap"> {{dato.descripcion}} </p>
                 </mat-card-content>
                 
-            </div>
+            </div> 
+            
         </mat-card>
     </div>
 </div>

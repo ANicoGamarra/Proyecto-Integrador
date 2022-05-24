@@ -1,32 +1,24 @@
 img{
-    width: 150px;
+    /* width: 150px; */
     border-radius: 50%;
     z-index: 1;
     /* position: relative;
     transform: translateY(-5em); */
 }
-/* h5{
-    position: relative;
-    transform: translateY(-10em);
-} */
-/* .container{
-    position: static;
-} */
+
+p{
+    text-align: justify;
+}
+
 .foto-perfil{
-    width: 300px;
-    position: relative;
-    transform: translateY(-5em);
-    margin-bottom: -85px;
+    width: 8rem;
+    max-width:8rem;
+  /*   position: relative; */
+    transform: translateY(-7em);
+    margin-bottom: -125px;    
     
 }
 
-p{
-         
-}
-
-.descripcion{
-    max-width: 85%;
-}
 
 @media screen and (max-width: 575px) {
     h2{
@@ -44,23 +36,3 @@ p{
         font-size: 1rem;
     }
 }
-/*
-@media screen and (max-width: 768px) {
-    h4{
-        font-size: 1,2rem;
-    }
-
-    h5{
-        font-size: 0.9rem;
-    }
-
-    p{
-        font-size: 0.8rem;
-    }
-}
-*/
-/* .btn-editar-imgaen{
-    z-index: 2;
-    
-
-} */

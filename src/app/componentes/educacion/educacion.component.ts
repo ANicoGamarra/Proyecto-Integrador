@@ -1,3 +1,4 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
@@ -16,13 +17,27 @@ export class EducacionComponent implements OnInit {
   datosPorfolio:any;
   nuevo:boolean = true
   componente:string = "educaciones";
-  constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService, private modalService: NgbModal) { }
+  pantallasPequenias:boolean = false;
+
+  constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService, private modalService: NgbModal, private responsive: BreakpointObserver) { }
 
   ngOnInit(): void {
     
     this.loginService.LogState().subscribe((login) => (this.login = login));    
     
-    this.actualizarVistaEducacion()
+    this.actualizarVistaEducacion();
+
+    
+    this.responsive.observe('(max-width: 768px)')
+      .subscribe(result => {
+
+        this.pantallasPequenias = false; 
+
+        if (result.matches) {
+          this.pantallasPequenias = true;
+        }
+
+  });
   }
 
   
