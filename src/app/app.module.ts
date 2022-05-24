@@ -134,6 +134,7 @@ const appRoutes:Routes=[
     }),
     HttpClientModule,
     NgxScrollTopModule,
+   
     
   ],
   providers: [LoginServiceService, DatosPorfolioService, ModalServiceService, {

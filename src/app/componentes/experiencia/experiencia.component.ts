@@ -3,6 +3,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 import { LoginServiceService } from 'src/app/servicios/login-service.service';
 import Swal from 'sweetalert2';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { distinctUntilChanged, tap } from 'rxjs/operators';
 
 import { ExperienciaModalComponent } from '../modal/experiencia-modal/experiencia-modal.component';
 
@@ -17,16 +19,34 @@ export class ExperienciaComponent implements OnInit {
   datosPorfolio:any;
   nuevo:boolean = true
   componente:string = "experiencias";
+ 
+  pantallasPequenias:boolean = false;
+  
   
 
-  constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService,  private modalService: NgbModal ) { }
+  constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService,  private modalService: NgbModal, private responsive: BreakpointObserver ) { }
 
   ngOnInit(): void {
    
 
     this.loginService.LogState().subscribe((login) => (this.login = login));    
     
-    this.actualizarVistaExperiencia()
+    this.actualizarVistaExperiencia()   
+
+    
+    this.responsive.observe('(max-width: 768px)')
+      .subscribe(result => {
+
+        this.pantallasPequenias = false; 
+
+        if (result.matches) {
+          this.pantallasPequenias = true;
+        }
+
+  });
+    
+  
+  
      
   }
 
@@ -96,6 +116,8 @@ export class ExperienciaComponent implements OnInit {
       }
     })
   }
+
+
   
 
 }

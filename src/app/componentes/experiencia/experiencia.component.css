@@ -1,5 +1,6 @@
 p{
     text-align: justify;
+    overflow-wrap: break-word;
 }
 
 mat-card-title{
@@ -17,36 +18,15 @@ mat-card-title{
     max-width:10rem; /* or whatever width you want. */
 }
 
-.botones{
-   
-}
 
-.titulos{
-    
-}
 .descripcion{
     width: 100%;
     max-width: 100%;
 }
 
-
-@media screen and (max-width: 767.98px) {
-/* pantallas pequeñas */
-    .pantallas-grandes{
-        display: none;
-    }
-      
-   
-    
+.pantallasPequenias{
+    width: 100%;
+    max-width: 100%;
 }
 
-@media screen and (min-width: 768px) {
-/* pantallas grandes */
-    .pantallas-pequeñas{
-        display: none;
-    }
-    
-      
-   
-    
-}
+
