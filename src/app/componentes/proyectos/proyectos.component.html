@@ -5,8 +5,38 @@
         <h2 class="text-end pe-4 position-relative ms-3 fw-bold fst-italic">Proyectos</h2>        
     </div>
     <div *ngFor="let dato of datosPorfolio">
-        <mat-card class="container d-flex mt-2">
-            <div class="pantallasGrandes">
+        <div class="d-flex mt-3" *ngIf="login">
+            <app-btn-editar  (click)="abrirModal(dato.id_proyecto)" ></app-btn-editar>
+            <br>
+            <app-btn-eliminar class="ms-2" (click)="eliminarProyecto(dato.id_proyecto)"></app-btn-eliminar>
+        </div>         
+        <mat-card  class="row mt-2 flex-wrap">
+                <mat-card-title-group class="d-flex justify-content-between encabezado ">
+                        <div class="titulos me-auto ">
+                            <mat-card-title class="nombre" >{{dato.nombre}} </mat-card-title>
+                            
+                            <mat-card-subtitle class="periodo">{{dato.fecha}}</mat-card-subtitle>
+                            <mat-card-subtitle class="link">
+                                <a [href]="dato.enlace" target="_blank" >link</a>    
+                            </mat-card-subtitle>
+                        </div>
+                        <mat-card-content *ngIf="!pantallasPequenias" class="descripcion mt-2 me-2">
+                            <p class="text-wrap"> {{dato.descripcion}} </p>   
+                        </mat-card-content> 
+                        <div class="position-relative imagen-proy">
+                            <img mat-card-md-image src="\assets\imagenes\nft-preview-card-component-main\portada-image-equilibrium.jpg" class="img-fluid position-absolute top-50 start-50 translate-middle" (click)="abrirModalImagenes()"> 
+                        </div> 
+                                 
+                </mat-card-title-group>
+            
+                <mat-card-content *ngIf="pantallasPequenias" class="descripcion mt-2">
+                    <p class="text-wrap"> {{dato.descripcion}} </p>   
+                </mat-card-content> 
+                
+            
+
+
+      <!--       <div class="pantallasGrandes">
                 <div class="d-flex ">
                     <div *ngIf="login" class="d-flex row botones justify-content-start">
                         <app-btn-editar class="boton"  (click)="abrirModal(dato.id_proyecto)" ></app-btn-editar>
@@ -30,16 +60,16 @@
                     </mat-card-title-group>
                     <div class="position-relative imagen-proy ms-auto ">
 
-                        <img mat-card-md-image src="\assets\imagenes\nft-preview-card-component-main\portada-image-equilibrium.jpg" class="img-fluid position-absolute top-50 start-50 translate-middle" (click)="abrirModalImagenes()"> <!-- [src]="dato.img"  -->
+                        <img mat-card-md-image src="\assets\imagenes\nft-preview-card-component-main\portada-image-equilibrium.jpg" class="img-fluid position-absolute top-50 start-50 translate-middle" (click)="abrirModalImagenes()">  [src]="dato.img"  
                     </div>
                 </div>
                 
-            </div>
+            </div> -->
 
 
 
 
-            <div class="container pantallasPequeñas row">
+            <!-- <div class="container pantallasPequeñas row">
                 <div class="d-flex row encabezado ">
                    
                     <mat-card-title-group  class="d-flex encabezado">
@@ -52,7 +82,7 @@
                             </mat-card-subtitle>
                         </div>
                         <div class="position-relative imagen-proy">
-                            <img mat-card-md-image src="\assets\imagenes\nft-preview-card-component-main\portada-image-equilibrium.jpg" class="img-fluid position-absolute top-50 start-50 translate-middle" (click)="abrirModalImagenes()"> <!-- [src]="dato.img"  -->
+                            <img mat-card-md-image src="\assets\imagenes\nft-preview-card-component-main\portada-image-equilibrium.jpg" class="img-fluid position-absolute top-50 start-50 translate-middle" (click)="abrirModalImagenes()"> [src]="dato.img"  
                         </div> 
                         <div class="row botones" *ngIf="login">
                             <app-btn-editar  (click)="abrirModal(dato.id_proyecto)" ></app-btn-editar>
@@ -65,7 +95,7 @@
                     <p class="text-wrap"> {{dato.descripcion}} </p>   
                 </mat-card-content>
                 
-            </div>
+            </div> -->
         </mat-card>
     </div>
 

@@ -35,7 +35,7 @@ export class SkillsComponent implements OnInit {
       const modalRef = this.modalService.open(SkillsModalComponent,  { windowClass : "myCustomModalClass", centered: true });   
       modalRef.componentInstance.datosPorfolio = this.datosPorfolio;
       modalRef.result.then((data) => {
-        this.actualizarVistaSkill();
+        this.ngOnInit();
       }, (reason) => {
         alert("no funciono")
       })

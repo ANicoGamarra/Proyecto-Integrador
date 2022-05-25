@@ -41,7 +41,7 @@ export class SkillsModalComponent implements OnInit {
   }
 
   ngOnInit(): void {    
-    this.vistaTabla()    
+    this.vistaTabla();   
   }
 
   toggleBtnAgregarSkills() {
@@ -173,6 +173,52 @@ export class SkillsModalComponent implements OnInit {
         });
     
   } 
+
+  guardarTodo() {
+    
+    Swal.fire({
+      title: '¿Desea guardar todos los cambios?',
+      //showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      //denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('¡Guardados!', '', 'success')
+        this.guardarFormularioCompleto();
+        this.activeModal.close();
+      } /*else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }*/
+    })
+   
+  }
+
+
+  guardarFormularioCompleto(){
+   // console.log("llega?")
+   // console.log(this.habilidades.value)
+     for (let skill of this.habilidades.value) {
+        let habilidad = this.datosPorfolio.find(x => x.id_skill == skill.id_skill)
+       // console.log(habilidad)
+        if (habilidad?.habilidad != skill.habilidad || habilidad?.porcentaje != skill.porcentaje || habilidad?.id_tipo_skill != skill.id_tipo_skill) {
+          
+          console.log("entra aca?")
+          this.datosDb.updateDato(skill, this.componente)
+            .subscribe(() => {
+              console.log(skill);
+            });
+        }
+      
+      
+       
+      }; 
+
+     
+    }
+    
+  
   
 
 }
