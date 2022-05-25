@@ -2,6 +2,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
+import { ImagenesProyectos } from 'src/app/servicios/interfaces/ImagenesProyectos';
 import { LoginServiceService } from 'src/app/servicios/login-service.service';
 import Swal from 'sweetalert2';
 import { ProyectosImagenesModalComponent } from '../modal/proyectos-imagenes-modal/proyectos-imagenes-modal.component';
@@ -16,7 +17,8 @@ export class ProyectosComponent implements OnInit {
 
   login:any;
   datosPorfolio:any;
-  nuevo:boolean = true
+  imagenesProyectos: ImagenesProyectos[] = [];
+  nuevo:boolean = true;
   componente:string = "proyectos";
   pantallasPequenias:boolean = false;
 
@@ -26,7 +28,9 @@ export class ProyectosComponent implements OnInit {
     
     this.loginService.LogState().subscribe((login) => (this.login = login));    
     
-    this.actualizarVistaProyectos()
+    this.actualizarVistaProyectos();
+
+    this.traerImagenes();
 
     this.responsive.observe('(max-width: 768px)')
     .subscribe(result => {
@@ -38,6 +42,8 @@ export class ProyectosComponent implements OnInit {
       }
 
 });
+
+  
   }
 
   abrirModal(id:number){
@@ -110,6 +116,10 @@ export class ProyectosComponent implements OnInit {
 */
   }
 
-
+  traerImagenes(){
+    this.datosDb.getDatos("imagenesProyectos").subscribe((datos) => (
+      console.log(datos),  
+      this.imagenesProyectos = datos));
+  }
 
 }
