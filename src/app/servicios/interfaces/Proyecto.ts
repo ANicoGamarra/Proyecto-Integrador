@@ -5,6 +5,7 @@ export interface Proyecto {
     fecha: Date;
     descripcion: string;
     enlace: string;
+    proyecto_portada: string;
 
 
 }

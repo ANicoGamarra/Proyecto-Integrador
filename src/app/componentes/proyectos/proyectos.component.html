@@ -24,7 +24,7 @@
                             <p class="text-wrap"> {{dato.descripcion}} </p>   
                         </mat-card-content> 
                         <div class="position-relative imagen-proy">
-                            <img mat-card-md-image src="\assets\imagenes\nft-preview-card-component-main\portada-image-equilibrium.jpg" class="img-fluid position-absolute top-50 start-50 translate-middle" (click)="abrirModalImagenes()"> 
+                            <img mat-card-md-image [src]="dato.proyecto_portada" class="img-fluid position-absolute top-50 start-50 translate-middle" (click)="abrirModalImagenes()"> 
                         </div> 
                                  
                 </mat-card-title-group>
