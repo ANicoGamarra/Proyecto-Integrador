@@ -187,7 +187,7 @@ export class SkillsModalComponent implements OnInit {
       if (result.isConfirmed) {
         Swal.fire('¡Guardados!', '', 'success')
         this.guardarFormularioCompleto();
-        this.activeModal.close();
+        this.activeModal.close();        
       } /*else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')
       }*/

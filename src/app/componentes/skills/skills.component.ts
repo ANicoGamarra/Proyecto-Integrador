@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
@@ -19,7 +20,7 @@ export class SkillsComponent implements OnInit {
   //nuevo:boolean = true
   componente:string = "skills";
  
-  constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService, private modalService: NgbModal ) { }
+  constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService, private modalService: NgbModal, private router: Router) { }
 
 
   ngOnInit(): void { 
@@ -35,7 +36,7 @@ export class SkillsComponent implements OnInit {
       const modalRef = this.modalService.open(SkillsModalComponent,  { windowClass : "myCustomModalClass", centered: true });   
       modalRef.componentInstance.datosPorfolio = this.datosPorfolio;
       modalRef.result.then((data) => {
-        this.ngOnInit();
+       this.ngOnInit();
       }, (reason) => {
         alert("no funciono")
       })
