@@ -53,6 +53,7 @@ import { NgxScrollTopModule } from 'ngx-scrolltop';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { ProyectosImagenesModalComponent } from './componentes/modal/proyectos-imagenes-modal/proyectos-imagenes-modal.component';
 import { InterceptorService } from './servicios/interceptor.service';
+import { PageErrorComponent } from './componentes/page-error/page-error.component';
 
 
 
@@ -93,6 +94,7 @@ const appRoutes:Routes=[
     SkillsModalComponent,
     FooterComponent,
     ProyectosImagenesModalComponent,
+    PageErrorComponent,
 
     
     

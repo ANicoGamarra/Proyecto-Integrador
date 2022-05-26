@@ -209,16 +209,7 @@ export class SkillsModalComponent implements OnInit {
             .subscribe(() => {
               console.log(skill);
             });
-        }
-      
-      
-       
+        }    
       }; 
-
-     
     }
-    
-  
-  
-
 }
