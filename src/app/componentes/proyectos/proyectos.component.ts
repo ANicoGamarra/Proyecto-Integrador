@@ -105,9 +105,9 @@ export class ProyectosComponent implements OnInit {
   }
   
   
-  abrirModalImagenes(){
+  abrirModalImagenes(id:number){
     const modalRef = this.modalService.open(ProyectosImagenesModalComponent,  { centered: true, size: 'xl' });       
-    //modalRef.componentInstance.id = id;
+    modalRef.componentInstance.id = id;
     /*modalRef.result.then((data) => {
       this.actualizarVistaProyectos();
     }, (reason) => {

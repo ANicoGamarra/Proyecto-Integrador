@@ -16,6 +16,7 @@ export class ProyectosImagenesModalComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal, private datosDb:DatosPorfolioService) { }
 
   ngOnInit(): void {
+    console.log(this.id)
     this.traerImagenes();
   }
 

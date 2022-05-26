@@ -40,8 +40,8 @@ p{
     }
       
     .botones{
-        width:5rem; /* or whatever width you want. */
-        max-width:5rem; /* or whatever width you want. */
+        width:5rem; 
+        max-width:5rem; 
     }
 
     .pantallasPequeñas{

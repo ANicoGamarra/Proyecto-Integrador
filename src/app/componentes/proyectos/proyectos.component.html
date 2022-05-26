@@ -13,7 +13,7 @@
         <mat-card  class="row mt-2 flex-wrap">
                 <mat-card-title-group class="d-flex encabezado ">
                         
-                            <mat-card-title class="nombre" >{{dato.nombre}} </mat-card-title>
+                            <mat-card-title class="nombre me-1" >{{dato.nombre}} </mat-card-title>
                             
                             <mat-card-subtitle class="periodo">{{dato.fecha}}</mat-card-subtitle>
                             <mat-card-subtitle class="link">
@@ -24,7 +24,7 @@
                             <p class="text-wrap"> {{dato.descripcion}} </p>   
                         </mat-card-content> 
                         <div class="position-relative imagen-proy">
-                            <img mat-card-md-image [src]="dato.proyecto_portada" class="img-fluid position-absolute top-50 start-50 translate-middle" (click)="abrirModalImagenes()"> 
+                            <img mat-card-md-image [src]="dato.proyecto_portada" class="img-fluid position-absolute top-50 start-50 translate-middle" (click)="abrirModalImagenes(dato.id_proyecto)"> 
                         </div> 
                                  
                 </mat-card-title-group>
