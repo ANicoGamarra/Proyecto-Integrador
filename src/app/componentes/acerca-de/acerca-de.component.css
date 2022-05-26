@@ -1,5 +1,5 @@
 img{
-    /* width: 150px; */
+    width: 7rem;
     border-radius: 50%;
     z-index: 1;
     /* position: relative;
@@ -8,6 +8,10 @@ img{
 
 p{
     text-align: justify;
+}
+
+app-btn-editar{
+    z-index: 2;
 }
 
 .foto-perfil{
@@ -19,6 +23,12 @@ p{
     
 }
 
+@media screen and (max-width: 768px) {
+   
+    img{
+        width: 6rem;
+    }
+}
 
 @media screen and (max-width: 575px) {
     h2{
@@ -34,5 +44,8 @@ p{
 
     p{
         font-size: 1rem;
+    }
+    img{
+        width: 5rem;
     }
 }

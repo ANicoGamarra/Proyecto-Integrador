@@ -1,18 +1,18 @@
 <div class="container " id="acerca-de">
     <div class="d-flex flex-wrap">
         <div>
-        <div class="d-flex justify-content-end descripcion">
-            
-                <app-btn-editar *ngIf="login" (click)="open()" ></app-btn-editar>
-                
-                <h2 class="ms-4 pe-4 fw-bold fst-italic"> Acerca de mi </h2>                        
+        <div >
+                <div>
+                <app-btn-editar *ngIf="login" (click)="open()" class="d-flex justify-content-end me-3" ></app-btn-editar>
+                </div>
+                <h2 class="text-end ms-4 pe-4 fw-bold fst-italic"> Acerca de mi </h2>                        
             
         </div>
 
-        <div class="foto-perfil me-3 justify-content-center float-start">
-            <div class="d-flex">
+        <div class="foto-perfil me-3 float-start">
+            <div class="d-flex justify-content-center">
                 <img src="/assets/imagenes/perfil3.jpg"  class="img-fluid border border-dark border-3" alt="foto de perfil">
-                <app-btn-editar *ngIf="login" class="btn-imgaen position-absolute top-0 start-100"  (click)="openFotoPerfilModal()" ></app-btn-editar>
+                <app-btn-editar *ngIf="login" class="btn-imgaen position-absolute top-0 start-50 ms-4"  (click)="openFotoPerfilModal()" ></app-btn-editar>
             </div>
             <div class="position-relative">
                 <h4 class="text-center  "> {{datosPorfolio[0].nombre}}  </h4>
