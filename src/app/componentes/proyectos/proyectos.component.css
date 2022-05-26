@@ -1,6 +1,13 @@
 p{
-    text-align: justify;   
-    
+    text-align: justify;       
+}
+
+mat-card-title, mat-card-subtitle{
+    padding-left: 0;
+    padding-right: 0;
+    width:10rem; /* or whatever width you want. */
+    max-width:10rem; /* or whatever width you want. */
+    flex-shrink: 1;
 }
 
 .imagen-proy{
@@ -62,11 +69,11 @@ p{
         padding-right: 0;
         flex-wrap: wrap;
     }
-    .titulos{
+    mat-card-title, mat-card-subtitle{
         padding-left: 0;
         padding-right: 0;
-        width:10rem; /* or whatever width you want. */
-        max-width:10rem; /* or whatever width you want. */
+        width:8rem; /* or whatever width you want. */
+        max-width:8rem; /* or whatever width you want. */
         flex-shrink: 1;
     }
     .descripcion{
