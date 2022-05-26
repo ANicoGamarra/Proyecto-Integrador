@@ -11,7 +11,7 @@ ul{
 .btn-inicio{
    margin-left: -10px
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
    .d-flex{
       display: flex;
       flex-direction: column;

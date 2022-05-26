@@ -1,7 +1,7 @@
 <div class="d-flex" *ngIf="!login else conSesion">    
     <div *ngFor="let red of datosPorfolio">
         <a [href]="red.url" [target]="red.nombre" class="me-2">
-            <img class="img-fluid" class="bg-light" [src]="red.logo_url" [alt]="red.nombre">
+            <img class="img-fluid" class="bg-light mb-2" [src]="red.logo_url" [alt]="red.nombre">
         </a>             
     </div>
     <app-btn-inicio-sesion class="btn-inicio"></app-btn-inicio-sesion>
@@ -27,7 +27,7 @@
 <ng-template #conSesion>
     <div>
         <ul *ngFor="let red of datosPorfolio">    
-            <li class="d-flex pt-3 justify-content-center">
+            <li class="d-flex pt-2 justify-content-center">
                 <a [href]="red.url" [target]="red.nombre" class="me-2">
                     <img class="img-fluid" class="bg-light" [src]="red.logo_url" [alt]="red.nombre">
                 </a>     
