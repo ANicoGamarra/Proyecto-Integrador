@@ -69,13 +69,13 @@ export class EducacionComponent implements OnInit {
       .subscribe(() => {
         this.actualizarVistaEducacion();
       });
-      console.log(id)
+    
   }
 
   actualizarVistaEducacion(){
    
     this.datosDb.getDatos(this.componente).subscribe((datos) => (
-      //console.log(datos),  
+      
       this.datosPorfolio = datos));
   }
 

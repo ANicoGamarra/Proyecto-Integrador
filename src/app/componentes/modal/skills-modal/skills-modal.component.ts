@@ -49,7 +49,7 @@ export class SkillsModalComponent implements OnInit {
   }
 
   vistaTabla(){
-    console.log(this.datosPorfolio)
+  
     this.datosPorfolio.forEach((skill: Skill) => {
       this.armarTabla(skill)
     });
@@ -88,7 +88,7 @@ export class SkillsModalComponent implements OnInit {
   borrarSkill(id:number){
     const skill = this.recuperarHabilidad(id)
     
-    console.log("borrar habilidad")
+   
     Swal.fire({
       title: '¿Desea borrar la habilidad?',
       text: "No se podrá revertir esta acción!",
@@ -111,7 +111,7 @@ export class SkillsModalComponent implements OnInit {
 
 
   agregarHabilidad(){
-    console.log(this.habilidadesNuevasForm.value.idTipoSkillNuevo)
+   
     this.nuevaHab = {habilidad:this.habilidadesNuevasForm.value.habilidadNueva, porcentaje:this.habilidadesNuevasForm.value.porcentajeNuevo, id_tipo_skill:this.habilidadesNuevasForm.value.idTipoSkillNuevo , id_persona:1}
     this.datosDb.addDato(this.nuevaHab, this.componente)
         .subscribe(nuevaHab => {
@@ -120,9 +120,9 @@ export class SkillsModalComponent implements OnInit {
   }
 
   recuperarHabilidad(id:number){
-    //console.log(id)
+  
     return this.habilidades.at(id).value
-    //console.log(skill)
+ 
   }
   
   get habilidades(): FormArray {
@@ -165,8 +165,7 @@ export class SkillsModalComponent implements OnInit {
   }
 
   guardarCambios(skill: Skill){
-    console.log("llega?")
-    console.log(this.habilidades.value)
+   
     this.datosDb.updateDato(skill, this.componente)
         .subscribe(() => {
           this.activeModal.close();
@@ -197,14 +196,13 @@ export class SkillsModalComponent implements OnInit {
 
 
   guardarFormularioCompleto(){
-   // console.log("llega?")
-   // console.log(this.habilidades.value)
+  
      for (let skill of this.habilidades.value) {
         let habilidad = this.datosPorfolio.find(x => x.id_skill == skill.id_skill)
-       // console.log(habilidad)
+      
         if (habilidad?.habilidad != skill.habilidad || habilidad?.porcentaje != skill.porcentaje || habilidad?.id_tipo_skill != skill.id_tipo_skill) {
           
-          console.log("entra aca?")
+         
           this.datosDb.updateDato(skill, this.componente)
             .subscribe(() => {
               console.log(skill);

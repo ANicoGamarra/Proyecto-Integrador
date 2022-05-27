@@ -14,9 +14,7 @@ export class BtnInicioSesionComponent implements OnInit {
 
   constructor(private router: Router, private loginService : LoginServiceService, private autentificacionServ: AutentificacionService) { }
 
-  ngOnInit(): void {
-    /* this.login = this.loginService.getLogueado()    */
-    /* console.log(this.loginLogout)  */
+  ngOnInit(): void {    
     this.loginService.LogState().subscribe((login) => (this.login = login));    
   }
 
@@ -33,10 +31,5 @@ export class BtnInicioSesionComponent implements OnInit {
     this.loginService.LogOut();
     this.router.navigate(['cerrarSesion']);   
   }
-/*
-  logState():void{
-    this.loginService.LogState();
-  }
-  */
-  
+
 }

@@ -43,19 +43,7 @@ export class DatosPorfolioService {
         return of(result as T);
     };
 }
-
-  /*
-  getDatos(componente:string):Observable<any>{
-    return this.http.get(this.url+"/"+componente+"/findAll");
-    
-  }
-  */
-/*
-getAll(): Observable<any> {
-  console.log("pasa por getAll?")
-  return this.http.get(this.url2+'/educacion');
-}
-*/  
+ 
   getDatos(componente:string): Observable<any> {
     
     return this.http.get(`${this.url}/${componente}/findAll`).pipe(        
@@ -67,7 +55,7 @@ getAll(): Observable<any> {
   }
   
   getDatoId(id: number, componente: string): Observable<any> {
-    //console.log(`${this.url}/${componente}/`+id)
+   
      const url = `${this.url}/${componente}/findById/`+id;
       return this.http.get<Experiencia>(url, httpOptions).pipe(
        tap(data => console.log(data)),
@@ -77,24 +65,21 @@ getAll(): Observable<any> {
    
       
    updateDato(dato:any, componente: string): Observable<any> {
-     console.log(this.url+'/'+componente+'/edit')
-     console.log(dato)
+    
      return this.http.put(this.url+'/'+componente+'/edit', dato).pipe(
          tap(_ => console.log(`xp id=${dato}`)),
          catchError(this.handleError<any>('updateXp'))
      );
    }
 
-   addDato(dato:any, componente: string):Observable<any> {
-     console.log(dato)
+   addDato(dato:any, componente: string):Observable<any> {    
       return this.http.post<any>(this.url+'/'+componente+'/new', dato, httpOptions).pipe(
         tap((newDato: any) => console.log(`se agrego el dato =${newDato}`)),
         catchError(this.handleError<any>('addDato'))
       );
     }
 
-    deleteDato(id:number, componente:string): Observable<any> {
-      console.log(id)
+    deleteDato(id:number, componente:string): Observable<any> {     
       const url = `${this.url}/${componente}/delete/`+id;
       return this.http.delete<any>(url, httpOptions ).pipe(
         tap(_ => console.log(`deleted id=${id}`)),

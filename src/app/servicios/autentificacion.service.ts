@@ -51,13 +51,13 @@ export class AutentificacionService {
   iniciarSesion(username: string, password: string) {
     this.user.nombreUsuario = username;
     this.user.password = password;
-    console.log("llega aca?")
+   
       return this.http.post(this.url, this.user)
           .pipe(map(user => {
               // store user details and jwt token in local storage to keep user logged in between page refreshes
               sessionStorage.setItem('currentUser', JSON.stringify(user));
               this.currentUserSubject.next(user);
-              console.log("funciona esto?", this.currentUserSubject.value.token)
+              console.log( this.currentUserSubject.value.token)
               this.loggedIn();
               return user;
              

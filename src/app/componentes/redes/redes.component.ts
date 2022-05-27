@@ -27,7 +27,7 @@ export class RedesComponent implements OnInit {
 
   datos(){
     this.datosDb.getDatos(this.componente).subscribe((datos) => {
-      console.log(datos)  
+    
       this.datosPorfolio = datos});
     
   }

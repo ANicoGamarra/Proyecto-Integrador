@@ -16,11 +16,11 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
     this.datosDb.getDatos(this.componente).subscribe((datos) => (
-      //console.log(datos),  
+    
       this.datosPorfolio = datos));
 
       this.datosDb.getDatos("usuarios").subscribe((datos) => (
-        //console.log(datos),  
+       
         this.usuario = datos));  
 
   }

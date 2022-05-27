@@ -17,13 +17,13 @@ export class ProyectosImagenesModalComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal, private datosDb:DatosPorfolioService) { }
 
   ngOnInit(): void {
-    console.log(this.id)
+   
     this.traerImagenes();
   }
 
   traerImagenes(){
     this.datosDb.getDatos("imagenesProyectos").subscribe((datos) => {
-      console.log(datos),  
+    
       this.imagenesProyectosTotal = datos
       this.arrayImagenes();    
       });
@@ -33,7 +33,7 @@ export class ProyectosImagenesModalComponent implements OnInit {
 
   arrayImagenes(){
     this.imagenesProyectos = this.imagenesProyectosTotal.filter(imagen => imagen.id_proyecto === this.id)
-    console.log(this.imagenesProyectos)
+    
   }
   
 

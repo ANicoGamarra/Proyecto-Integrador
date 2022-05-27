@@ -58,22 +58,14 @@ export class FormularioLoginComponent {
     this.loginService.LogState();
   }
 
-  
-//login walter
 
   iniciarSesion() {
     this.loading = true;
-    
-    console.log(this.form.value);
+       
     this.autentificacionServ.iniciarSesion(this.form.value.username, this.form.value.password).subscribe( data => {
       
       this.volverHome();
-      /*
-      this.loginService.setToken(data.token);
-      if(data.token !== null){
-        this.logIn();
-      }
-      */
+  
      this.loading= false; 
      
     });

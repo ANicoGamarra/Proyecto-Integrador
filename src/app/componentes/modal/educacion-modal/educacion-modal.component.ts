@@ -35,8 +35,7 @@ export class EducacionModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.id)
-    console.log(this.eduNueva)
+   
     if(this.eduNueva === false){
       this.getEducacionId();
     }
@@ -44,8 +43,7 @@ export class EducacionModalComponent implements OnInit {
 
   getEducacionId(): void {
     this.datosDb.getDatoId(this.id, this.componente).subscribe(edu => {
-      this.edu = edu
-      console.log(this.edu)
+      this.edu = edu     
       this.editForm(edu);
     });
   }
@@ -64,12 +62,10 @@ export class EducacionModalComponent implements OnInit {
 
   enviarDatos(){
    
-    //console.log(this.eduNueva)
+    
     
     if(this.eduNueva === true){
-      this.edu = this.formularioEducacion.value
-      //console.log(this.xp)
-      //console.log("si es nueva deberia salir esto")
+      this.edu = this.formularioEducacion.value      
       this.agregarEducacion()
     }else{
       this.armarModeloEducacion()
@@ -89,7 +85,7 @@ export class EducacionModalComponent implements OnInit {
   }
 
   actualizarEducacion(){
-    console.log(this.edu)
+  
     this.datosDb.updateDato(this.edu, this.componente).subscribe(() => {
       this.activeModal.close();     
   });
@@ -103,8 +99,7 @@ export class EducacionModalComponent implements OnInit {
       this.datosDb.addDato(this.edu, this.componente)
         .subscribe(edu => {
           this.activeModal.close(); 
-        });
-      //console.log(this.edu)
+        });     
   }
 
   editarEducacion() {

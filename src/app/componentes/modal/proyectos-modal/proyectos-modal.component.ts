@@ -30,13 +30,13 @@ export class ProyectosModalComponent implements OnInit {
       fecha: [''],
       descripcion: [''],
       enlace: [''],
-
+      proyecto_portada:['']
    })
 
    }
 
   ngOnInit(): void {
-    console.log(this.proyecNuevo)
+    
     if(this.proyecNuevo === false){
       this.getProyectoId();
     }
@@ -45,9 +45,9 @@ export class ProyectosModalComponent implements OnInit {
 
   getProyectoId(): void {
     this.datosDb.getDatoId(this.id, this.componente).subscribe(dato => {
-      console.log(dato);
+    
       this.proyec = dato
-      console.log(this.proyec)
+    
       this.editForm(dato);
     });
   }
@@ -59,19 +59,15 @@ export class ProyectosModalComponent implements OnInit {
       fecha: dato.fecha,
       descripcion: dato.descripcion,
       enlace: dato.enlace,
+      proyecto_portada: dato.proyecto_portada,
   });
 }
 
-enviarDatos(){
-   
-  //console.log(this.formularioExperiencia.value);
-  //console.log(this.xp)
-  //console.log(this.proyecNuevo)
-  //console.log(this.xp)
+enviarDatos(){   
+  
   if(this.proyecNuevo === true){
     this.proyec = this.formularioProyecto.value
-    console.log(this.proyec)
-    //console.log("si es nueva deberia salir esto")
+   
     this.agregarProyecto()
   }else{
     this.editarProyecto()
@@ -89,9 +85,9 @@ armarModeloProyecto(){
   
   this.proyec.descripcion = this.formularioProyecto.value.descripcion,
   this.proyec.enlace = this.formularioProyecto.value.enlace
-
+  //console.log("este es el proyecto: " + this.proyec)
   this.actualizarProyecto()
-  //console.log(this.xp)
+ 
 }
 
 actualizarProyecto(){
@@ -102,12 +98,13 @@ actualizarProyecto(){
 
 enviarProyecto(){
   this.proyecNuevo = false;
-  
+  console.log("este es el proyecto: " + this.proyec)
     this.datosDb.addDato(this.proyec, this.componente)
       .subscribe(xp => {
+        console.log(this.proyec)
         this.activeModal.close(); 
       });
-    //console.log(this.xp)
+   
 }
 
 editarProyecto() {

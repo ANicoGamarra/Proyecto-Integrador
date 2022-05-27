@@ -4,22 +4,21 @@
       <mat-icon class="rounded-circle pt-1">close</mat-icon>
     </button>
   </div>
-  
+<form [formGroup]="formulario" >
   <div class="modal-body">
     
       <div class="input-group flex-nowrap mt-2">
         <span class="input-group-text">URL: </span>
-        <input type="text" class="form-control" placeholder="subir foto" [(ngModel)]="datos[0].imgPerfil">
-        <button type="button" class="btn btn-dark align-self-center" (click)="activeModal.close('Close click')">Examinar</button>
+        <input type="text" class="form-control" placeholder="subir foto" formControlName="foto_perfil">      
       </div>
             
   </div>
  
   <div class="modal-footer d-flex  justify-content-center">
    
-        <button type="button" class="btn btn-dark " (click)="activeModal.close('Close click')">Guardar</button>
+        <button type="subbit" class="btn btn-dark " (click)="guardarDatos()" >Guardar</button>
     
    </div>
-    
+</form>  
   
 

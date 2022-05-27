@@ -17,7 +17,7 @@ export class ProyectosComponent implements OnInit {
 
   login:any;
   datosPorfolio:any;
-  imagenesProyectos: ImagenesProyectos[] = [];
+  
   nuevo:boolean = true;
   componente:string = "proyectos";
   pantallasPequenias:boolean = false;
@@ -29,8 +29,7 @@ export class ProyectosComponent implements OnInit {
     this.loginService.LogState().subscribe((login) => (this.login = login));    
     
     this.actualizarVistaProyectos();
-
-    this.traerImagenes();
+   
 
     this.responsive.observe('(max-width: 768px)')
     .subscribe(result => {
@@ -67,18 +66,19 @@ export class ProyectosComponent implements OnInit {
   }
 
   borrarProyecto(id:number){
-    
+    console.log("pasa por aca?")
     this.datosDb.deleteDato(id, this.componente)
       .subscribe(() => {
+        console.log(id)
         this.actualizarVistaProyectos();
       });
-    //  console.log(id)
+   
   }
 
   actualizarVistaProyectos(){
    
     this.datosDb.getDatos(this.componente).subscribe((datos) => (
-      //console.log(datos),  
+     
       this.datosPorfolio = datos));
   }
 
@@ -96,8 +96,6 @@ export class ProyectosComponent implements OnInit {
       if (result.isConfirmed) {
         Swal.fire(
           '¡Borrado!',
-          
-          
         );
        this.borrarProyecto(id); 
       }
@@ -116,10 +114,5 @@ export class ProyectosComponent implements OnInit {
 */
   }
 
-  traerImagenes(){
-    this.datosDb.getDatos("imagenesProyectos").subscribe((datos) => (
-      console.log(datos),  
-      this.imagenesProyectos = datos));
-  }
 
 }

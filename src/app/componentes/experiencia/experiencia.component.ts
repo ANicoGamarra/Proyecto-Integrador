@@ -84,13 +84,13 @@ export class ExperienciaComponent implements OnInit {
       .subscribe(() => {
         this.actualizarVistaExperiencia();
       });
-    //  console.log(id)
+   
   }
 
   actualizarVistaExperiencia(){
    
     this.datosDb.getDatos(this.componente).subscribe((datos) => (
-      //console.log(datos),  
+    
       this.datosPorfolio = datos));
   }
 

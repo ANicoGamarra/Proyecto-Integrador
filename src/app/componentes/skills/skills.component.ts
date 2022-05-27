@@ -46,7 +46,7 @@ export class SkillsComponent implements OnInit {
     actualizarVistaSkill(){
    
       this.datosDb.getDatos(this.componente).subscribe((datos) => (
-        //console.log(datos),  
+      
         this.datosPorfolio = datos));
     }
 

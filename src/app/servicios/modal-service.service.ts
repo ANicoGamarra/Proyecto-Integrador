@@ -13,9 +13,7 @@ export class ModalServiceService {
   constructor() { }
 
   actualizarVistaVerdadero(){
-    this.guardarDatos$.next(true);
-    console.log(this.guardarDatos$);
-    console.log('por aca deberia pasar segundo')
+    this.guardarDatos$.next(true);   
   }
   
   actualizarVistaFalso(){

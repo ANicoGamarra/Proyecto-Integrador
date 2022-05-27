@@ -6,6 +6,8 @@ import { AcercaDeModalComponent } from '../modal/acerca-de-modal/acerca-de-modal
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 import { FotoPerfilModalComponent } from '../modal/foto-perfil-modal/foto-perfil-modal.component';
 import { Persona } from 'src/app/servicios/Persona';
+import { Educacion } from 'src/app/servicios/interfaces/Educacion';
+import { Usuario } from 'src/app/servicios/interfaces/Usuario';
 
 
 
@@ -17,14 +19,13 @@ import { Persona } from 'src/app/servicios/Persona';
 })
 export class AcercaDeComponent implements OnInit {
 
-  login:any;
-  datosbd:any;
-  datosPorfolio:any; 
+  login:any;  
+  datosPorfolio!:Persona[]; 
   componente: string = "personas"
   educacion:string = "educaciones"
-  titulo:any
-  fotoPerfil:any;
-  foto:string = "";
+  titulo!:Educacion[]
+  fotoPerfil!:Usuario[];
+  
   constructor(private loginService : LoginServiceService, private modalService: NgbModal, private datosDb: DatosPorfolioService ) { 
     
     
@@ -56,7 +57,7 @@ open() {
 openFotoPerfilModal(){
   const modalRef = this.modalService.open(FotoPerfilModalComponent,  { centered: true });
  
-  modalRef.componentInstance.datosPorfolio = this.datosPorfolio;
+  modalRef.componentInstance.usuario = this.fotoPerfil;
   modalRef.result.then((data) => {
     this.cargarDatos();
   }, (reason) => {
@@ -66,7 +67,7 @@ openFotoPerfilModal(){
 
 cargarDatos(){
   this.datosDb.getDatos(this.componente).subscribe((datos) => {
-    console.log(datos)
+  
     this.datosPorfolio = datos
   });
   this.cargarFotoPerfil();
@@ -75,7 +76,7 @@ cargarDatos(){
 cargarDatoTitulo(){
   
   this.datosDb.getDatos("educaciones").subscribe((data) => {
-    console.log(data)
+   
     this.titulo = data
   });
 
@@ -84,15 +85,13 @@ cargarDatoTitulo(){
 cargarFotoPerfil() {
 
   this.datosDb.getDatos("usuarios").subscribe((datos) => {
-    console.log(datos)
+   
     this.fotoPerfil = datos
   });
     
     this.cargarDatoTitulo();
 }
   
-filtrarFotoPerfil() {
-  this.foto = this.fotoPerfil[0].foto_perfil
-}
+
 
 }

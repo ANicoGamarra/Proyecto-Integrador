@@ -45,7 +45,7 @@ this.formularioTitulo = formulario.group({
  
   }
   ngOnInit(): void {
-   // this.getTitulo()
+
    
      this.armarFormulario()
      this.armarTitulo()
@@ -54,8 +54,7 @@ this.formularioTitulo = formulario.group({
   }
 
   armarFormulario(){
-    //console.log(this.datosPorfolio)
-   // console.log(this.datosTitulo)
+    
     this.formularioAcerca.setValue({
       id_persona:this.datosPorfolio[0].id_persona,
       nombre: this.datosPorfolio[0].nombre,
@@ -96,14 +95,12 @@ this.formularioTitulo = formulario.group({
 
   enviarDatos(){
     this.datosDb.updateDato(this.formularioAcerca.value, this.component).subscribe(() => {
-      this.activeModal.close();  
-      console.log(this.formularioAcerca.value)   
+      this.activeModal.close();       
   });
   }
 
   getTitulo(){
-    this.datosDb.getDatoId(6, "educaciones").subscribe((data:any) => {
-      console.log(data)
+    this.datosDb.getDatoId(6, "educaciones").subscribe((data:any) => {    
       this.datosTitulo = data
     });
     

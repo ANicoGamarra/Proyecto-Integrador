@@ -40,7 +40,7 @@ export class ExperienciaModalComponent implements OnInit {
 }
 
   ngOnInit(): void {
-    console.log(this.expNueva)
+   
     if(this.expNueva === false){
       this.getExperienciaId();
     }
@@ -50,7 +50,7 @@ export class ExperienciaModalComponent implements OnInit {
   getExperienciaId(): void {
     this.datosDb.getDatoId(this.id, this.componente).subscribe(xp => {
       this.xp = xp
-      //console.log(this.xp)
+     
       this.editForm(xp);
     });
   }
@@ -68,15 +68,10 @@ export class ExperienciaModalComponent implements OnInit {
   }
   
   enviarDatos(){
-   
-    //console.log(this.formularioExperiencia.value);
-    //console.log(this.xp)
-    console.log(this.expNueva)
-    //console.log(this.xp)
+      
     if(this.expNueva === true){
       this.xp = this.formularioExperiencia.value
-      console.log(this.xp)
-      //console.log("si es nueva deberia salir esto")
+    
       this.agregarExperiencia()
     }else{
       this.armarModeloExperiencia()
@@ -95,7 +90,7 @@ export class ExperienciaModalComponent implements OnInit {
     this.xp.descripcion = this.formularioExperiencia.value.descripcion,
     this.xp.logo_empresa = this.formularioExperiencia.value.logo_empresa
 
-    //console.log(this.xp)
+    
   }
 
   actualizarExperiencia(){
@@ -112,7 +107,7 @@ export class ExperienciaModalComponent implements OnInit {
         .subscribe(xp => {
           this.activeModal.close(); 
         });
-      console.log(this.xp)
+    
   }
 
   editarExperiencia() {

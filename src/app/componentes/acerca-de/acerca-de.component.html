@@ -11,14 +11,14 @@
 
         <div class="foto-perfil me-3 float-start">
             <div class="d-flex justify-content-center">
-                <img src="/assets/imagenes/perfil3.jpg"  class="img-fluid border border-dark border-3" alt="foto de perfil">
+                <img [src]="fotoPerfil[0].foto_perfil"  class="img-fluid border border-dark border-3" alt="foto de perfil">
                 <app-btn-editar *ngIf="login" class="btn-imgaen position-absolute top-0 start-50 ms-4"  (click)="openFotoPerfilModal()" ></app-btn-editar>
             </div>
             <div class="position-relative">
                 <h4 class="text-center  "> {{datosPorfolio[0].nombre}}  </h4>
                 <h4 class="text-center "> {{datosPorfolio[0].apellido}} </h4>                    
             </div>
-            <h5 class="text-center"> Full Stack Development Jr </h5> <!-- {{titulo.titulo}} -->
+            <h5 class="text-center"> {{titulo[1].titulo}} </h5> 
         </div>
         <p class="text-justify pe-3"> {{datosPorfolio[0].descripcion}}</p>                     
         </div>
