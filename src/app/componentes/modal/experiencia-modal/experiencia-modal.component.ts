@@ -33,7 +33,8 @@ export class ExperienciaModalComponent implements OnInit {
       fecha_ingreso: [''],
       fecha_egreso: [''],
       descripcion:[''],
-      logo_empresa:['']
+      logo_empresa:[''], 
+      enlace_empresa:['']
    })
    
         
@@ -64,6 +65,7 @@ export class ExperienciaModalComponent implements OnInit {
         fecha_egreso:xp.fecha_egreso,
         descripcion:xp.descripcion,
         logo_empresa:xp.logo_empresa,
+        enlace_empresa:xp.enlace_empresa
     });
   }
   
@@ -88,8 +90,8 @@ export class ExperienciaModalComponent implements OnInit {
     this.xp.fecha_ingreso = this.formularioExperiencia.value.fecha_ingreso,
     this.xp.fecha_egreso = this.formularioExperiencia.value.fecha_egreso,
     this.xp.descripcion = this.formularioExperiencia.value.descripcion,
-    this.xp.logo_empresa = this.formularioExperiencia.value.logo_empresa
-
+    this.xp.logo_empresa = this.formularioExperiencia.value.logo_empresa,
+    this.xp.enlace_empresa = this.formularioExperiencia.value.enlace_empresa
     
   }
 

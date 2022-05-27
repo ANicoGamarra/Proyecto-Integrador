@@ -20,7 +20,9 @@
                     <p>{{dato.descripcion}}</p>
                 </mat-card-content>
                 <div class="img-edu order-md-4 position-relative">
-                    <img mat-card-sm-image [src]="dato.logo_empresa" class=" img-fluid position-absolute top-50 start-50 translate-middle" >
+                    <a [href]="dato.enlace_empresa"  target="_blank">
+                        <img mat-card-sm-image [src]="dato.logo_empresa" class=" img-fluid position-absolute top-50 start-50 translate-middle" >
+                    </a>
                 </div>
             </mat-card-title-group>
             <mat-card-content  *ngIf="pantallasPequenias">

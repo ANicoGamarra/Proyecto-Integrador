@@ -29,6 +29,7 @@ export class EducacionModalComponent implements OnInit {
       descripcion: [''],
       certificado: [''],
       logo_educacion: [''],
+      enlace_educacion: [''],
       
    })
 
@@ -57,6 +58,7 @@ export class EducacionModalComponent implements OnInit {
       descripcion:edu.descripcion,
       certificado:edu.certificado,
       logo_educacion:edu.logo_educacion,
+      enlace_educacion:edu.enlace_educacion,
     });
   }
 
@@ -80,7 +82,8 @@ export class EducacionModalComponent implements OnInit {
     this.edu.fecha_egresado = this.formularioEducacion.value.fecha_egresado,
     this.edu.descripcion = this.formularioEducacion.value.descripcion,
     this.edu.certificado = this.formularioEducacion.value.certificado,
-    this.edu.logo_educacion = this.formularioEducacion.value.logo_educacion
+    this.edu.logo_educacion = this.formularioEducacion.value.logo_educacion,
+    this.edu.enlace_educacion = this.formularioEducacion.value.enlace_educacion
 
   }
 

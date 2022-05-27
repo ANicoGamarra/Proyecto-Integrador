@@ -30,7 +30,9 @@
                         </div>
                     </mat-card-title-group>
                     <div  class="position-relative imagen-edu ms-auto">
-                        <img mat-card-md-image [src]="dato.logo_educacion" class="img-fluid position-absolute top-50 start-50 translate-middle">
+                        <a [href]="dato.enlace_educacion" target="_blank">
+                            <img mat-card-md-image [src]="dato.logo_educacion" class="img-fluid position-absolute top-50 start-50 translate-middle">
+                        </a>
                     </div>
                 </div>          
             </div>

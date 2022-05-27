@@ -7,6 +7,7 @@ export interface Experiencia {
     fecha_egreso: Date;
     descripcion: string;
     logo_empresa: string;
+    enlace_empresa: string;
     id_persona: number;
 
 
