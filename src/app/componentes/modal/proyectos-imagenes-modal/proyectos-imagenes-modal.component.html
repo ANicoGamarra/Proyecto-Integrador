@@ -1,14 +1,10 @@
 <div id="carouselExampleInterval" class="carousel slide position-relative" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="10000">
-        <img src="https://i.ibb.co/qjT11qk/desktop-design.jpg" class="img-fluid" alt="desktop">
-      </div>
-      <div class="carousel-item" data-bs-interval="2000">
-        <img src="https://i.ibb.co/cJ4pQz1/active-states.jpg" class="img-fluid" alt="active states">
-      </div>
-      <div class="carousel-item">
-        <img src="https://i.ibb.co/NSXHY7z/mobile2.png " class="img-fluid" alt="mobile">
-      </div>
+      <div class="carousel-item" *ngFor="let img of imagenesProyectos let i = index"
+      [ngClass]="{'active': i == 0 }">
+      <img *ngIf="img.id_proyecto === id" [src]="img.enlace_imagenes_proyecto" class="img-fluid">
+    </div>
+     
       
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">

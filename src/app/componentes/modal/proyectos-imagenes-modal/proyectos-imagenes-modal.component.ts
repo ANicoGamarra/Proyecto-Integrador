@@ -11,7 +11,8 @@ import { ImagenesProyectos } from 'src/app/servicios/interfaces/ImagenesProyecto
 export class ProyectosImagenesModalComponent implements OnInit {
 
   @Input()  id!:number;
-  imagenesProyectos!:ImagenesProyectos[] 
+  imagenesProyectosTotal!:ImagenesProyectos[] 
+  imagenesProyectos!:ImagenesProyectos[]
 
   constructor(public activeModal: NgbActiveModal, private datosDb:DatosPorfolioService) { }
 
@@ -21,9 +22,18 @@ export class ProyectosImagenesModalComponent implements OnInit {
   }
 
   traerImagenes(){
-    this.datosDb.getDatos("imagenesProyectos").subscribe((datos) => (
+    this.datosDb.getDatos("imagenesProyectos").subscribe((datos) => {
       console.log(datos),  
-      this.imagenesProyectos = datos));
+      this.imagenesProyectosTotal = datos
+      this.arrayImagenes();    
+      });
+
+  
+  }
+
+  arrayImagenes(){
+    this.imagenesProyectos = this.imagenesProyectosTotal.filter(imagen => imagen.id_proyecto === this.id)
+    console.log(this.imagenesProyectos)
   }
   
 
