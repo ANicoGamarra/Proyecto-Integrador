@@ -1,21 +1,28 @@
 <form [formGroup]="habilidadesNuevasForm">
-<div class="modal-header">
+<!-- <div class="modal-header">
   <div class="d-flex justify-content-between w-100">
-    <h4 class="modal-title">Editar proyectos</h4>    
+    <h4 class="modal-title">Skills</h4>    
     <button type="button" class="rounded-circle btn-cerrar btn btn-dark" (click)="activeModal.dismiss('Cross click')">      
       <mat-icon class="rounded-circle pt-1" >close</mat-icon>
     </button>
   </div>
   
-</div>
+</div> -->
 <div class="modal-body">
 
-  <button type="button" class="rounded-circle btn-cerrar btn btn-dark mb-2" data-bs-toggle="collapse" data-bs-target="#collapseSkill" aria-expanded="false" aria-controls="collapseSkill" (click)="toggleBtnAgregarSkills()">      
-    
-    <mat-icon *ngIf="!btnAgregarSkill" class="pt-1">add</mat-icon>
-    <mat-icon *ngIf="btnAgregarSkill" class="pt-1">remove</mat-icon>
-  </button>
+  <div class="d-flex justify-content-between">
+    <button type="button" class="rounded-circle btn-cerrar btn btn-dark mb-2" data-bs-toggle="collapse" data-bs-target="#collapseSkill" aria-expanded="false" aria-controls="collapseSkill" (click)="toggleBtnAgregarSkills()">      
+      <mat-icon *ngIf="!btnAgregarSkill" class="pt-1">add</mat-icon>
+      <mat-icon *ngIf="btnAgregarSkill" class="pt-1">remove</mat-icon>
+    </button>
 
+    <h2 class="modal-title">Skills</h2>  
+
+    <button type="button" class="rounded-circle btn-cerrar btn btn-dark" (click)="activeModal.dismiss('Cross click')">      
+      <mat-icon class="rounded-circle pt-1" >close</mat-icon>
+    </button>
+
+  </div>
   <div class="collapse" id="collapseSkill">
   
     <h4>Agregar Skill</h4>
@@ -61,7 +68,7 @@
 </div>
 </form>
 <form [formGroup]="habilidadesForm"  >
-<table class="table table-dark table-striped">
+<table class="table table-dark table-striped cuerpo-tabla">
 
     <thead>
         <tr>
@@ -74,7 +81,7 @@
     </thead>
 
     
-    <tbody  formArrayName="habilidades" *ngFor="let hab of habilidades.controls; let i=index">
+    <tbody  formArrayName="habilidades" *ngFor="let hab of habilidades.controls; let i=index" >
         <tr [formGroupName]="i">
           <th scope="row" >
             <input type="text" class="form-control" placeholder= "Habilidad" formControlName="habilidad">
@@ -101,10 +108,7 @@
     </tbody>
 
   </table>
-
-
-     
-    <div class=" modal-footer d-flex justify-content-evenly">
+<!--     <div class=" modal-footer d-flex justify-content-evenly">
 
         <div class=" ">
             <button type="button" class="btn btn-dark align-self-center" (click)="activeModal.close('Close click')">Cancelar</button>
@@ -114,6 +118,6 @@
             <button type="button" class="btn btn-dark" (click)="guardarTodo()" >Guardar todo</button>
         </div>
 
-    </div>
+    </div> -->
 
   </form>

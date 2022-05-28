@@ -1,5 +1,5 @@
 
-.modal-header, 
+.modal-header,
 .modal-footer{
     background-color: #a3a3a3;
 }
@@ -19,3 +19,8 @@
 .tipo{
     width: 20px;
 }
+
+.cuerpo-tabla{
+    background-color: #a3a3a3;
+    margin-bottom: 0;
+} 
