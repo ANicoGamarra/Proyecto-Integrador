@@ -5,6 +5,7 @@ import { LoginServiceService } from 'src/app/servicios/login-service.service';
 import Swal from 'sweetalert2';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { distinctUntilChanged, tap } from 'rxjs/operators';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 import { ExperienciaModalComponent } from '../modal/experiencia-modal/experiencia-modal.component';
 
@@ -117,7 +118,10 @@ export class ExperienciaComponent implements OnInit {
     })
   }
 
-
+  
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.datosPorfolio, event.previousIndex, event.currentIndex);
+  }
   
 
 }

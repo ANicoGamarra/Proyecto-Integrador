@@ -4,67 +4,69 @@
         <app-btn-agregar *ngIf="login" (click)="agregarEducacion()" ></app-btn-agregar>
         <h2 class="text-end pe-4 position-relative ms-3">Educacion</h2>        
     </div> 
-    <div *ngFor="let dato of datosPorfolio; let i = index">    
-        <div *ngIf="login" class="d-flex my-2">
-            <app-btn-editar class="me-3" (click)="abrirModal(dato.id_educacion)" ></app-btn-editar>
-            <br>
-            <app-btn-eliminar (click)="eliminarEducacion(dato.id_educacion)" ></app-btn-eliminar>
-        </div> 
-        <mat-card class="container mt-2">  
-
-             <div *ngIf="!pantallasPequenias">
-                <div class="d-flex">                 
-                    <mat-card-title-group class="d-flex col justify-content-between">
-                        <div class="titulos">                        
-                            <mat-card-subtitle class="titulo">{{dato.institucion}}</mat-card-subtitle>
-                            <mat-card-subtitle class="periodo">{{dato.fecha_egresado}}</mat-card-subtitle>
-                            <mat-card-subtitle class="certificado">
-                                <a [href]="dato.certificado">certificado</a>    
-                            </mat-card-subtitle>
-                        </div>    
-                        <div>
-                            <mat-card-title class="ps-3 instituto" >{{dato.titulo}} </mat-card-title>
-                            <mat-card-content class="px-3 descripcion">
-                                <p class="text-wrap"> {{dato.descripcion}} </p>
-                            </mat-card-content>
-                        </div>
-                    </mat-card-title-group>
-                    <div  class="position-relative imagen-edu ms-auto">
-                        <a [href]="dato.enlace_educacion" target="_blank">
-                            <img mat-card-md-image [src]="dato.logo_educacion" class="img-fluid position-absolute top-50 start-50 translate-middle">
-                        </a>
-                    </div>
-                </div>          
-            </div>
-
-            <div *ngIf="pantallasPequenias">
-                <div class="d-flex row encabezado ">                   
-                    <mat-card-title-group  class="row encabezado">                        
-                            <div class="d-flex justify-content-between titulos">
-                                <mat-card-title class="instituto mt-3" >{{dato.titulo}} </mat-card-title>
-                                
-                                <div  class="position-relative imagen-edu">
-                                    <img mat-card-md-image [src]="dato.logo_educacion" class="img-fluid position-absolute top-50 start-50 translate-middle">
-                                </div>                                
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <mat-card-subtitle class="titulo">{{dato.institucion}}</mat-card-subtitle>
-                                <div class="detalles">
-                                    <mat-card-subtitle class="periodo text-center">{{dato.fecha_egresado}}</mat-card-subtitle>
-                                    <mat-card-subtitle class="text-center certificado">
-                                        <a [href]="dato.certificado">certificado</a>    
-                                    </mat-card-subtitle>
-                                </div>
-                            </div>    
-                    </mat-card-title-group>
-                </div>
-                <mat-card-content class="descripcion mt-2">
-                    <p class="text-wrap"> {{dato.descripcion}} </p>
-                </mat-card-content>
-                
+    <div cdkDropList class="drop-list" (cdkDropListDropped)="drop($event)">
+        <div class="drop-box" *ngFor="let dato of datosPorfolio; let i = index" cdkDrag>    
+            <div *ngIf="login" class="d-flex my-2 ">
+                <app-btn-editar class="me-3" (click)="abrirModal(dato.id_educacion)" ></app-btn-editar>
+                <br>
+                <app-btn-eliminar (click)="eliminarEducacion(dato.id_educacion)" ></app-btn-eliminar>
             </div> 
-            
-        </mat-card>
+            <mat-card class="container mt-2">  
+
+                <div class="example-custom-placeholder" *ngIf="!pantallasPequenias"  >
+                    <div class="d-flex">                 
+                        <mat-card-title-group class="d-flex col justify-content-between">
+                            <div class="titulos">                        
+                                <mat-card-subtitle class="titulo">{{dato.institucion}}</mat-card-subtitle>
+                                <mat-card-subtitle class="periodo">{{dato.fecha_egresado}}</mat-card-subtitle>
+                                <mat-card-subtitle class="certificado">
+                                    <a [href]="dato.certificado">certificado</a>    
+                                </mat-card-subtitle>
+                            </div>    
+                            <div>
+                                <mat-card-title class="ps-3 instituto" >{{dato.titulo}} </mat-card-title>
+                                <mat-card-content class="px-3 descripcion">
+                                    <p class="text-wrap"> {{dato.descripcion}} </p>
+                                </mat-card-content>
+                            </div>
+                        </mat-card-title-group>
+                        <div  class="position-relative imagen-edu ms-auto">
+                            <a [href]="dato.enlace_educacion" target="_blank">
+                                <img mat-card-md-image [src]="dato.logo_educacion" class="img-fluid position-absolute top-50 start-50 translate-middle">
+                            </a>
+                        </div>
+                    </div>          
+                </div>
+
+                <div *ngIf="pantallasPequenias">
+                    <div class="d-flex row encabezado ">                   
+                        <mat-card-title-group  class="row encabezado">                        
+                                <div class="d-flex justify-content-between titulos">
+                                    <mat-card-title class="instituto mt-3" >{{dato.titulo}} </mat-card-title>
+                                    
+                                    <div  class="position-relative imagen-edu">
+                                        <img mat-card-md-image [src]="dato.logo_educacion" class="img-fluid position-absolute top-50 start-50 translate-middle">
+                                    </div>                                
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <mat-card-subtitle class="titulo">{{dato.institucion}}</mat-card-subtitle>
+                                    <div class="detalles">
+                                        <mat-card-subtitle class="periodo text-center">{{dato.fecha_egresado}}</mat-card-subtitle>
+                                        <mat-card-subtitle class="text-center certificado">
+                                            <a [href]="dato.certificado">certificado</a>    
+                                        </mat-card-subtitle>
+                                    </div>
+                                </div>    
+                        </mat-card-title-group>
+                    </div>
+                    <mat-card-content class="descripcion mt-2">
+                        <p class="text-wrap"> {{dato.descripcion}} </p>
+                    </mat-card-content>
+                    
+                </div> 
+                
+            </mat-card>
+        </div>
     </div>
 </div>
 

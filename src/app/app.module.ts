@@ -54,6 +54,7 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { ProyectosImagenesModalComponent } from './componentes/modal/proyectos-imagenes-modal/proyectos-imagenes-modal.component';
 import { InterceptorService } from './servicios/interceptor.service';
 import { PageErrorComponent } from './componentes/page-error/page-error.component';
+import { DragDropModule }  from '@angular/cdk/drag-drop';
 
 
 
@@ -136,6 +137,8 @@ const appRoutes:Routes=[
     }),
     HttpClientModule,
     NgxScrollTopModule,
+    DragDropModule,
+    
    
     
   ],

@@ -3,33 +3,35 @@
         <h2 class="position-relative me-3">Experiencia</h2>
         <app-btn-agregar *ngIf="login" (click)="agregarExperiencia()" ></app-btn-agregar>
     </div>
-    <div *ngFor="let dato of datosPorfolio; let i = index">
-        <mat-card class="example-card mb-2">
-            <div *ngIf="login"  class="d-flex">
-                <app-btn-editar  (click)="abrirModal(dato.id_experiencia)" class="me-3"></app-btn-editar>
-                <br>
-                <app-btn-eliminar (click)="eliminarExperiencia(dato.id_experiencia)"></app-btn-eliminar>
-            </div>
-            <mat-card-title-group>                
-                <mat-card-title class="d-flex order-md-1 me-2 mt-2">{{dato.empresa}}</mat-card-title>
-                <div class="subtitulos order-md-2 mt-3 me-3" [ngClass]="{'pantallasPequenias': pantallasPequenias}">
-                    <mat-card-subtitle >{{dato.puesto}}</mat-card-subtitle>
-                    <mat-card-subtitle >{{dato.fecha_ingreso}} {{dato.fecha_egreso}}</mat-card-subtitle>
+    <div cdkDropList class="drop-list" (cdkDropListDropped)="drop($event)">
+        <div class="drop-box" *ngFor="let dato of datosPorfolio; let i = index" cdkDrag>
+            <mat-card class="example-card mb-2">
+                <div *ngIf="login"  class="d-flex">
+                    <app-btn-editar  (click)="abrirModal(dato.id_experiencia)" class="me-3"></app-btn-editar>
+                    <br>
+                    <app-btn-eliminar (click)="eliminarExperiencia(dato.id_experiencia)"></app-btn-eliminar>
                 </div>
-                <mat-card-content  *ngIf="!pantallasPequenias" class="order-md-3 me-2 descripcion mt-3">
+                <mat-card-title-group>                
+                    <mat-card-title class="d-flex order-md-1 me-2 mt-2">{{dato.empresa}}</mat-card-title>
+                    <div class="subtitulos order-md-2 mt-3 me-3" [ngClass]="{'pantallasPequenias': pantallasPequenias}">
+                        <mat-card-subtitle >{{dato.puesto}}</mat-card-subtitle>
+                        <mat-card-subtitle >{{dato.fecha_ingreso}} {{dato.fecha_egreso}}</mat-card-subtitle>
+                    </div>
+                    <mat-card-content  *ngIf="!pantallasPequenias" class="order-md-3 me-2 descripcion mt-3">
+                        <p>{{dato.descripcion}}</p>
+                    </mat-card-content>
+                    <div class="img-edu order-md-4 position-relative">
+                        <a [href]="dato.enlace_empresa"  target="_blank">
+                            <img mat-card-sm-image [src]="dato.logo_empresa" class=" img-fluid position-absolute top-50 start-50 translate-middle" >
+                        </a>
+                    </div>
+                </mat-card-title-group>
+                <mat-card-content  *ngIf="pantallasPequenias">
                     <p>{{dato.descripcion}}</p>
                 </mat-card-content>
-                <div class="img-edu order-md-4 position-relative">
-                    <a [href]="dato.enlace_empresa"  target="_blank">
-                        <img mat-card-sm-image [src]="dato.logo_empresa" class=" img-fluid position-absolute top-50 start-50 translate-middle" >
-                    </a>
-                </div>
-            </mat-card-title-group>
-            <mat-card-content  *ngIf="pantallasPequenias">
-                <p>{{dato.descripcion}}</p>
-            </mat-card-content>
-          </mat-card>
-    </div>  
+            </mat-card>
+        </div>  
+    </div>
 </div>
 
 

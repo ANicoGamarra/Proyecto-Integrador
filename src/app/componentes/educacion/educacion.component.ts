@@ -5,6 +5,7 @@ import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 import { LoginServiceService } from 'src/app/servicios/login-service.service';
 import Swal from 'sweetalert2';
 import { EducacionModalComponent } from '../modal/educacion-modal/educacion-modal.component';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-educacion',
@@ -99,5 +100,9 @@ export class EducacionComponent implements OnInit {
        this.borrarEducacion(id); 
       }
     })
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.datosPorfolio, event.previousIndex, event.currentIndex);
   }
 }

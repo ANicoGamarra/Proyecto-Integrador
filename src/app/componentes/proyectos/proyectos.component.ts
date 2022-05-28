@@ -7,6 +7,7 @@ import { LoginServiceService } from 'src/app/servicios/login-service.service';
 import Swal from 'sweetalert2';
 import { ProyectosImagenesModalComponent } from '../modal/proyectos-imagenes-modal/proyectos-imagenes-modal.component';
 import { ProyectosModalComponent } from '../modal/proyectos-modal/proyectos-modal.component';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-proyectos',
@@ -114,5 +115,8 @@ export class ProyectosComponent implements OnInit {
 */
   }
 
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.datosPorfolio, event.previousIndex, event.currentIndex);
+  }
 
 }
