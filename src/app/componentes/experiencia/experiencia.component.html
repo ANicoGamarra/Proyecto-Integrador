@@ -4,7 +4,7 @@
         <app-btn-agregar *ngIf="login" (click)="agregarExperiencia()" ></app-btn-agregar>
     </div>
     <div cdkDropList class="drop-list" (cdkDropListDropped)="drop($event)">
-        <div class="drop-box" *ngFor="let dato of datosPorfolio; let i = index" cdkDrag>
+        <div class="drop-box" *ngFor="let dato of datosPorfolio; let i = index" cdkDrag [cdkDragDisabled]="!login">
             <mat-card class="example-card mb-2">
                 <div *ngIf="login" class="d-flex my-2 justify-content-between">
                     <div class="d-flex my-2 ">

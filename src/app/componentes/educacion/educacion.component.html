@@ -5,7 +5,7 @@
         <h2 class="text-end pe-4 position-relative ms-3">Educacion</h2>        
     </div> 
     <div cdkDropList class="drop-list" (cdkDropListDropped)="drop($event)">
-        <div class="drop-box" *ngFor="let dato of datosPorfolio; let i = index" cdkDrag>    
+        <div class="drop-box" *ngFor="let dato of datosPorfolio; let i = index" cdkDrag [cdkDragDisabled]="!login">    
             <div *ngIf="login" class="d-flex my-2 justify-content-between">
                 <div class="d-flex my-2 ">
                     <app-btn-editar class="me-3" (click)="abrirModal(dato.id_educacion)" ></app-btn-editar>
