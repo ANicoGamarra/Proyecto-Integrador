@@ -1,3 +1,4 @@
+
 <div class="container mb-4" id="proyectos">
     <!-- <h2 class="text-end pe-4" >Proyectos</h2> -->
     <div class="d-flex justify-content-end">
@@ -5,12 +6,24 @@
         <h2 class="text-end pe-4 position-relative ms-3 fw-bold fst-italic">Proyectos</h2>        
     </div>
     <div cdkDropList class="drop-list" (cdkDropListDropped)="drop($event)">
-        <div class="drop-box" *ngFor="let dato of datosPorfolio"  cdkDrag>
-            <div class="d-flex mt-3" *ngIf="login">
+        <div class="drop-box" *ngFor="let dato of datosPorfolio"  cdkDrag [cdkDragDisabled]="!login" >
+            <div *ngIf="login" class="d-flex my-2 justify-content-between">
+                <div class="d-flex my-2 ">
+                    <app-btn-editar class="me-3" (click)="abrirModal(dato.id_proyecto)" ></app-btn-editar>
+                    <br>
+                    <app-btn-eliminar (click)="eliminarProyecto(dato.id_proyecto)" ></app-btn-eliminar>
+                </div>
+                <div class="example-handle" cdkDragHandle>
+                    <button class="btn move" cdkDragHandle>
+                      <mat-icon>open_with</mat-icon>
+                    </button>
+                </div>                
+            </div>    
+          <!--   <div class="d-flex mt-3" *ngIf="login">
                 <app-btn-editar  (click)="abrirModal(dato.id_proyecto)" ></app-btn-editar>
                 <br>
                 <app-btn-eliminar class="ms-2" (click)="eliminarProyecto(dato.id_proyecto)"></app-btn-eliminar>
-            </div>         
+            </div>      -->    
             <mat-card  class="row mt-2 flex-wrap">
                     <mat-card-title-group class="d-flex encabezado ">
                             

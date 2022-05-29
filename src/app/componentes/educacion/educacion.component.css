@@ -33,6 +33,10 @@ p{
     font-size: 1.25rem;    
 }
 
+mat-card:hover {
+    background-color: #004080;
+  }
+
 .cdk-drag-preview {
     box-sizing: border-box;
     border-radius: 4px;

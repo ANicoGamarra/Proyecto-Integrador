@@ -37,6 +37,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 
 
+
 import { BtnEditarComponent } from './componentes/btn-editar/btn-editar.component';
 import { BtnEliminarComponent } from './componentes/btn-eliminar/btn-eliminar.component'; 
 import { NgCircleProgressModule } from 'ng-circle-progress';

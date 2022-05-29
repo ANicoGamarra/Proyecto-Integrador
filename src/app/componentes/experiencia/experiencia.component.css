@@ -3,6 +3,10 @@ p{
     overflow-wrap: break-word;
 }
 
+mat-card:hover {
+    background-color: #004080;
+  }
+
 mat-card-title{
     width:7rem; /* or whatever width you want. */
     max-width:7rem; /* or whatever width you want. */

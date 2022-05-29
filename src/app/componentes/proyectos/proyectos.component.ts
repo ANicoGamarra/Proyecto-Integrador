@@ -22,6 +22,7 @@ export class ProyectosComponent implements OnInit {
   nuevo:boolean = true;
   componente:string = "proyectos";
   pantallasPequenias:boolean = false;
+  dragAndDrop:boolean = true
 
   constructor(private datosDb:DatosPorfolioService, private loginService:LoginServiceService, private modalService: NgbModal, private modalImagenes: NgbModal, private responsive: BreakpointObserver ) { }
 
@@ -117,6 +118,7 @@ export class ProyectosComponent implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.datosPorfolio, event.previousIndex, event.currentIndex);
+    
   }
 
 }

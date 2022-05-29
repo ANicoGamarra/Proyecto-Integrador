@@ -1,4 +1,4 @@
-<div id="carouselExampleInterval" class="carousel slide position-relative" data-bs-ride="carousel">
+<!-- <div id="carouselExampleInterval" class="carousel slide position-relative" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item" *ngFor="let img of imagenesProyectos let i = index"
       [ngClass]="{'active': i == 0 }">
@@ -15,9 +15,25 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
-  </div>
+  </div> -->
 
   <!-- https://i.ibb.co/cJ4pQz1/active-states.jpg
   https://i.ibb.co/qjT11qk/desktop-design.jpg
   https://i.ibb.co/NSXHY7z/mobile2.png -->
 
+  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let img of imagenesProyectos let i = index"
+      [ngClass]="{'active': i == 0, 'data-bs-interval': 1000  }" >
+          <img *ngIf="img.id_proyecto === id" [src]="img.enlace_imagenes_proyecto" class="img-fluid">          
+       </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>

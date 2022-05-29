@@ -35,7 +35,12 @@ export class LoginServiceService implements OnInit {
     return this.loggedo$.asObservable();
   }
 
-
+  mantenerseLogueado(){
+    if(sessionStorage.getItem('currentUser')){
+      this.LogIn();
+      console.log("prueba")
+    }
+  }
 
 
 }

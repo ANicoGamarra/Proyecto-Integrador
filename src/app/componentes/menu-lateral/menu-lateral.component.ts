@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginServiceService } from 'src/app/servicios/login-service.service';
+import {ScrollingModule} from '@angular/cdk/scrolling'; 
 
 
 @Component({
@@ -18,6 +19,7 @@ export class MenuLateralComponent {
   ngOnInit(): void {
     /* this.login = this.loginService.getLogueado()    */
     this.loginService.LogState().subscribe((login) => (this.login = login)); 
+    this.loginService.mantenerseLogueado();
      
   }
 

@@ -9,7 +9,7 @@
   <h2 class="mt-2 ms-2 tipoSkill"><mat-icon>play_arrow</mat-icon> Soft</h2> 
   <div *ngFor="let skill of datosPorfolio" class="col-6 col-md-3 " >
     
-    <div *ngIf="skill.id_tipo_skill === 1">               
+    <div *ngIf="skill.id_tipo_skill === 1">   
         <h4 class="d-flex justify-content-center align-items-end text-center habilidad">{{skill.habilidad}} </h4>
         <circle-progress
         [percent]= skill.porcentaje
