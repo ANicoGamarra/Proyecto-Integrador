@@ -44,7 +44,7 @@ export class ProyectosModalComponent implements OnInit {
   }
 
   getProyectoId(): void {
-    this.datosDb.getDatoId(this.id, this.componente).subscribe(dato => {
+    this.datosDb.buscarId(this.id, this.componente).subscribe(dato => {
     
       this.proyec = dato
     
@@ -91,7 +91,7 @@ armarModeloProyecto(){
 }
 
 actualizarProyecto(){
-  this.datosDb.updateDato(this.proyec, this.componente).subscribe(() => {
+  this.datosDb.editar(this.proyec, this.componente).subscribe(() => {
     this.activeModal.close();     
 });
 }
@@ -99,7 +99,7 @@ actualizarProyecto(){
 enviarProyecto(){
   this.proyecNuevo = false;
   console.log("este es el proyecto: " + this.proyec)
-    this.datosDb.addDato(this.proyec, this.componente)
+    this.datosDb.agregar(this.proyec, this.componente)
       .subscribe(xp => {
         console.log(this.proyec)
         this.activeModal.close(); 

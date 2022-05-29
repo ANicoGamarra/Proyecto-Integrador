@@ -66,7 +66,7 @@ export class EducacionComponent implements OnInit {
 
   borrarEducacion(id:number){
     
-    this.datosDb.deleteDato(id, this.componente)
+    this.datosDb.borrar(id, this.componente)
       .subscribe(() => {
         this.actualizarVistaEducacion();
       });
@@ -75,7 +75,7 @@ export class EducacionComponent implements OnInit {
 
   actualizarVistaEducacion(){
    
-    this.datosDb.getDatos(this.componente).subscribe((datos) => (
+    this.datosDb.verTodos(this.componente).subscribe((datos) => (
       
       this.datosPorfolio = datos));
   }

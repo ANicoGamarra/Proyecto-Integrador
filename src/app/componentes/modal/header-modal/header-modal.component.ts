@@ -56,7 +56,7 @@ export class HeaderModalComponent implements OnInit {
     enviarDatos(){
       this.usuario[0].foto_portada = this.formulario.value.foto_portada;
   
-      this.datosDb.updateDato(this.usuario[0], this.componente).subscribe(() => {
+      this.datosDb.editar(this.usuario[0], this.componente).subscribe(() => {
         this.activeModal.close();     
     });
   }

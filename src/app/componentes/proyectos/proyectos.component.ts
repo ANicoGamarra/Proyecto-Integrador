@@ -69,7 +69,7 @@ export class ProyectosComponent implements OnInit {
 
   borrarProyecto(id:number){
     console.log("pasa por aca?")
-    this.datosDb.deleteDato(id, this.componente)
+    this.datosDb.borrar(id, this.componente)
       .subscribe(() => {
         console.log(id)
         this.actualizarVistaProyectos();
@@ -79,7 +79,7 @@ export class ProyectosComponent implements OnInit {
 
   actualizarVistaProyectos(){
    
-    this.datosDb.getDatos(this.componente).subscribe((datos) => (
+    this.datosDb.verTodos(this.componente).subscribe((datos) => (
      
       this.datosPorfolio = datos));
   }

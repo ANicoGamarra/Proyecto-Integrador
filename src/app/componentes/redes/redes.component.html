@@ -29,7 +29,7 @@
         <ul *ngFor="let red of datosPorfolio">    
             <li class="d-flex pt-2 justify-content-center">
                 <a [href]="red.url" [target]="red.nombre" class="me-2">
-                    <img class="img-fluid" class="bg-light" [src]="red.logo_url" [alt]="red.nombre">
+                    <img class="img-fluid" class="bg-light"[title]="red.nombre" [src]="red.logo_url" [alt]="red.nombre">
                 </a>     
             </li>   
         </ul>

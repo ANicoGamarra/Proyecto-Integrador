@@ -45,8 +45,7 @@ open() {
   
   const modalRef = this.modalService.open(AcercaDeModalComponent,  { centered: true });
   
-  modalRef.componentInstance.datosPorfolio = this.datosPorfolio;
-  modalRef.componentInstance.datostitulo = this.titulo[1];
+  modalRef.componentInstance.datosPorfolio = this.datosPorfolio; 
   modalRef.result.then((data) => {
     this.cargarDatos();
   }, (reason) => {
@@ -66,7 +65,7 @@ openFotoPerfilModal(){
 }
 
 cargarDatos(){
-  this.datosDb.getDatos(this.componente).subscribe((datos) => {
+  this.datosDb.verTodos(this.componente).subscribe((datos) => {
   
     this.datosPorfolio = datos
   });
@@ -75,7 +74,7 @@ cargarDatos(){
 
 cargarDatoTitulo(){
   
-  this.datosDb.getDatos("educaciones").subscribe((data) => {
+  this.datosDb.verTodos("educaciones").subscribe((data) => {
    
     this.titulo = data
   });
@@ -84,7 +83,7 @@ cargarDatoTitulo(){
 
 cargarFotoPerfil() {
 
-  this.datosDb.getDatos("usuarios").subscribe((datos) => {
+  this.datosDb.verTodos("usuarios").subscribe((datos) => {
    
     this.fotoPerfil = datos
   });

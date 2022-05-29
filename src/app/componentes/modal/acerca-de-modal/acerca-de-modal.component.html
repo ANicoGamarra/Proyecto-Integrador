@@ -1,4 +1,4 @@
-<form [formGroup]="formularioAcerca" (ngSubmit)="actualizarDatos()">
+<form [formGroup]="formularioAcerca" (ngSubmit)="actualizarDatos()" >
 <div class="modal-header">
     <h4 class="modal-title">Editar acerca de mi</h4>    
     <button type="button" class="rounded-circle btn-cerrar btn btn-dark" (click)="activeModal.dismiss('Cross click')">      
@@ -17,25 +17,26 @@
         <span class="input-group-text">Apellido: </span>
         <input type="text" class="form-control" placeholder="apellido" formControlName="apellido">
       </div>
-
-      <form [formGroup]="formularioAcerca">
-      <div class="input-group flex-nowrap mt-2">
-        
-          <label class="input-group-text texto-titulo">Titulo: </label>
-          <input type="text" class="form-control" placeholder="titulo" formControlName="titulo" >
-        
-      </div>
-    </form>
+     
+      <div class="input-group flex-nowrap mt-2">        
+          <label class="input-group-text texto-titulo">Fecha Nacimiemto: </label>
+          <input type="text" class="form-control" placeholder="Fecha de Nacimiemto" formControlName="fecha_nac" >        
+      </div>    
     
       <div class="input-group flex-nowrap mt-2">
         <span class="input-group-text">Descripción: </span>
         <textarea class="form-control" aria-label="With textarea" formControlName="descripcion"></textarea>  
-      </div>     
+      </div>
+      
+      <div class="input-group flex-nowrap mt-2">
+        <span class="input-group-text">Localidad: </span>
+        <input type="text" class="form-control" placeholder="Localidad" formControlName="localidad">
+      </div>  
       
   </div>
  
   
-    <div class=" modal-footer flex justify-content-center">
+    <div class=" modal-footer flex justify-content-end">
       
       <button type="submit" class="btn btn-dark" >Guardar</button>
       

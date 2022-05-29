@@ -57,7 +57,7 @@ export class FotoPerfilModalComponent implements OnInit {
   enviarDatos(){
     this.usuario[0].foto_perfil = this.formulario.value.foto_perfil;
 
-    this.datosDb.updateDato(this.usuario[0], this.componente).subscribe(() => {
+    this.datosDb.editar(this.usuario[0], this.componente).subscribe(() => {
       this.activeModal.close();     
   });
 }

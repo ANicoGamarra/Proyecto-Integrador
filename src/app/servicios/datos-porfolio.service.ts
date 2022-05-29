@@ -23,9 +23,7 @@ export class DatosPorfolioService {
   };
 
     url="https://api-portfolio-arg-programa.herokuapp.com/api";
-    //url2="https://argentina-programa-api-sinjwt.herokuapp.com/api"
-    
-    //url="http://localhost:8080/api";
+   
   log: any;
 
   constructor(private http:HttpClient) { }
@@ -44,46 +42,46 @@ export class DatosPorfolioService {
     };
 }
  
-  getDatos(componente:string): Observable<any> {
+  verTodos(componente:string): Observable<any> {
     
     return this.http.get(`${this.url}/${componente}/findAll`).pipe(        
         tap(data => console.log(data)),
-        catchError(this.handleError<[]>('getDatos', []))
+        catchError(this.handleError<[]>('verTodos', []))
    
         );
   
   }
   
-  getDatoId(id: number, componente: string): Observable<any> {
+  buscarId(id: number, componente: string): Observable<any> {
    
      const url = `${this.url}/${componente}/findById/`+id;
       return this.http.get<Experiencia>(url, httpOptions).pipe(
        tap(data => console.log(data)),
-       catchError(this.handleError<any>(`getXp id=${id}`))
+       catchError(this.handleError<any>(`burcarId id=${id}`))
      );
    }
    
       
-   updateDato(dato:any, componente: string): Observable<any> {
+   editar(dato:any, componente: string): Observable<any> {
     
      return this.http.put(this.url+'/'+componente+'/edit', dato).pipe(
          tap(_ => console.log(`xp id=${dato}`)),
-         catchError(this.handleError<any>('updateXp'))
+         catchError(this.handleError<any>('editar'))
      );
    }
 
-   addDato(dato:any, componente: string):Observable<any> {    
+   agregar(dato:any, componente: string):Observable<any> {    
       return this.http.post<any>(this.url+'/'+componente+'/new', dato, httpOptions).pipe(
         tap((newDato: any) => console.log(`se agrego el dato =${newDato}`)),
-        catchError(this.handleError<any>('addDato'))
+        catchError(this.handleError<any>('agregar'))
       );
     }
 
-    deleteDato(id:number, componente:string): Observable<any> {     
+    borrar(id:number, componente:string): Observable<any> {     
       const url = `${this.url}/${componente}/delete/`+id;
       return this.http.delete<any>(url, httpOptions ).pipe(
-        tap(_ => console.log(`deleted id=${id}`)),
-        catchError(this.handleError<any>('delete'))
+        tap(_ => console.log(`borrar id=${id}`)),
+        catchError(this.handleError<any>('borrar'))
       );
     }
   

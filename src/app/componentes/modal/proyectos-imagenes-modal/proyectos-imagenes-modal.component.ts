@@ -22,7 +22,7 @@ export class ProyectosImagenesModalComponent implements OnInit {
   }
 
   traerImagenes(){
-    this.datosDb.getDatos("imagenesProyectos").subscribe((datos) => {
+    this.datosDb.verTodos("imagenesProyectos").subscribe((datos) => {
     
       this.imagenesProyectosTotal = datos
       this.arrayImagenes();    

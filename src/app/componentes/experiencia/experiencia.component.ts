@@ -81,7 +81,7 @@ export class ExperienciaComponent implements OnInit {
 
   borrarExperiencia(id:number){
     
-    this.datosDb.deleteDato(id, this.componente)
+    this.datosDb.borrar(id, this.componente)
       .subscribe(() => {
         this.actualizarVistaExperiencia();
       });
@@ -90,7 +90,7 @@ export class ExperienciaComponent implements OnInit {
 
   actualizarVistaExperiencia(){
    
-    this.datosDb.getDatos(this.componente).subscribe((datos) => (
+    this.datosDb.verTodos(this.componente).subscribe((datos) => (
     
       this.datosPorfolio = datos));
   }

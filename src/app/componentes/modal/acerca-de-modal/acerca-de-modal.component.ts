@@ -23,7 +23,7 @@ export class AcercaDeModalComponent implements OnInit {
   formularioTitulo!: FormGroup;  
   component: string = "personas"
   datosPorfolio:Persona [] = []
-  datosTitulo:Educacion [] = [];
+ 
   
 
 
@@ -35,20 +35,11 @@ export class AcercaDeModalComponent implements OnInit {
     
     fecha_nac: [''],
     descripcion:[''],
-    
- })
-this.formularioTitulo = formulario.group({
-
-  titulo: [''],
-})
-
- 
+    localidad: [''],    
+    })
   }
-  ngOnInit(): void {
-
-   
+  ngOnInit(): void {   
      this.armarFormulario()
-     this.armarTitulo()
     
     
   }
@@ -62,15 +53,9 @@ this.formularioTitulo = formulario.group({
       
       fecha_nac: this.datosPorfolio[0].fecha_nac,
       descripcion: this.datosPorfolio[0].descripcion,
-      
+      localidad: this.datosPorfolio[0].localidad,
     })
     
-  }
-
-  armarTitulo(){
-    this.formularioTitulo.setValue({
-      titulo: this.datosTitulo[0].titulo,
-    })
   }
 
   actualizarDatos(){
@@ -83,29 +68,26 @@ this.formularioTitulo = formulario.group({
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
+        this.editarPersona()
         Swal.fire('¡Guardados!', '', 'success')
-        this.enviarDatos()
+        this.activeModal.close();
       
         
       } /*else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')
       }*/
     })
-  }
+  } 
 
-  enviarDatos(){
-    this.datosDb.updateDato(this.formularioAcerca.value, this.component).subscribe(() => {
-      this.activeModal.close();       
+  editarPersona(){
+    this.datosDb.editar(this.formularioAcerca.value, this.component).subscribe(() => {
+      
   });
   }
 
-  getTitulo(){
-    this.datosDb.getDatoId(6, "educaciones").subscribe((data:any) => {    
-      this.datosTitulo = data
-    });
-    
-    
-  }
+ 
+
+
 
   
 }

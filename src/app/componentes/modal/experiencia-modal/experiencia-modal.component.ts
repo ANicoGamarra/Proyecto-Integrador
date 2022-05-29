@@ -49,7 +49,7 @@ export class ExperienciaModalComponent implements OnInit {
   }
 
   getExperienciaId(): void {
-    this.datosDb.getDatoId(this.id, this.componente).subscribe(xp => {
+    this.datosDb.buscarId(this.id, this.componente).subscribe(xp => {
       this.xp = xp
      
       this.editForm(xp);
@@ -96,7 +96,7 @@ export class ExperienciaModalComponent implements OnInit {
   }
 
   actualizarExperiencia(){
-    this.datosDb.updateDato(this.xp, this.componente).subscribe(() => {
+    this.datosDb.editar(this.xp, this.componente).subscribe(() => {
       this.activeModal.close();     
   });
   }
@@ -105,7 +105,7 @@ export class ExperienciaModalComponent implements OnInit {
     this.expNueva = false;
     this.xp.id_persona = 1;
     
-      this.datosDb.addDato(this.xp, this.componente)
+      this.datosDb.agregar(this.xp, this.componente)
         .subscribe(xp => {
           this.activeModal.close(); 
         });

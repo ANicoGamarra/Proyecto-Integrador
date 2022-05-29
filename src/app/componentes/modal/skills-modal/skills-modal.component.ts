@@ -113,7 +113,7 @@ export class SkillsModalComponent implements OnInit {
   agregarHabilidad(){
    
     this.nuevaHab = {habilidad:this.habilidadesNuevasForm.value.habilidadNueva, porcentaje:this.habilidadesNuevasForm.value.porcentajeNuevo, id_tipo_skill:this.habilidadesNuevasForm.value.idTipoSkillNuevo , id_persona:1}
-    this.datosDb.addDato(this.nuevaHab, this.componente)
+    this.datosDb.agregar(this.nuevaHab, this.componente)
         .subscribe(nuevaHab => {
           this.activeModal.close();
         });
@@ -130,14 +130,14 @@ export class SkillsModalComponent implements OnInit {
   }
 
   borrarHabilidad(id:number){
-    this.datosDb.deleteDato(id, this.componente)
+    this.datosDb.borrar(id, this.componente)
       .subscribe(() => {
         this.activeModal.close();
       });
   }
 
   guardar(){
-    this.datosDb.addDato(this.formularioSkill.value, this.componente)
+    this.datosDb.agregar(this.formularioSkill.value, this.componente)
       .subscribe(() => {
         this.activeModal.close();
       });
@@ -166,7 +166,7 @@ export class SkillsModalComponent implements OnInit {
 
   guardarCambios(skill: Skill){
    
-    this.datosDb.updateDato(skill, this.componente)
+    this.datosDb.editar(skill, this.componente)
         .subscribe(() => {
           this.activeModal.close();
         });
@@ -203,7 +203,7 @@ export class SkillsModalComponent implements OnInit {
         if (habilidad?.habilidad != skill.habilidad || habilidad?.porcentaje != skill.porcentaje || habilidad?.id_tipo_skill != skill.id_tipo_skill) {
           
          
-          this.datosDb.updateDato(skill, this.componente)
+          this.datosDb.editar(skill, this.componente)
             .subscribe(() => {
               console.log(skill);
             });

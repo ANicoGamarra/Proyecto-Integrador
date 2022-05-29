@@ -15,11 +15,11 @@ export class FooterComponent implements OnInit {
   constructor( private datosDb: DatosPorfolioService) { }
 
   ngOnInit(): void {
-    this.datosDb.getDatos(this.componente).subscribe((datos) => (
+    this.datosDb.verTodos(this.componente).subscribe((datos) => (
     
       this.datosPorfolio = datos));
 
-      this.datosDb.getDatos("usuarios").subscribe((datos) => (
+      this.datosDb.verTodos("usuarios").subscribe((datos) => (
        
         this.usuario = datos));  
 

@@ -43,7 +43,7 @@ export class EducacionModalComponent implements OnInit {
   }
 
   getEducacionId(): void {
-    this.datosDb.getDatoId(this.id, this.componente).subscribe(edu => {
+    this.datosDb.buscarId(this.id, this.componente).subscribe(edu => {
       this.edu = edu     
       this.editForm(edu);
     });
@@ -89,7 +89,7 @@ export class EducacionModalComponent implements OnInit {
 
   actualizarEducacion(){
   
-    this.datosDb.updateDato(this.edu, this.componente).subscribe(() => {
+    this.datosDb.editar(this.edu, this.componente).subscribe(() => {
       this.activeModal.close();     
   });
   }
@@ -99,7 +99,7 @@ export class EducacionModalComponent implements OnInit {
     this.edu.id_persona = 1;
     
     
-      this.datosDb.addDato(this.edu, this.componente)
+      this.datosDb.agregar(this.edu, this.componente)
         .subscribe(edu => {
           this.activeModal.close(); 
         });     

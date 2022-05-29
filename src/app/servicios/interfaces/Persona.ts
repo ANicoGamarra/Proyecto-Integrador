@@ -5,6 +5,7 @@ export interface Persona {
     apellido: string;
     fecha_nac: Date;
     descripcion: string;
+    localidad: string;
     
 
 }

@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit {
   }
 
   actualizarVistaHeader(){
-    this.datosDb.getDatos(this.componente).subscribe((datos) => {
+    this.datosDb.verTodos(this.componente).subscribe((datos) => {
      
       this.datosPorfolio = datos
     });
