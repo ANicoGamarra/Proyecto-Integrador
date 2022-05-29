@@ -2,7 +2,7 @@
     
     <div class="d-flex justify-content-end">
         <app-btn-agregar *ngIf="login" (click)="agregarEducacion()" ></app-btn-agregar>
-        <h2 class="text-end pe-4 position-relative ms-3">Educacion</h2>        
+        <h2 class="text-end pe-4 position-relative ms-3 fw-bold fst-italic">Educacion</h2>        
     </div> 
     <div cdkDropList class="drop-list" (cdkDropListDropped)="drop($event)">
         <div class="drop-box" *ngFor="let dato of datosPorfolio; let i = index" cdkDrag [cdkDragDisabled]="!login">    

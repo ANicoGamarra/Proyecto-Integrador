@@ -2,7 +2,14 @@ img{
    width: 40px;
    /* border: 1px solid hsl(0, 0%, 100%); */
    border-radius: 50%;
+   opacity: 0.75;
+  
 }
+
+img:hover{
+   opacity:1;
+}
+
 ul{
    list-style:none;
    padding: 0;
@@ -11,6 +18,8 @@ ul{
 .btn-inicio{
    margin-left: -10px
 }
+
+
 @media screen and (max-width: 768px) {
    .d-flex{
       display: flex;
