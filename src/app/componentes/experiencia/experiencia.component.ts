@@ -60,7 +60,7 @@ export class ExperienciaComponent implements OnInit {
     modalRef.result.then((data) => {
       this.actualizarVistaExperiencia();
     }, (reason) => {
-      alert("no funciono")
+      
     })
 
 
@@ -73,7 +73,7 @@ export class ExperienciaComponent implements OnInit {
     modalRef.result.then((data) => {
       this.actualizarVistaExperiencia();
     }, (reason) => {
-      alert("no funciono")
+     
     })
     
     

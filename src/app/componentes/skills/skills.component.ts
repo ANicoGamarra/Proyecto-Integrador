@@ -38,7 +38,7 @@ export class SkillsComponent implements OnInit {
       modalRef.result.then((data) => {
        this.ngOnInit();
       }, (reason) => {
-        alert("no funciono")
+       
       })
       
     }

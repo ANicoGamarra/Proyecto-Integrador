@@ -49,7 +49,7 @@ export class EducacionComponent implements OnInit {
     modalRef.result.then((data) => {
       this.actualizarVistaEducacion();
     }, (reason) => {
-      alert("no funciono")
+    
     })
 
 
@@ -60,7 +60,7 @@ export class EducacionComponent implements OnInit {
     modalRef.result.then((data) => {
       this.actualizarVistaEducacion();
     }, (reason) => {
-      alert("no funciono")
+     
     })
   }
 

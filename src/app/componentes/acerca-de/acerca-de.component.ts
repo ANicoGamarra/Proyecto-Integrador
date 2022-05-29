@@ -50,7 +50,7 @@ open() {
   modalRef.result.then((data) => {
     this.cargarDatos();
   }, (reason) => {
-    alert("no funciono")
+  
   })
 }
 
@@ -61,7 +61,7 @@ openFotoPerfilModal(){
   modalRef.result.then((data) => {
     this.cargarDatos();
   }, (reason) => {
-    alert("no funciono")
+  
   })
 }
 

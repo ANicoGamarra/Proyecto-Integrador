@@ -53,7 +53,7 @@ export class ProyectosComponent implements OnInit {
     modalRef.result.then((data) => {
       this.actualizarVistaProyectos();
     }, (reason) => {
-      alert("no funciono")
+     
     })
 
   }
@@ -63,7 +63,7 @@ export class ProyectosComponent implements OnInit {
     modalRef.result.then((data) => {
       this.actualizarVistaProyectos();
     }, (reason) => {
-      alert("no funciono")
+     
     })
   }
 

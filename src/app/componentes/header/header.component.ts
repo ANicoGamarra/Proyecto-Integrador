@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
     modalRef.result.then((data) => {
       this.actualizarVistaHeader();
     }, (reason) => {
-      alert("no funciono")
+      
     })
   }
 
