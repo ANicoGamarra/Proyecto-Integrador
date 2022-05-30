@@ -9,8 +9,6 @@ import { LoginServiceService } from './login-service.service';
 })
 export class AutentificacionService {
 
-  //url2: string = "https://comunidad-apirest.herokuapp.com/api/login";
-  //url: string = "https://error-pueblada-api.herokuapp.com/api/login"
   url="https://api-portfolio-arg-programa.herokuapp.com/api/login";
   user: Usuario = { 
     id_usuario:0, 
