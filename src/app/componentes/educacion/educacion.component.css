@@ -11,13 +11,13 @@ p{
 }
 
 .imagen-edu{
-    width:10rem; /* or whatever width you want. */
-    max-width:10rem; /* or whatever width you want. */  
+    width:10rem; 
+    max-width:10rem;  
 }
 
 .titulos{
-    width:10rem; /* or whatever width you want. */
-    max-width:10rem; /* or whatever width you want. */
+    width:10rem; 
+    max-width:10rem; 
     
 }
 
@@ -86,8 +86,8 @@ mat-card:hover {
     }
 
     .detalles{
-        width:8rem; /* or whatever width you want. */
-        max-width:8rem; /* or whatever width you want. */
+        width:8rem; 
+        max-width:8rem; 
     }
     
 }
@@ -95,7 +95,6 @@ mat-card:hover {
     .pantallasPequeñas{
         display: none;
     }
-    
-  
-        
+   
+       
 }

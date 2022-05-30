@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
+
 
 @Component({
   selector: 'app-ap-logo',
@@ -8,10 +8,9 @@ import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 })
 export class ApLogoComponent implements OnInit {
 
-  constructor(private datosDb:DatosPorfolioService) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {    
   }
 
 }

@@ -7,9 +7,6 @@ import { HeaderModalComponent } from '../modal/header-modal/header-modal.compone
 import { Usuario } from 'src/app/servicios/interfaces/Usuario';
 
 
-
-
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -17,7 +14,7 @@ import { Usuario } from 'src/app/servicios/interfaces/Usuario';
 })
 export class HeaderComponent implements OnInit {
 
-  /* login:boolean = false; */
+  
   login:any;
   datosPorfolio!:Usuario[];
   componente:string = "usuarios"
@@ -28,14 +25,14 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
    
-    this.loginService.LogState().subscribe((login) => (this.login = login));
-    this.actualizarVistaHeader()
+    this.loginService.LogState().subscribe((login) => (this.login = login));      //comunica con el servicio para saber si esta logueado o no 
+    this.actualizarVistaHeader()                                                  //actualiza la vista del header
   }
 
   open() {
   
-    const modalRef = this.modalService.open(HeaderModalComponent,  { centered: true });   
-    modalRef.componentInstance.usuario = this.datosPorfolio;
+    const modalRef = this.modalService.open(HeaderModalComponent,  { centered: true });   //abre el modal y lo centra
+    modalRef.componentInstance.usuario = this.datosPorfolio;                                  //envia los datos del usuario
 
     modalRef.result.then((data) => {
       this.actualizarVistaHeader();

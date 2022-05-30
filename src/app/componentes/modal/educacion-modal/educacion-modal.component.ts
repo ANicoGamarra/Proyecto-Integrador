@@ -37,7 +37,7 @@ export class EducacionModalComponent implements OnInit {
 
   ngOnInit(): void {
    
-    if(this.eduNueva === false){
+    if(this.eduNueva === false){                          //si la educacion no es nueva, deriva al metodo para solicitar los datos
       this.getEducacionId();
     }
   }
@@ -49,7 +49,7 @@ export class EducacionModalComponent implements OnInit {
     });
   }
 
-  editForm(edu:any){
+  editForm(edu:any){                                      //metodo para llenar el formulario con los datos de la educacion
     this.formularioEducacion.setValue( {
       id_educacion: this.id,
       titulo:edu.titulo ,
@@ -63,13 +63,10 @@ export class EducacionModalComponent implements OnInit {
   }
 
   enviarDatos(){
-   
-    
-    
-    if(this.eduNueva === true){
+    if(this.eduNueva === true){                           //si la educacion es nueva, carga los datos del formulario en la variable y llama al metodo del servico para crear
       this.edu = this.formularioEducacion.value      
       this.agregarEducacion()
-    }else{
+    }else{                                                // si no es nueva, deriva al metido para armar la educacion con los nuevo datos 
       this.armarModeloEducacion()
       this.editarEducacion()
     }

@@ -5,9 +5,10 @@
     </button>
 </div>
 
+<form [formGroup]="formularioEducacion" (ngSubmit)="enviarDatos()">
 <div class="modal-body">
     
-  <form [formGroup]="formularioEducacion" (ngSubmit)="enviarDatos()">
+  
     <div class="input-group flex-nowrap mt-2">
       <span class="input-group-text">Institucion: </span>
       <input type="text" class="form-control" placeholder= "Institucion" formControlName="institucion">
@@ -42,14 +43,11 @@
       <span class="input-group-text">Url Instituto: </span>
       <input type="text" class="form-control" placeholder="subir url instituto" formControlName="enlace_educacion">
     </div>
-  
+ 
+  </div>    
 
-<div class="modal-footer d-flex justify-content-evenly mt-2">
-
-  <div class=" align-self-end">
-      <button type="submit" class="btn btn-dark"  >Guardar</button>
-  </div>
- </div>
+    <div class="modal-footer d-flex mt-2">      
+      <button type="submit" class="btn btn-dark ms-auto"  >Guardar</button>
+    </div>
 
 </form>    
-</div>

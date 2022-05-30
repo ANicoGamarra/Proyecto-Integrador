@@ -11,7 +11,7 @@ import { LoginServiceService } from 'src/app/servicios/login-service.service';
 })
 export class FormularioLoginComponent {
   hide = true;
-  login:any;
+ 
   usuario:string = "";
   password:string = "";
   
@@ -30,7 +30,7 @@ export class FormularioLoginComponent {
   }
 
   onSubmit(): void {
-    this.loginService.LogState().subscribe((login) => (this.login = login));
+    
   }
 
   get Email(){

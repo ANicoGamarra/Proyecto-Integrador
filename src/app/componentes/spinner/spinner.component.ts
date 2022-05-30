@@ -8,7 +8,7 @@ import { LoginServiceService } from 'src/app/servicios/login-service.service';
 })
 export class SpinnerComponent implements OnInit {
 
-  isLoading$ = this.loginService.isLoading$;
+  isLoading$ = this.loginService.isLoading$;    // observable que activa el componente spinner
 
   constructor(private loginService: LoginServiceService) { }
 

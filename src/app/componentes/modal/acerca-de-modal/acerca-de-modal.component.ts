@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
-import { Educacion } from 'src/app/servicios/interfaces/Educacion';
 import { Persona } from 'src/app/servicios/interfaces/Persona';
 import Swal from 'sweetalert2';
 
@@ -16,15 +15,10 @@ import Swal from 'sweetalert2';
 
 export class AcercaDeModalComponent implements OnInit {
 
-//  @Input() datosPorfolio!:Persona []; 
-
-
   formularioAcerca!: FormGroup;
   formularioTitulo!: FormGroup;  
-  component: string = "personas"
-  datosPorfolio:Persona [] = []
- 
-  
+  component: string = "personas";
+  datosPorfolio:Persona [] = []; 
 
 
   constructor(public activeModal: NgbActiveModal, private formulario: FormBuilder, private datosDb:DatosPorfolioService) { 
@@ -40,11 +34,9 @@ export class AcercaDeModalComponent implements OnInit {
   }
   ngOnInit(): void {   
      this.armarFormulario()
-    
-    
   }
 
-  armarFormulario(){
+  armarFormulario(){                                              //setea el valor de los campos del formulario con los datos del objeto
     
     this.formularioAcerca.setValue({
       id_persona:this.datosPorfolio[0].id_persona,
@@ -85,9 +77,4 @@ export class AcercaDeModalComponent implements OnInit {
   });
   }
 
- 
-
-
-
-  
 }

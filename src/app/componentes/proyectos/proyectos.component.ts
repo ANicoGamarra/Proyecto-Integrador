@@ -28,12 +28,12 @@ export class ProyectosComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.loginService.LogState().subscribe((login) => (this.login = login));    
+    this.loginService.LogState().subscribe((login) => (this.login = login));      //comunica con el servicio para saber si esta logueado o no   
     
-    this.actualizarVistaProyectos();
+    this.actualizarVistaProyectos();                                              //actualiza la vista de los proyectos
    
 
-    this.responsive.observe('(max-width: 768px)')
+    this.responsive.observe('(max-width: 768px)')                                 //comprueba si la pantalla es pequeña
     .subscribe(result => {
 
       this.pantallasPequenias = false; 
@@ -48,9 +48,9 @@ export class ProyectosComponent implements OnInit {
   }
 
   abrirModal(id:number){
-    const modalRef = this.modalService.open(ProyectosModalComponent,  { centered: true });       
-    modalRef.componentInstance.id = id;
-    modalRef.result.then((data) => {
+    const modalRef = this.modalService.open(ProyectosModalComponent,  { centered: true });      //abre el modal y lo centra 
+    modalRef.componentInstance.id = id;                                                         //le pasa el id del proyecto
+    modalRef.result.then((data) => {                                                            //cuando se cierra el modal
       this.actualizarVistaProyectos();
     }, (reason) => {
      
@@ -58,9 +58,9 @@ export class ProyectosComponent implements OnInit {
 
   }
   agregarProyecto(){
-    const modalRef = this.modalService.open(ProyectosModalComponent,  { centered: true });
-    modalRef.componentInstance.proyecNuevo = this.nuevo;
-    modalRef.result.then((data) => {
+    const modalRef = this.modalService.open(ProyectosModalComponent,  { centered: true });      //abre el modal y lo centra
+    modalRef.componentInstance.proyecNuevo = this.nuevo;                                        //le pasa un booleano para saber si es un nuevo proyecto o no
+    modalRef.result.then((data) => {                                                            //cuando se cierra el modal actualiza la vista del componente
       this.actualizarVistaProyectos();
     }, (reason) => {
      
@@ -106,14 +106,9 @@ export class ProyectosComponent implements OnInit {
   
   
   abrirModalImagenes(id:number){
-    const modalRef = this.modalService.open(ProyectosImagenesModalComponent,  { centered: true, size: 'xl' });       
-    modalRef.componentInstance.id = id;
-    /*modalRef.result.then((data) => {
-      this.actualizarVistaProyectos();
-    }, (reason) => {
-      alert("no funciono")
-    })
-*/
+    const modalRef = this.modalService.open(ProyectosImagenesModalComponent,  { centered: true, size: 'xl' });      //abre el modal y lo centra    
+    modalRef.componentInstance.id = id;                                                                             //le pasa el id del proyecto
+    
   }
 
   drop(event: CdkDragDrop<string[]>) {

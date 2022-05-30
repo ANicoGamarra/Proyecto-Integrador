@@ -1,10 +1,9 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges  } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 import { LoginServiceService } from 'src/app/servicios/login-service.service';
 import Swal from 'sweetalert2';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { distinctUntilChanged, tap } from 'rxjs/operators';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 import { ExperienciaModalComponent } from '../modal/experiencia-modal/experiencia-modal.component';
@@ -30,12 +29,12 @@ export class ExperienciaComponent implements OnInit {
   ngOnInit(): void {
    
 
-    this.loginService.LogState().subscribe((login) => (this.login = login));    
+    this.loginService.LogState().subscribe((login) => (this.login = login));     //comunica con el servicio para saber si esta logueado o no 
     
-    this.actualizarVistaExperiencia()   
+    this.actualizarVistaExperiencia()                                            //actualiza la vista de experiencias  
 
     
-    this.responsive.observe('(max-width: 768px)')
+    this.responsive.observe('(max-width: 768px)')                               //comprueba si la pantalla es pequeña
       .subscribe(result => {
 
         this.pantallasPequenias = false; 
@@ -54,8 +53,8 @@ export class ExperienciaComponent implements OnInit {
 
 
   abrirModal(id:number){
-    const modalRef = this.modalService.open(ExperienciaModalComponent,  { centered: true });       
-    modalRef.componentInstance.id = id;
+    const modalRef = this.modalService.open(ExperienciaModalComponent,  { centered: true });       //abre el modal y lo centra
+    modalRef.componentInstance.id = id;                                                            //le pasa el id de la experiencia
 
     modalRef.result.then((data) => {
       this.actualizarVistaExperiencia();
@@ -68,9 +67,9 @@ export class ExperienciaComponent implements OnInit {
 
   
   agregarExperiencia(){
-    const modalRef = this.modalService.open(ExperienciaModalComponent,  { centered: true });
-    modalRef.componentInstance.expNueva = this.nuevo;
-    modalRef.result.then((data) => {
+    const modalRef = this.modalService.open(ExperienciaModalComponent,  { centered: true });    //abre el modal y lo centra
+    modalRef.componentInstance.expNueva = this.nuevo;                                           //le pasa un booleano para saber si es una nueva experiencia o una editada
+    modalRef.result.then((data) => {                                                            //cuando se cierra el modal actualiza la vista del componente
       this.actualizarVistaExperiencia();
     }, (reason) => {
      

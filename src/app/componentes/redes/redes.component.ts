@@ -20,7 +20,7 @@ export class RedesComponent implements OnInit {
 
   ngOnInit(): void {
    
-    this.loginService.LogState().subscribe((login) => (this.login = login));     
+    this.loginService.LogState().subscribe((login) => (this.login = login));      //comunica con el servicio para saber si esta logueado o no 
     
     this.datos()
   }

@@ -26,16 +26,16 @@ export class SkillsComponent implements OnInit {
   ngOnInit(): void { 
     
     
-    this.loginService.LogState().subscribe((login) => (this.login = login));    
+    this.loginService.LogState().subscribe((login) => (this.login = login));    //comunica con el servicio para saber si esta logueado o no
     
-    this.actualizarVistaSkill()
+    this.actualizarVistaSkill()                                                 //actualiza la vista del componente
       
     }
 
     abrirModal(){
-      const modalRef = this.modalService.open(SkillsModalComponent,  { windowClass : "myCustomModalClass", centered: true });   
-      modalRef.componentInstance.datosPorfolio = this.datosPorfolio;
-      modalRef.result.then((data) => {
+      const modalRef = this.modalService.open(SkillsModalComponent,  { windowClass : "myCustomModalClass", centered: true });   //abre el modal y lo centra
+      modalRef.componentInstance.datosPorfolio = this.datosPorfolio;                                                            //envia los datos de las skills
+      modalRef.result.then((data) => {                                                                                          //cuando se cierra el modal actualiza la vista del componente
        this.ngOnInit();
       }, (reason) => {
        

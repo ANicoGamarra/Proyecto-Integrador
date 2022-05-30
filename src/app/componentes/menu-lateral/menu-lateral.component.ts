@@ -11,15 +11,15 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 export class MenuLateralComponent {
 
   login:any;
-  isLoading$ = this.loginService.isLoading$;
+  isLoading$ = this.loginService.isLoading$;    // observable que activa el componente spinner
   
 
   constructor(private loginService: LoginServiceService) {}
 
   ngOnInit(): void {
-    /* this.login = this.loginService.getLogueado()    */
-    this.loginService.LogState().subscribe((login) => (this.login = login)); 
-    this.loginService.mantenerseLogueado();
+  
+    this.loginService.LogState().subscribe((login) => (this.login = login));     //comunica con el servicio para saber si esta logueado o no 
+    this.loginService.mantenerseLogueado();                                     //mantiene el usuario logueado
      
   }
 
