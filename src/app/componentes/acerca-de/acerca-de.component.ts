@@ -19,32 +19,28 @@ import { Usuario } from 'src/app/servicios/interfaces/Usuario';
 })
 export class AcercaDeComponent implements OnInit {
 
+  
   login:any;  
   datosPorfolio!:Persona[]; 
   componente: string = "personas"
   educacion:string = "educaciones"
   titulo!:Educacion[]
   fotoPerfil!:Usuario[];
+
   
   constructor(private loginService : LoginServiceService, private modalService: NgbModal, private datosDb: DatosPorfolioService ) { 
-    
-    
-    
+      
   }
 
   ngOnInit(): void {
-    /* this.login = this.loginService.getLogueado() */
     this.loginService.LogState().subscribe((login) => (this.login = login));        
     this.cargarDatos();
-    
-    
   }
 
  
 open() {
   
   const modalRef = this.modalService.open(AcercaDeModalComponent,  { centered: true });
-  
   modalRef.componentInstance.datosPorfolio = this.datosPorfolio; 
   modalRef.result.then((data) => {
     this.cargarDatos();
@@ -55,7 +51,6 @@ open() {
 
 openFotoPerfilModal(){
   const modalRef = this.modalService.open(FotoPerfilModalComponent,  { centered: true });
- 
   modalRef.componentInstance.usuario = this.fotoPerfil;
   modalRef.result.then((data) => {
     this.cargarDatos();
@@ -66,31 +61,21 @@ openFotoPerfilModal(){
 
 cargarDatos(){
   this.datosDb.verTodos(this.componente).subscribe((datos) => {
-  
     this.datosPorfolio = datos
   });
   this.cargarFotoPerfil();
 }
 
 cargarDatoTitulo(){
-  
   this.datosDb.verTodos("educaciones").subscribe((data) => {
-   
     this.titulo = data
   });
-
 }
 
 cargarFotoPerfil() {
-
   this.datosDb.verTodos("usuarios").subscribe((datos) => {
-   
     this.fotoPerfil = datos
   });
-    
     this.cargarDatoTitulo();
-}
-  
-
-
+  }
 }

@@ -14,7 +14,8 @@ export class FormularioLoginComponent {
   login:any;
   usuario:string = "";
   password:string = "";
-  loading:boolean =false;
+  
+  isLoading$ = this.loginService.isLoading$;
 
 
   form:FormGroup;
@@ -60,14 +61,12 @@ export class FormularioLoginComponent {
 
 
   iniciarSesion() {
-    this.loading = true;
+ 
        
     this.autentificacionServ.iniciarSesion(this.form.value.username, this.form.value.password).subscribe( data => {
       
       this.volverHome();
   
-     this.loading= false; 
-     
     });
     
     

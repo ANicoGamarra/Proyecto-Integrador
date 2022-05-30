@@ -1,4 +1,4 @@
-<main *ngIf="!loading">
+<main >
   
 <form class="container d-flex justify-content-center">
  
@@ -49,11 +49,4 @@
 
 </main>
 
-<div *ngIf="loading" class=" d-flex justify-content-center" id="espera">
-  <div class="loadingio-eclipse">
-    <div class="ldio-rpinwye8j0b">
-     <div>
-     </div>
-   </div>
-  </div>
-</div>
+<app-spinner  *ngIf="isLoading$ | async" ></app-spinner>

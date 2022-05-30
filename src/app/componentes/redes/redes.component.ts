@@ -19,7 +19,7 @@ export class RedesComponent implements OnInit {
   constructor(private loginService: LoginServiceService, private datosDb:DatosPorfolioService, private responsive: BreakpointObserver) { }
 
   ngOnInit(): void {
-    /* this.login = this.loginService.getLogueado() */
+   
     this.loginService.LogState().subscribe((login) => (this.login = login));     
     
     this.datos()

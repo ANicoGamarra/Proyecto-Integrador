@@ -20,7 +20,7 @@ export class ExperienciaComponent implements OnInit {
   datosPorfolio:any;
   nuevo:boolean = true
   componente:string = "experiencias";
- 
+  
   pantallasPequenias:boolean = false;
   
   

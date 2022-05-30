@@ -21,6 +21,8 @@ export class HeaderComponent implements OnInit {
   login:any;
   datosPorfolio!:Usuario[];
   componente:string = "usuarios"
+  loading:boolean =false;
+  isLoading$ = this.loginService.isLoading$;
   
   constructor(private loginService: LoginServiceService, private datosDb: DatosPorfolioService, private modalService: NgbModal) { }
 
@@ -43,9 +45,11 @@ export class HeaderComponent implements OnInit {
   }
 
   actualizarVistaHeader(){
+    this.loading = true
     this.datosDb.verTodos(this.componente).subscribe((datos) => {
      
       this.datosPorfolio = datos
+      this.loading=false
     });
   }
 

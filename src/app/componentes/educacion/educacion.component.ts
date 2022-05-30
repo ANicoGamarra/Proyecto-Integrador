@@ -20,6 +20,7 @@ export class EducacionComponent implements OnInit {
   componente:string = "educaciones";
   pantallasPequenias:boolean = false;
 
+
   constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService, private modalService: NgbModal, private responsive: BreakpointObserver) { }
 
   ngOnInit(): void {
@@ -94,8 +95,6 @@ export class EducacionComponent implements OnInit {
       if (result.isConfirmed) {
         Swal.fire(
           '¡Borrado!',
-          
-          
         );
        this.borrarEducacion(id); 
       }

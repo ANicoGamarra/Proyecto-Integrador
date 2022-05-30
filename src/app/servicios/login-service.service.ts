@@ -12,6 +12,7 @@ export class LoginServiceService implements OnInit {
   logueado:boolean = false;
   private loggedo$ = new BehaviorSubject<boolean>(false);
   loading:boolean ;
+  isLoading$ = new BehaviorSubject<boolean>(false);
   url:string = "https://api-portfolio-arg-programa.herokuapp.com/api"
  
 
@@ -41,6 +42,14 @@ export class LoginServiceService implements OnInit {
       console.log("prueba")
     }
   }
+
+  show(): void {
+    this.isLoading$.next(true);
+  }
+
+  hide(): void {
+    this.isLoading$.next(false);
+  }  
 
 
 }

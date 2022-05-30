@@ -17,7 +17,7 @@ export class SkillsComponent implements OnInit {
 
   login:any;
   datosPorfolio:any;
-  //nuevo:boolean = true
+  
   componente:string = "skills";
  
   constructor(private datosDb:DatosPorfolioService, private loginService: LoginServiceService, private modalService: NgbModal, private router: Router) { }

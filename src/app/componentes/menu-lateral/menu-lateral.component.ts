@@ -11,7 +11,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 export class MenuLateralComponent {
 
   login:any;
-  
+  isLoading$ = this.loginService.isLoading$;
   
 
   constructor(private loginService: LoginServiceService) {}

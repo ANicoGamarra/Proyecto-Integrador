@@ -56,6 +56,8 @@ import { ProyectosImagenesModalComponent } from './componentes/modal/proyectos-i
 import { InterceptorService } from './servicios/interceptor.service';
 import { PageErrorComponent } from './componentes/page-error/page-error.component';
 import { DragDropModule }  from '@angular/cdk/drag-drop';
+import { SpinnerInterceptorService } from './servicios/spinner-interceptor.service';
+import { SpinnerComponent } from './componentes/spinner/spinner.component';
 
 
 
@@ -97,6 +99,7 @@ const appRoutes:Routes=[
     FooterComponent,
     ProyectosImagenesModalComponent,
     PageErrorComponent,
+    SpinnerComponent,
 
     
     
@@ -145,7 +148,11 @@ const appRoutes:Routes=[
   ],
   providers: [LoginServiceService, DatosPorfolioService, ModalServiceService, {
     provide: HTTP_INTERCEPTORS,
-    useClass: InterceptorService,
+    useClass: InterceptorService, 
+    multi: true
+  }, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: SpinnerInterceptorService,
     multi: true
   }],
   bootstrap: [AppComponent],

@@ -8,10 +8,10 @@ import { LoginServiceService } from 'src/app/servicios/login-service.service';
 })
 export class HomeComponent implements OnInit {
 
-  loading: boolean;
 
-  constructor(private loginService: LoginServiceService) { 
-    this.loading = false;
+
+  constructor() { 
+    
   }
 
   ngOnInit(): void {

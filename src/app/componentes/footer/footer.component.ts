@@ -11,6 +11,7 @@ export class FooterComponent implements OnInit {
   datosPorfolio:any;
   componente:string = "personas"
   usuario:any;
+  
 
   constructor( private datosDb: DatosPorfolioService) { }
 

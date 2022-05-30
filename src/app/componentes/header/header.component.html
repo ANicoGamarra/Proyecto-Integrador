@@ -1,6 +1,8 @@
 <div class="container position-relative">
     <app-btn-editar *ngIf="login" (click)="open()" id="redes" class="position-absolute top-0 start-0 ms-4 mt-2"></app-btn-editar>
     <img class="img-fluid" [src]="datosPorfolio[0].foto_portada" alt="">
-    
-    
+</div>
+
+<div *ngIf="isLoading$ | async" class=" d-flex justify-content-center" id="espera">
+    <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>

@@ -68,7 +68,7 @@
       </nav>
       
     </div>
-    
+    <app-spinner  *ngIf="isLoading$ | async"></app-spinner>
     <app-cuerpo-principal></app-cuerpo-principal>
   </mat-sidenav-content>
 </mat-sidenav-container>
