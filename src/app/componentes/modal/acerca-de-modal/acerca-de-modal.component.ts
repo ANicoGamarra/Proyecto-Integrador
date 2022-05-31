@@ -62,7 +62,7 @@ export class AcercaDeModalComponent implements OnInit {
       if (result.isConfirmed) {
         this.editarPersona()
         Swal.fire('¡Guardados!', '', 'success')
-        this.activeModal.close();
+        ;
       
         
       } /*else if (result.isDenied) {
@@ -73,7 +73,7 @@ export class AcercaDeModalComponent implements OnInit {
 
   editarPersona(){
     this.datosDb.editar(this.formularioAcerca.value, this.component).subscribe(() => {
-      
+      this.activeModal.close()
   });
   }
 

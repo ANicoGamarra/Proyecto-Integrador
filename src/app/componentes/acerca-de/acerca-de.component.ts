@@ -7,6 +7,7 @@ import { DatosPorfolioService } from 'src/app/servicios/datos-porfolio.service';
 import { FotoPerfilModalComponent } from '../modal/foto-perfil-modal/foto-perfil-modal.component';
 import { Persona } from 'src/app/servicios/Persona';
 import { Usuario } from 'src/app/servicios/interfaces/Usuario';
+import { Educacion } from 'src/app/servicios/interfaces/Educacion';
 
 
 
@@ -18,14 +19,14 @@ import { Usuario } from 'src/app/servicios/interfaces/Usuario';
 })
 export class AcercaDeComponent implements OnInit {
 
-  @Input() titulo!:string;
+  //@Input() titulo!:string;
   //@Input() fotoPerfil!:string;
 
   login:any;  
   datosPorfolio!:Persona[]; 
   componente: string = "personas"
   educacion:string = "educaciones"
-  /* titulo!:Educacion[]*/
+  titulo!:Educacion[]
   fotoPerfil!:Usuario[]; 
 
   
@@ -36,7 +37,7 @@ export class AcercaDeComponent implements OnInit {
     this.loginService.LogState().subscribe((login) => (this.login = login));        //comunica con el servicio para saber si esta logueado o no  
     this.cargarDatos();
     this.cargarFotoPerfil();
-    /*this.cargarDatoTitulo(); */
+    this.cargarDatoTitulo();
   }
 
  
@@ -55,7 +56,7 @@ openFotoPerfilModal(){
   const modalRef = this.modalService.open(FotoPerfilModalComponent,  { centered: true });   //abre el modal y lo centra
   modalRef.componentInstance.usuario = this.fotoPerfil;                                     //envia los datos del usuario
   modalRef.result.then((data) => {                                                          //cuando se cierra el modal actualiza la vista del componente
-    this.cargarDatos();
+    this.ngOnInit();
   }, (reason) => {
    
   })
@@ -73,5 +74,12 @@ cargarFotoPerfil() {
     this.fotoPerfil = datos
   ));
     
-  } 
+  }
+
+  cargarDatoTitulo(){
+    this.datosDb.verTodos("educaciones").subscribe((data) => (
+      this.titulo = data
+    ));
+  }
+
 }
