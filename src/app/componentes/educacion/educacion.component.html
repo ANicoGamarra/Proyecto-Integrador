@@ -23,16 +23,16 @@
                 <div class="example-custom-placeholder" *ngIf="!pantallasPequenias"  >
                     <div class="d-flex">                 
                         <mat-card-title-group class="d-flex col justify-content-between">
-                            <div class="titulos">                        
+                            <div class="titulos me-1">                        
                                 <mat-card-subtitle class="titulo">{{dato.institucion}}</mat-card-subtitle>
                                 <mat-card-subtitle class="periodo">{{dato.fecha_egresado}}</mat-card-subtitle>
                                 <mat-card-subtitle class="certificado">
                                     <a [href]="dato.certificado">certificado</a>    
                                 </mat-card-subtitle>
                             </div>    
-                            <div>
-                                <mat-card-title class="ps-3 instituto" >{{dato.titulo}} </mat-card-title>
-                                <mat-card-content class="px-3 descripcion">
+                            <div class="descripcion">
+                                <mat-card-title class="instituto" >{{dato.titulo}} </mat-card-title>
+                                <mat-card-content class="descripcion">
                                     <p class="text-wrap"> {{dato.descripcion}} </p>
                                 </mat-card-content>
                             </div>

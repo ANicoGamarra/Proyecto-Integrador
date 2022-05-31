@@ -1,14 +1,15 @@
 img{
     width: 150px;
-    opacity: 0.75;
+    /* opacity: 0.75; */
 }
 
-img:hover{
+/* img:hover{
     opacity: 1;
- }
+ } */
 
 @media screen and (max-width: 576px) {
     .ocultar-hastag{
         display:none;
     }
+    
 }

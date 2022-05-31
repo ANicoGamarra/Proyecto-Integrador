@@ -1,6 +1,17 @@
 p{
-    text-align: justify;      
+    text-align: justify; 
+    font-size: 1rem;     
+    overflow-wrap: break-word;
 }
+
+mat-card-subtitle{
+    font-size: 1rem;
+}
+
+mat-card:hover {
+    background-color: #004080;
+}
+
 
 .nombre{
     font-size: 1.25rem;    
@@ -16,26 +27,21 @@ p{
 }
 
 .titulos{
-    width:10rem; 
-    max-width:10rem; 
+    width:8rem; 
+    max-width:8rem; 
     
 }
 
 .descripcion{
     width: 100%;
-    max-width: 100%; 
-    display: flex;
-    align-items: center;
-    padding-right: 0;
+    max-width: 100%;   
 }
 
 .titulo{
     font-size: 1.25rem;    
 }
 
-mat-card:hover {
-    background-color: #004080;
-  }
+
 
 .cdk-drag-preview {
     box-sizing: border-box;

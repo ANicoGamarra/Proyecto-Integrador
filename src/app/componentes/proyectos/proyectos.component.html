@@ -29,8 +29,8 @@
                                     <a [href]="dato.enlace" target="_blank" >link</a>    
                                 </mat-card-subtitle>
                             
-                            <mat-card-content *ngIf="!pantallasPequenias" class="descripcion mt-2 me-2">
-                                <p class="text-wrap"> {{dato.descripcion}} </p>   
+                            <mat-card-content *ngIf="!pantallasPequenias" class="descripcion me-2 flex-wrap">
+                                <p class="text-wrap fs-6"> {{dato.descripcion}} </p>   
                             </mat-card-content> 
                             <div class="position-relative imagen-proy">
                                 <img mat-card-md-image [src]="dato.proyecto_portada" class="img-fluid position-absolute top-50 start-50 translate-middle" (click)="abrirModalImagenes(dato.id_proyecto)"> 

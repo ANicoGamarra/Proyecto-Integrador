@@ -12,18 +12,14 @@ export class CuerpoPrincipalComponent implements OnInit {
 
   constructor(private datosDb:DatosPorfolioService) { }
 
-  titulo!:Educacion[]
-  
 
   ngOnInit(): void {   
-    this.cargarDatoTitulo();
+    
   }
 
 
   cargarDatoTitulo(){
-    this.datosDb.verTodos("educaciones").subscribe((data) => (
-      this.titulo = data
-    ));
+   
   }
    
 
