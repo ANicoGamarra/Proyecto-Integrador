@@ -28,13 +28,13 @@ export class SkillsModalComponent implements OnInit {
 
   constructor(public activeModal: NgbActiveModal, private datosDb:DatosPorfolioService, private formulario: FormBuilder, private fb:FormBuilder  ) {
         
-    this.habilidadesNuevasForm = formulario.group({      
+    this.habilidadesNuevasForm = formulario.group({      //formulario para nueva skill
       habilidadNueva: [''],
       porcentajeNuevo: [''],     
       idTipoSkillNuevo:['']       
     })
 
-    this.habilidadesForm = fb.group({    
+    this.habilidadesForm = fb.group({                  //formulario de array 
         habilidades: this.fb.array([]) ,
       });  
 
@@ -50,16 +50,16 @@ export class SkillsModalComponent implements OnInit {
 
   vistaTabla(){
   
-    this.datosPorfolio.forEach((skill: Skill) => {
+    this.datosPorfolio.forEach((skill: Skill) => {  //recorre el array de skills y por cada skills la envia a la funcion armarTabla
       this.armarTabla(skill)
     });
   }
 
-  armarTabla(skill: Skill){
+  armarTabla(skill: Skill){                                 //cada skill la envia al metodo que crea el formulario      
     this.habilidades.push(this.insertarHabilidad(skill));
   }
 
-  insertarHabilidad(skill:Skill): FormGroup {
+  insertarHabilidad(skill:Skill): FormGroup {             //por cada skill crea un formulario con los atributos del objeto skill
     return this.fb.group({
       id_skill: skill.id_skill,
       habilidad: skill.habilidad,
@@ -110,7 +110,7 @@ export class SkillsModalComponent implements OnInit {
   }
 
 
-  agregarHabilidad(){
+  agregarHabilidad(){       //tomo los datos del formulario para nuevas skill, los guarda en la variable y los envia al servicio
    
     this.nuevaHab = {habilidad:this.habilidadesNuevasForm.value.habilidadNueva, porcentaje:this.habilidadesNuevasForm.value.porcentajeNuevo, id_tipo_skill:this.habilidadesNuevasForm.value.idTipoSkillNuevo , id_persona:1}
     this.datosDb.agregar(this.nuevaHab, this.componente)
@@ -119,7 +119,7 @@ export class SkillsModalComponent implements OnInit {
         });
   }
 
-  recuperarHabilidad(id:number){
+  recuperarHabilidad(id:number){        //con el id del form array recupera los datos de esa skill
   
     return this.habilidades.at(id).value
  
@@ -143,7 +143,7 @@ export class SkillsModalComponent implements OnInit {
       });
   }
  
-  editarSkill(id: number) {
+  editarSkill(id: number) {                   //recibe un id creado por el form array y lo envia al servicio para recuperar esa skill
     const skill = this.recuperarHabilidad(id)
     Swal.fire({
       title: '¿Desea guardar los cambios?',
@@ -164,7 +164,7 @@ export class SkillsModalComponent implements OnInit {
     
   }
 
-  guardarCambios(skill: Skill){
+  guardarCambios(skill: Skill){     //guarda los cambios de la skill recuperada
    
     this.datosDb.editar(skill, this.componente)
         .subscribe(() => {
@@ -173,41 +173,4 @@ export class SkillsModalComponent implements OnInit {
     
   } 
 
-  guardarTodo() {
-    
-    Swal.fire({
-      title: '¿Desea guardar todos los cambios?',
-      //showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: 'Guardar',
-      //denyButtonText: `Don't save`,
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        Swal.fire('¡Guardados!', '', 'success')
-        this.guardarFormularioCompleto();
-        this.activeModal.close();        
-      } /*else if (result.isDenied) {
-        Swal.fire('Changes are not saved', '', 'info')
-      }*/
-    })
-   
-  }
-
-
-  guardarFormularioCompleto(){
-  
-     for (let skill of this.habilidades.value) {
-        let habilidad = this.datosPorfolio.find(x => x.id_skill == skill.id_skill)
-      
-        if (habilidad?.habilidad != skill.habilidad || habilidad?.porcentaje != skill.porcentaje || habilidad?.id_tipo_skill != skill.id_tipo_skill) {
-          
-         
-          this.datosDb.editar(skill, this.componente)
-            .subscribe(() => {
-              console.log(skill);
-            });
-        }    
-      }; 
-    }
 }

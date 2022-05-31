@@ -19,8 +19,6 @@ import { Educacion } from 'src/app/servicios/interfaces/Educacion';
 })
 export class AcercaDeComponent implements OnInit {
 
-  //@Input() titulo!:string;
-  //@Input() fotoPerfil!:string;
 
   login:any;  
   datosPorfolio!:Persona[]; 
@@ -48,7 +46,7 @@ open() {
   modalRef.result.then((data) => {                                                          //cuando se cierra el modal actualiza la vista del componente
     this.cargarDatos();
   }, (reason) => {
-    alert("No se pudo cargar la foto")
+    
   })
 }
 
